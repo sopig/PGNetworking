@@ -9,7 +9,11 @@
 #ifndef PGNetworking_h
 #define PGNetworking_h
 
-#import "PGCommonParamsGenerator.h"  //公参
+#import <ReactiveCocoa.h>
+#import <AFNetworking.h>
 
+#import "PGNetwokingType.h"
+#import "PGNetworkingProtocol.h"
+#import "PGBaseAPIEntity.h"
 
 #endif /* PGNetworking_h */

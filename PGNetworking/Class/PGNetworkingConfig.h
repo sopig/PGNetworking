@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PGCommonParamsGenerator.h"
+#import "PGNetworkingProtocol.h"
 
 @interface PGNetworkingConfig : NSObject
 

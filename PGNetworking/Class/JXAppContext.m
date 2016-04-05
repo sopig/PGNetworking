@@ -33,7 +33,7 @@
 
 - (NSString *)screenReslolution {
     return [NSString stringWithFormat:@"%.2fx%.2f",
-            [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width];
+            [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height];
 }
 
 - (NSString *)equipmentType {

@@ -1,5 +1,5 @@
 //
-//  JXAppContext.h
+//  JXCommonParamsGenerator.h
 //  PGNetworking
 //
 //  Created by 张正超 on 16/4/5.
@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PGNetworking.h"
+#import "PGNetworkingProtocol.h"
 
-@interface JXAppContext : NSObject<PGAppContext>
+@interface JXCommonParamsGenerator : NSObject<PGCommonParamsGenerator>
 
 @end

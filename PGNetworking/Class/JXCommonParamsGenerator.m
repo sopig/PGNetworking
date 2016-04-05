@@ -12,13 +12,13 @@
 
 @implementation JXCommonParamsGenerator
 
-+ (NSObject<PGAppContext> *)appContext {
++ (NSObject<PGCommonParams> *)appContext {
     return [JXAppContext new];
 }
 
 + (NSDictionary *)commonParamsDictionary {
     
-    NSObject<PGAppContext> *context = [JXCommonParamsGenerator appContext];
+    NSObject<PGCommonParams> *context = [JXCommonParamsGenerator appContext];
     
     return @{@"apiVersion":[context apiVersion],
              @"appVersion":[context appVersion],
