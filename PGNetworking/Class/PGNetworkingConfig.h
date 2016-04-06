@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PGNetworkingProtocol.h"
+#import "PGBaseAPIEntity.h"
+
+#define kPGNetworkingShouldCache YES
+
+static NSTimeInterval kCacheOutdateTimeSeconds = 300;  
 
 @interface PGNetworkingConfig : NSObject
 

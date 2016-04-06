@@ -10,6 +10,7 @@
 #import <ReactiveCocoa.h>
 
 #import "PGBaseAPIEntity.h"
+#import "PGNetworkingReachability.h"
 
 @interface ViewController ()
 
@@ -20,10 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+   
+    @weakify(self);
+    [[PGNetworkingReachability openNetworkCheck] subscribeNext:^(NSNotification* x) {
+        @strongify(self);
+        
+        NSLog(@"%@",x.userInfo[@"AFNetworkingReachabilityNotificationStatusItem"]);
+        
+    }];
     
-   NSURLSessionDataTask *task = [[PGBaseAPIEntity new] get];
     
-    [task cancel];
     
     RACSignal *siganl = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         

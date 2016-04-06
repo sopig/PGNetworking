@@ -29,5 +29,4 @@ typedef NS_ENUM (NSUInteger, PGAPIEntityRequestType){
 //////////////////////////////////////////////////////////////////
 
 
-
 #endif /* PGNetwokingType_h */

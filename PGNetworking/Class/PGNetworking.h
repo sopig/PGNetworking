@@ -11,9 +11,16 @@
 
 #import <ReactiveCocoa.h>
 #import <AFNetworking.h>
+#import <YTKKeyValueStore.h>
 
+#import "PGNetworkingReachability.h"
+#import "PGNetworkingConfig.h"
 #import "PGNetwokingType.h"
-#import "PGNetworkingProtocol.h"
 #import "PGBaseAPIEntity.h"
+#import "PGAPIResponse.h"
+#import "PGAPIEngine.h"
+#import "PGMacros.h"
+
+
 
 #endif /* PGNetworking_h */

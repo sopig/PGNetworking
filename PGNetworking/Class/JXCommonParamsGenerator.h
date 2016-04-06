@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PGNetworkingProtocol.h"
+#import "PGBaseAPIEntity.h"
 
 @interface JXCommonParamsGenerator : NSObject<PGCommonParamsGenerator>
 

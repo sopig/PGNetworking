@@ -7,7 +7,137 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PGNetworking.h"
+#import "PGNetwokingType.h"
+
+//调用成功之后的params里取出 requestId
+static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRequestID";
+
+
+@class PGBaseAPIEntity;
+@class PGAPIResponse;
+/////////////////////////////////////////////////////////////////////////
+@protocol PGAppContext <NSObject>
+
+@end
+/////////////////////////////////////////////////////////////////////////
+@protocol PGCommonParams <NSObject>
+
+@optional
+- (nonnull NSString *)apiVersion;
+
+- (nonnull NSString *)appVersion;
+
+- (nonnull NSString *)deviceType;
+
+- (nonnull NSString *)cpsId;
+
+- (nonnull NSString *)screenReslolution;
+
+- (nonnull NSString *)equipmentType ;
+
+- (nonnull NSString *)sysVersion;
+
+- (nonnull NSString *)appKey;
+
+- (nonnull NSString *)token;
+
+- (nonnull NSString *)areaId ;
+
+- (nonnull NSString *)pushToken;
+
+- (nonnull NSString *)channelCode;
+
+
+@end
+
+
+/////////////////////////////////////////////////////////////////////////
+@protocol PGCommonParamsGenerator <NSObject>
+
+@required
+
++ (nonnull NSObject<PGCommonParams> *)appContext;
+
++ (nonnull NSDictionary *)commonParamsDictionary;
+
+@end
+
+
+/////////////////////////////////////////////////////////////////////////
+@protocol PGAPIEntity <NSObject>
+
+@required
+- (NSString *_Nonnull)methodName;
+- (NSString *_Nonnull)serviceType;
+- (PGAPIEntityRequestType)requestType;
+
+@optional
+- (void)cleanData;
+- (nullable NSDictionary *)reformParams:(nullable NSDictionary *)params;
+- (BOOL)shouldCache;
+
+@end
+
+/////////////////////////////////////////////////////////////////////////
+@protocol PGAPIResponseDelegate <NSObject>
+
+@required
+
+- (void)doSuccess:(PGBaseAPIEntity *_Nonnull)api;
+- (void)doFailed:(PGBaseAPIEntity *_Nonnull)api;
+
+@end
+
+/////////////////////////////////////////////////////////////////////////
+//数据的转化
+@protocol PGAPIResponseDataReformer <NSObject>
+@required
+- (id _Nullable)api:(PGBaseAPIEntity *_Nonnull)api reformData:(NSDictionary *_Nonnull)data;
+
+@end
+
+/////////////////////////////////////////////////////////////////////////
+@protocol PGAPIValidator <NSObject>
+//数据格式的验证
+- (BOOL)api:(PGBaseAPIEntity *_Nonnull)api isCorrectWithCallBackData:(NSDictionary *_Nullable)data;
+
+- (BOOL)api:(PGBaseAPIEntity *_Nonnull)api isCorrectWithParamsData:(NSDictionary *_Nullable)data;
+
+
+@end
+
+
+/////////////////////////////////////////////////////////////////////////
+@protocol PGAPIParamsDataSource <NSObject>
+
+- (NSDictionary *_Nullable)paramsForApi:(PGBaseAPIEntity *_Nullable)api;
+
+@end
+
+
+/////////////////////////////////////////////////////////////////////////
+@protocol PGApiInterceptor <NSObject>
+
+@optional
+- (void)api:(PGBaseAPIEntity *_Nonnull)api beforePerformSuccessWithResponse:(PGAPIResponse *_Nonnull)response;
+- (void)api:(PGBaseAPIEntity *_Nonnull)api afterPerformSuccessWithResponse:(PGAPIResponse *_Nonnull)response;
+
+- (void)api:(PGBaseAPIEntity *_Nonnull)api beforePerformFailWithResponse:(PGAPIResponse *_Nonnull)response;
+- (void)api:(PGBaseAPIEntity *_Nonnull)api afterPerformFailWithResponse:(PGAPIResponse *_Nonnull)response;
+
+- (BOOL)api:(PGBaseAPIEntity *_Nonnull)api shouldCallAPIWithParams:(NSDictionary *_Nonnull)params;
+- (void)api:(PGBaseAPIEntity *_Nonnull)api afterCallingAPIWithParams:(NSDictionary *_Nonnull)params;
+
+@end
+
+
+/////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
+
 
 @interface PGBaseAPIEntity : NSObject
 
@@ -18,54 +148,33 @@
 @property (nonatomic, weak, nullable) id<PGApiInterceptor> interceptor;
 
 @property (nonatomic, copy, readonly) NSString *_Nonnull errorMessage;
-@property (nonatomic, readonly) PGAPIEntityErrorType errorType;
+@property (nonatomic, readonly) PGAPIEntityResponseType responseType;
 
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
 - (id _Nullable)fetchDataWithReformer:(id<PGAPIResponseDataReformer> _Nullable)reformer;
 
-//尽量使用loadData这个方法,这个方法会通过param source来获得参数，这使得参数的生成逻辑位于controller中的固定位置
 - (NSInteger)loadData;
+
 
 - (void)cancelAllRequests;
 - (void)cancelRequestWithRequestId:(NSInteger)requestID;
 
 // 拦截器方法，继承之后需要调用一下super
-//- (void)beforePerformSuccessWithResponse:(AIFURLResponse *)response;
-//- (void)afterPerformSuccessWithResponse:(AIFURLResponse *)response;
-//
-//- (void)beforePerformFailWithResponse:(AIFURLResponse *)response;
-//- (void)afterPerformFailWithResponse:(AIFURLResponse *)response;
-//
-//- (BOOL)shouldCallAPIWithParams:(NSDictionary *)params;
-//- (void)afterCallingAPIWithParams:(NSDictionary *)params;
+- (void)beforePerformSuccessWithResponse:(PGAPIResponse *_Nonnull)response;
+- (void)afterPerformSuccessWithResponse:(PGAPIResponse *_Nonnull)response;
 
-/*
- 用于给继承的类做重载，在调用API之前额外添加一些参数,但不应该在这个函数里面修改已有的参数。
- 子类中覆盖这个函数的时候就不需要调用[super reformParams:params]了
- RTAPIBaseManager会先调用这个函数，然后才会调用到 id<RTAPIManagerValidator> 中的 manager:isCorrectWithParamsData:
- 所以这里返回的参数字典还是会被后面的验证函数去验证的。
- 
- 假设同一个翻页Manager，ManagerA的paramSource提供page_size=15参数，ManagerB的paramSource提供page_size=2参数
- 如果在这个函数里面将page_size改成10，那么最终调用API的时候，page_size就变成10了。然而外面却觉察不到这一点，因此这个函数要慎用。
- 
- 这个函数的适用场景：
- 当两类数据走的是同一个API时，为了避免不必要的判断，我们将这一个API当作两个API来处理。
- 那么在传递参数要求不同的返回时，可以在这里给返回参数指定类型。
- 
- 具体请参考AJKHDXFLoupanCategoryRecommendSamePriceAPIManager和AJKHDXFLoupanCategoryRecommendSameAreaAPIManager
- 
- */
-- (NSDictionary *)reformParams:(NSDictionary *)params;
+- (void)beforePerformFailWithResponse:(PGAPIResponse *_Nonnull)response;
+- (void)afterPerformFailWithResponse:(PGAPIResponse *_Nonnull)response;
+
+- (BOOL)shouldCallAPIWithParams:(NSDictionary *_Nonnull)params;
+- (void)afterCallingAPIWithParams:(NSDictionary *_Nonnull)params;
+
+
+
+- (NSDictionary *_Nullable)reformParams:(NSDictionary *_Nullable)params;
 - (void)cleanData;
 - (BOOL)shouldCache;
-
-
-
-
-- (nullable NSURLSessionDataTask *)get;
-
-
 
 @end
