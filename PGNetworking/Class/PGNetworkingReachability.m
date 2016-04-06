@@ -17,10 +17,19 @@
     return [[NSNotificationCenter defaultCenter] rac_addObserverForName:AFNetworkingReachabilityDidChangeNotification object:nil];
 }
 
++ (void)closeNetworkingCheck {
+    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+}
+
++ (BOOL)isReachable{
+   return [[AFNetworkReachabilityManager sharedManager] isReachable];
+}
 
 + (AFNetworkReachabilityStatus )netStatus{
    return [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
 }
+
+
 
 
 @end

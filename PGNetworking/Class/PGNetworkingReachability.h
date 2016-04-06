@@ -14,7 +14,9 @@
 @interface PGNetworkingReachability : NSObject
 
 + (RACSignal *)openNetworkCheck;
++ (void)closeNetworkingCheck;
 
++ (BOOL)isReachable;
 + (AFNetworkReachabilityStatus )netStatus;
 
 @end

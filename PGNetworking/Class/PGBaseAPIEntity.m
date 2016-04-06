@@ -42,7 +42,7 @@
 }
 
 - (BOOL)isReachable {
-    BOOL isReachable = [[AFNetworkReachabilityManager sharedManager] isReachable];
+    BOOL isReachable = [PGNetworkingReachability isReachable];
     if (!isReachable) {
         self.errorType = PGAPIEntityResponseTypeNoNetWork;
     }

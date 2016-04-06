@@ -95,8 +95,7 @@
     NSString *key = [self keyWithServiceIdentifier:serviceIdentifier methodName:methodName requestParams:params];
     
     //如果无网络则直接返回缓存数据
-    if ([PGNetworkingReachability netStatus] == AFNetworkReachabilityStatusUnknown ||
-        [PGNetworkingReachability netStatus] == AFNetworkReachabilityStatusNotReachable) {
+    if (![PGNetworkingReachability isReachable]) {
         return [self getObjectByKey:key];
     }
     //如果缓存过期
