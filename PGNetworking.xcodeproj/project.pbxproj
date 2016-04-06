@@ -16,6 +16,7 @@
 		A5C798631CB395D800236B1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C798611CB395D800236B1C /* LaunchScreen.storyboard */; };
 		A5C7986D1CB39F2700236B1C /* PGReauestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7986C1CB39F2600236B1C /* PGReauestGenerator.m */; };
 		A5C798701CB39F6D00236B1C /* PGNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */; };
+		A5C798961CB49D3400236B1C /* PGAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798951CB49D3400236B1C /* PGAPIResponse.m */; };
 		FACE2F4E1CB3E3E0007C47E3 /* UIDevice+JXHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F491CB3E3DF007C47E3 /* UIDevice+JXHardware.m */; };
 		FACE2F4F1CB3E3E0007C47E3 /* JXAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F4B1CB3E3DF007C47E3 /* JXAppContext.m */; };
 		FACE2F501CB3E3E0007C47E3 /* JXCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F4D1CB3E3DF007C47E3 /* JXCommonParamsGenerator.m */; };
@@ -41,6 +42,8 @@
 		A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkingConfig.m; sourceTree = "<group>"; };
 		A5C798811CB3B78700236B1C /* PGNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGNetworking.h; sourceTree = "<group>"; };
 		A5C798851CB3B86500236B1C /* PGNetworkingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkingProtocol.h; sourceTree = "<group>"; };
+		A5C798941CB49D3400236B1C /* PGAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGAPIResponse.h; sourceTree = "<group>"; };
+		A5C798951CB49D3400236B1C /* PGAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGAPIResponse.m; sourceTree = "<group>"; };
 		F1E2A751F3ED11C1AF3515F1 /* libPods-PGNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PGNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACE2F481CB3E3DF007C47E3 /* UIDevice+JXHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+JXHardware.h"; sourceTree = "<group>"; };
 		FACE2F491CB3E3DF007C47E3 /* UIDevice+JXHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+JXHardware.m"; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				A5C798851CB3B86500236B1C /* PGNetworkingProtocol.h */,
 				FACE2F541CB3FC65007C47E3 /* PGNetwokingType.h */,
 				A5C798811CB3B78700236B1C /* PGNetworking.h */,
+				A5C798941CB49D3400236B1C /* PGAPIResponse.h */,
+				A5C798951CB49D3400236B1C /* PGAPIResponse.m */,
 			);
 			name = Class;
 			path = PGNetworking/Class;
@@ -279,6 +284,7 @@
 			files = (
 				A5C7985B1CB395D800236B1C /* ViewController.m in Sources */,
 				A5C798701CB39F6D00236B1C /* PGNetworkingConfig.m in Sources */,
+				A5C798961CB49D3400236B1C /* PGAPIResponse.m in Sources */,
 				FACE2F501CB3E3E0007C47E3 /* JXCommonParamsGenerator.m in Sources */,
 				A5C798581CB395D800236B1C /* AppDelegate.m in Sources */,
 				FACE2F531CB3E69F007C47E3 /* PGBaseAPIEntity.m in Sources */,
