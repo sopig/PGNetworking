@@ -14,7 +14,7 @@
 		A5C7985E1CB395D800236B1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C7985C1CB395D800236B1C /* Main.storyboard */; };
 		A5C798601CB395D800236B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C7985F1CB395D800236B1C /* Assets.xcassets */; };
 		A5C798631CB395D800236B1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C798611CB395D800236B1C /* LaunchScreen.storyboard */; };
-		A5C7986D1CB39F2700236B1C /* PGReauestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7986C1CB39F2600236B1C /* PGReauestGenerator.m */; };
+		A5C7986D1CB39F2700236B1C /* PGAPIEnginePrepare.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7986C1CB39F2600236B1C /* PGAPIEnginePrepare.m */; };
 		A5C798701CB39F6D00236B1C /* PGNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */; };
 		A5C798961CB49D3400236B1C /* PGAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798951CB49D3400236B1C /* PGAPIResponse.m */; };
 		FACE2F4E1CB3E3E0007C47E3 /* UIDevice+JXHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F491CB3E3DF007C47E3 /* UIDevice+JXHardware.m */; };
@@ -39,8 +39,8 @@
 		A5C7985F1CB395D800236B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C798621CB395D800236B1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C798641CB395D800236B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5C7986B1CB39F2600236B1C /* PGReauestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGReauestGenerator.h; sourceTree = "<group>"; };
-		A5C7986C1CB39F2600236B1C /* PGReauestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGReauestGenerator.m; sourceTree = "<group>"; };
+		A5C7986B1CB39F2600236B1C /* PGAPIEnginePrepare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGAPIEnginePrepare.h; sourceTree = "<group>"; };
+		A5C7986C1CB39F2600236B1C /* PGAPIEnginePrepare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGAPIEnginePrepare.m; sourceTree = "<group>"; };
 		A5C7986E1CB39F6D00236B1C /* PGNetworkingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkingConfig.h; sourceTree = "<group>"; };
 		A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkingConfig.m; sourceTree = "<group>"; };
 		A5C798811CB3B78700236B1C /* PGNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGNetworking.h; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 				FACE2F4B1CB3E3DF007C47E3 /* JXAppContext.m */,
 				FACE2F4C1CB3E3DF007C47E3 /* JXCommonParamsGenerator.h */,
 				FACE2F4D1CB3E3DF007C47E3 /* JXCommonParamsGenerator.m */,
-				A5C7986B1CB39F2600236B1C /* PGReauestGenerator.h */,
-				A5C7986C1CB39F2600236B1C /* PGReauestGenerator.m */,
+				A5C7986B1CB39F2600236B1C /* PGAPIEnginePrepare.h */,
+				A5C7986C1CB39F2600236B1C /* PGAPIEnginePrepare.m */,
 				A5C7986E1CB39F6D00236B1C /* PGNetworkingConfig.h */,
 				A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */,
 				FACE2F511CB3E69F007C47E3 /* PGBaseAPIEntity.h */,
@@ -316,7 +316,7 @@
 				FACE2F531CB3E69F007C47E3 /* PGBaseAPIEntity.m in Sources */,
 				FACE2F4F1CB3E3E0007C47E3 /* JXAppContext.m in Sources */,
 				FACE2F4E1CB3E3E0007C47E3 /* UIDevice+JXHardware.m in Sources */,
-				A5C7986D1CB39F2700236B1C /* PGReauestGenerator.m in Sources */,
+				A5C7986D1CB39F2700236B1C /* PGAPIEnginePrepare.m in Sources */,
 				A5C798551CB395D800236B1C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

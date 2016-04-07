@@ -12,6 +12,8 @@
 #define kPGNetworkingShouldCache YES
 
 static NSTimeInterval kCacheOutdateTimeSeconds = 300;  
+static NSTimeInterval kPGNetworkingTimeoutSeconds = 10;
+
 
 @interface PGNetworkingConfig : NSObject
 

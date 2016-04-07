@@ -7,7 +7,7 @@
 //
 
 #import "PGAPIEngine.h"
-
+#import "PGAPIEnginePrepare.h"
 @interface PGAPIEngine ()
 
 @property (nonatomic, strong) NSNumber *recordedRequestId;
@@ -25,34 +25,18 @@
     return __instance;
 }
 
-- (NSInteger)callGETWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail {
-    
-    
-    
+
+- (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail{
+
+    return 0;
+}
+
+- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail{
     
     return 0;
 }
 
-- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail {
-    return 0;
-}
 
-
-#pragma mark - pri
-
-- (NSNumber *)__generateRequestId
-{
-    if (_recordedRequestId == nil) {
-        _recordedRequestId = @(1);
-    } else {
-        if ([_recordedRequestId integerValue] == NSIntegerMax) {
-            _recordedRequestId = @(1);
-        } else {
-            _recordedRequestId = @([_recordedRequestId integerValue] + 1);
-        }
-    }
-    return _recordedRequestId;
-}
 
 
 @end

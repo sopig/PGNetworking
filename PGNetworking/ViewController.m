@@ -11,6 +11,9 @@
 
 #import "PGBaseAPIEntity.h"
 #import "PGNetworkingReachability.h"
+#import "PGAPIEnginePrepare.h"
+
+
 
 @interface ViewController ()
 
@@ -22,6 +25,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
    
+    
+    for (NSInteger i = 0; i< 5; i++) {
+        PGAPIEnginePrepare *pre = [PGAPIEnginePrepare shareInstance];
+        
+        
+        [[pre prepareManagerForServiceType:0 params:nil] GET:@"" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+            NSLog(@"%@",downloadProgress.localizedDescription);
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"%@",task);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@",error);
+        }];
+
+    }
+    
+    
+    
+    return;
+    
     @weakify(self);
     [[PGNetworkingReachability openNetworkCheck] subscribeNext:^(NSNotification* x) {
         @strongify(self);
