@@ -13,8 +13,8 @@
 
 + (instancetype)shareInstance;
 
-- (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
+- (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName encryptionType:(PGNetworkingEncryptionType)encryType success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
 
-- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse* response))success fail:(void (^)(PGAPIResponse* response))fail;
+- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName encryptionType:(PGNetworkingEncryptionType)encryType success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
 
 @end

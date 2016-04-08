@@ -7,6 +7,8 @@
 //
 
 #import "PGAPIEnginePrepare.h"
+#import "JXCommonParamsGenerator.h"
+
 @interface PGAPIEnginePrepare ()
 
 @property (nonatomic, strong) NSNumber *recordedRequestId;
@@ -24,10 +26,86 @@
     return __instance;
 }
 
+- (NSString *)getUrl:(NSString *)url params:(NSDictionary *)params {
+    
+    
+    NSDictionary *commonParams = [JXCommonParamsGenerator commonParamsDictionary];
+    NSAssert(!commonParams, @"commonParams not ready");
+    NSAssert(commonParams.count <= 0, @"commonParams not ready");
+    
+    NSMutableDictionary *allParams = [commonParams mutableCopy];
+    if (params.count > 0) {
+        [allParams addEntriesFromDictionary:params];
+    }
+    
+///////////////////////////////////////////////
+    NSLog(@"====================");
+    NSLog(@"%@?%@",url,[self queryStringFromParams:allParams]);
+    NSLog(@"====================");
+///////////////////////////////////////////////
+    NSMutableString *paramStr = nil;
+    PGBaseAPIEntity *entity = nil;
+    
+    
+        if ([isENCRPTY isEqualToString:@"1"]) {
+            //get请求加密参数
+            paramStr = [NSMutableString stringWithString:[JXBaseClient getEncrptyParameterStringForParamDic:mutableDic]];
+        } else {
+            paramStr = [NSMutableString stringWithString:[self parameterStringForParamDic:mutableDic]];
+        }
+        
+        return [NSString stringWithFormat:@"%@?%@", url, paramStr];
+    }
+    else {
+        
+        CLog(@"酒仙公参为空，请在JXPublicParamterManager中初始化公参");
+    }
+    return nil;
+}
+
+
+- (NSString *)queryStringFromParams:(NSDictionary *)paramDic {
+    NSMutableArray *params = [[NSMutableArray alloc] initWithCapacity:paramDic.count];
+    [paramDic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        if (obj == nil || obj == [NSNull null]) {
+            [params addObject:[NSString stringWithFormat:@"%@=", key]];
+        }
+        else {
+            if ([obj isKindOfClass:[NSString class]]) {
+                NSString *value = (NSString *) obj;
+                value = [self trimLeftAndRight:value];
+                value = [self urlEncodingForString:value];
+                [params addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
+            }
+            else {
+                [params addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];
+            }
+        }
+    }];
+    
+    return [params componentsJoinedByString:@"&"];
+}
+
+- (NSString *)trimLeftAndRight:(NSString *)str {
+    if (str) {
+        NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+        return [str stringByTrimmingCharactersInSet:charSet];
+    }
+    return nil;
+}
+
+- (NSString *)urlEncodingForString:(NSString *)string {
+    NSString *str = (NSString *) CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) string, NULL, (CFStringRef) @"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8));
+    return [str stringByReplacingOccurrencesOfString:@"%20" withString:@"+"];
+}
+
+
+@end
 
 #pragma mark - Private
 
-NSURL *__getBaseUrl(PGNetworkingServiceType type){
+NSString *__getBaseUrl(PGNetworkingServiceType type){
     
     switch (type) {
         case PGNetworkingServiceTypeHome:
@@ -51,45 +129,3 @@ NSURL *__getBaseUrl(PGNetworkingServiceType type){
     }
 }
 
-- (NSNumber *)__generateRequestId
-{
-    if (_recordedRequestId == nil) {
-        _recordedRequestId = @(1);
-    } else {
-        if ([_recordedRequestId integerValue] == NSIntegerMax) {
-            _recordedRequestId = @(1);
-        } else {
-            _recordedRequestId = @([_recordedRequestId integerValue] + 1);
-        }
-    }
-    return _recordedRequestId;
-}
-
-
-
-#pragma mark - Public
-- (AFHTTPSessionManager *)prepareManagerForServiceType:(PGNetworkingServiceType)type params:(id)params{
-    
-    NSURLSessionConfiguration * config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    config.timeoutIntervalForRequest = kPGNetworkingTimeoutSeconds;
-    config.timeoutIntervalForResource = kPGNetworkingTimeoutSeconds;
-    config.networkServiceType = NSURLNetworkServiceTypeDefault;
-    config.discretionary = YES;
-    
-    
-    AFHTTPSessionManager *manager =[[AFHTTPSessionManager alloc] initWithSessionConfiguration:config];
-    AFHTTPRequestSerializer *reqSerializer = [AFHTTPRequestSerializer serializer];
-    [reqSerializer setValue:@"text/html; q=1.0, text/*; q=0.8, image/gif; q=0.6, image/jpeg; q=0.6, image/*; q=0.5, */*; q=0.1" forHTTPHeaderField:@"Accept"];
-    
-    AFHTTPResponseSerializer *resSerializer = [AFHTTPResponseSerializer serializer];
-    resSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/x-www-form-urlencoded", @"text/html",@"text/plain",@"text/css",@"text/javascript",@"application/json" ,nil];
-    
-    manager.requestSerializer = reqSerializer;
-    manager.responseSerializer = resSerializer;
-    
-    return manager;
-}
-
-
-
-@end

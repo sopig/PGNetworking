@@ -14,5 +14,7 @@ pod 'YTKKeyValueStore', '~> 0.1.2'
 
 pod 'RealReachability', '~> 1.1.2'
 
+pod 'MJExtension'
+
 end
 

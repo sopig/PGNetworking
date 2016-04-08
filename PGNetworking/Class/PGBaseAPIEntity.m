@@ -127,8 +127,8 @@
 
 - (BOOL)hasCacheWithParams:(NSDictionary *)params {
     NSString *serviceIdentifier = self.child.serviceType;
-    NSString *methodName = self.child.methodName;
-    NSData *result = [self.cache fetchCachedDataWithServiceIdentifier:serviceIdentifier methodName:methodName requestParams:params];
+    NSString *apiName = self.child.apiName;
+    NSData *result = [self.cache fetchCachedDataWithServiceIdentifier:serviceIdentifier apiName:apiName requestParams:params];
     
     if (result == nil) {
         return NO;
@@ -181,7 +181,7 @@
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
         
         if ([self shouldCache] && !response.isCache) {
-            [self.cache saveCacheWithData:response.responseData serviceIdentifier:self.child.serviceType methodName:self.child.methodName requestParams:response.requestParams];
+            [self.cache saveCacheWithData:response.responseData serviceIdentifier:self.child.serviceType apiName:self.child.apiName requestParams:response.requestParams];
         }
         
         [self beforePerformSuccessWithResponse:response];
@@ -304,6 +304,10 @@
 - (BOOL)shouldCache
 {
     return kPGNetworkingShouldCache;
+}
+
+- (PGNetworkingEncryptionType)encryptionType {
+    return kPGNetworkingEncrypType;
 }
 
 

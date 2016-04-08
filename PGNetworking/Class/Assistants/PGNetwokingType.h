@@ -9,6 +9,27 @@
 #ifndef PGNetwokingType_h
 #define PGNetwokingType_h
 
+/////////////////////////////////////////////////////////////////////
+typedef NS_ENUM (NSUInteger, PGNetworkingServiceType){
+    PGNetworkingServiceTypeHome,
+    PGNetworkingServiceTypeOMS,
+    PGNetworkingServiceTypeProduct,
+    PGNetworkingServiceTypeUser,
+    PGNetworkingServiceTypeJiuzhang,
+    
+    PGNetworkingServiceTypePromotion,
+    PGNetworkingServiceTypePay = PGNetworkingServiceTypePromotion
+};
+
+
+//不用bool值是为了以后方便扩展
+typedef NS_ENUM (NSUInteger, PGNetworkingEncryptionType){
+    PGNetworkingEncryptionTypeNotUse,
+    PGNetworkingEncryptionTypeUse
+};
+
+
+
 //////////////////////////////////////////////////////////////////
 typedef NS_ENUM (NSUInteger, PGAPIEntityResponseType){
     PGAPIEntityResponseTypeDefault,       //没有产生过API请求，这个是manager的默认状态。

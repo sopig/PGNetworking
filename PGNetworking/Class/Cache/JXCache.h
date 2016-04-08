@@ -16,10 +16,10 @@
 + (instancetype)cache;
 
 //
-- (NSData *)fetchCachedDataWithServiceIdentifier:(NSString *)serviceIdentifier methodName:(NSString *)methodName requestParams:(NSDictionary *)params;
+- (NSData *)fetchCachedDataWithServiceIdentifier:(NSString *)serviceIdentifier apiName:(NSString *)apiName requestParams:(NSDictionary *)params;
 
 
-- (void)saveCacheWithData:(NSData *)responseData serviceIdentifier:(NSString *)serviceType methodName:(NSString *)methodName requestParams:(NSDictionary *)requestParams;
+- (void)saveCacheWithData:(NSData *)responseData serviceIdentifier:(NSString *)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams;
 
 //基础方法
 - (void)putObject:(id)obj forKey:(NSString *)sKey;

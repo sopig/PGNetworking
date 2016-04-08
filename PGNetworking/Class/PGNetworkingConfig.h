@@ -10,6 +10,7 @@
 #import "PGBaseAPIEntity.h"
 
 #define kPGNetworkingShouldCache YES
+#define kPGNetworkingEncrypType PGNetworkingEncryptionTypeUse
 
 static NSTimeInterval kCacheOutdateTimeSeconds = 300;  
 static NSTimeInterval kPGNetworkingTimeoutSeconds = 10;

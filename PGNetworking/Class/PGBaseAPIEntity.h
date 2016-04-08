@@ -39,13 +39,13 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 
 - (nonnull NSString *)appKey;
 
-- (nonnull NSString *)token;
+- (nullable NSString *)token;
 
-- (nonnull NSString *)areaId ;
+- (nullable NSString *)areaId ;
 
-- (nonnull NSString *)pushToken;
+- (nullable NSString *)pushToken;
 
-- (nonnull NSString *)channelCode;
+- (nullable NSString *)channelCode;
 
 
 @end
@@ -67,7 +67,7 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 @protocol PGAPIEntity <NSObject>
 
 @required
-- (NSString *_Nonnull)methodName;
+- (NSString *_Nonnull)apiName;
 - (NSString *_Nonnull)serviceType;
 - (PGAPIEntityRequestType)requestType;
 
@@ -75,6 +75,7 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 - (void)cleanData;
 - (nullable NSDictionary *)reformParams:(nullable NSDictionary *)params;
 - (BOOL)shouldCache;
+- (PGNetworkingEncryptionType)encryptionType;
 
 @end
 
@@ -150,6 +151,7 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 @property (nonatomic, copy, readonly) NSString *_Nonnull errorMessage;
 @property (nonatomic, readonly) PGAPIEntityResponseType responseType;
 
+
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
@@ -176,5 +178,6 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 - (NSDictionary *_Nullable)reformParams:(NSDictionary *_Nullable)params;
 - (void)cleanData;
 - (BOOL)shouldCache;
+- (PGNetworkingEncryptionType)encryptionType;
 
 @end

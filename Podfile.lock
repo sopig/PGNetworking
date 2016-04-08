@@ -17,6 +17,7 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - MJExtension (3.0.10)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -30,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - MJExtension
   - ReactiveCocoa
   - RealReachability (~> 1.1.2)
   - YTKKeyValueStore (~> 0.1.2)
@@ -37,10 +39,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   RealReachability: 9eb2aeccff2f26491dbaa9cf36f906ad28e8e7d9
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
 
-PODFILE CHECKSUM: 14352028ebb9ebc796078e8ba942b1efb73ef2d1
+PODFILE CHECKSUM: 6ae04d748e26487e72776b082a13112b8e649bfd
 
 COCOAPODS: 1.0.0.beta.2

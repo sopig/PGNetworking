@@ -10,29 +10,15 @@
 #import <AFNetworking.h>
 #import "PGNetworkingConfig.h"
 
-typedef NS_ENUM (NSUInteger, PGNetworkingServiceType){
-    PGNetworkingServiceTypeHome,
-    PGNetworkingServiceTypeOMS,
-    PGNetworkingServiceTypeProduct,
-    PGNetworkingServiceTypeUser,
-    PGNetworkingServiceTypeJiuzhang,
-    
-    PGNetworkingServiceTypePromotion,
-    PGNetworkingServiceTypePay = PGNetworkingServiceTypePromotion
-};
+#pragma mark - Private
 
-
-//不用bool值是为了以后方便扩展
-typedef NS_ENUM (NSUInteger, PGNetworkingEncryptionType){
-    PGNetworkingEncryptionTypeUse,
-    PGNetworkingEncryptionTypeNotUse
-};
-
+extern NSString *__getBaseUrl(PGNetworkingServiceType type);
 
 @interface PGAPIEnginePrepare : NSObject
 
 + (instancetype)shareInstance;
 
-- (AFHTTPSessionManager *)prepareManagerForServiceType:(PGNetworkingServiceType)type params:(id)params;
+- (NSString *)getUrl:(NSString *)url params:(NSDictionary *)params;
+
 
 @end

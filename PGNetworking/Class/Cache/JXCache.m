@@ -91,8 +91,8 @@
 }
 
 #pragma mark -  URL Cache
-- (NSData *)fetchCachedDataWithServiceIdentifier:(NSString *)serviceIdentifier methodName:(NSString *)methodName requestParams:(NSDictionary *)params{
-    NSString *key = [self keyWithServiceIdentifier:serviceIdentifier methodName:methodName requestParams:params];
+- (NSData *)fetchCachedDataWithServiceIdentifier:(NSString *)serviceIdentifier apiName:(NSString *)apiName requestParams:(NSDictionary *)params{
+    NSString *key = [self keyWithServiceIdentifier:serviceIdentifier apiName:apiName requestParams:params];
     
     //如果无网络则直接返回缓存数据
     if (![PGNetworkingReachability isReachable]) {
@@ -106,8 +106,8 @@
     }
 }
 
-- (void)saveCacheWithData:(NSData *)responseData serviceIdentifier:(NSString *)serviceType methodName:(NSString *)methodName requestParams:(NSDictionary *)requestParams{
-    NSString *key = [self keyWithServiceIdentifier:serviceType methodName:methodName requestParams:requestParams];
+- (void)saveCacheWithData:(NSData *)responseData serviceIdentifier:(NSString *)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams{
+    NSString *key = [self keyWithServiceIdentifier:serviceType apiName:apiName requestParams:requestParams];
     
     if ([self getObjectByKey:key]) {
         [self deleteObjectByKey:key];
@@ -116,7 +116,7 @@
     [self putObject:responseData forKey:key];
 }
 
-- (NSString *)keyWithServiceIdentifier:(NSString *)serviceIdentifier methodName:(NSString *)methodName requestParams:(NSDictionary *)requestParams
+- (NSString *)keyWithServiceIdentifier:(NSString *)serviceIdentifier apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams
 {
     return @"";
 }
