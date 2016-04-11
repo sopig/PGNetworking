@@ -14,10 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - Base64nl (1.2)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
+  - FMDB/SQLCipher (2.6.2):
+    - SQLCipher
   - FMDB/standard (2.6.2)
   - MJExtension (3.0.10)
+  - NetworkEye (0.9.9.1):
+    - FMDB/SQLCipher (~> 2.5)
+  - OpenSSL-Universal (1.0.1.18)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -25,25 +31,34 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - RealReachability (1.1.3)
+  - SQLCipher (3.1.0):
+    - SQLCipher/standard (= 3.1.0)
+  - SQLCipher/common (3.1.0)
+  - SQLCipher/standard (3.1.0):
+    - SQLCipher/common
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - Base64nl (~> 1.2)
   - MJExtension
+  - NetworkEye (~> 0.9.9)
+  - OpenSSL-Universal (~> 1.0.1.18)
   - ReactiveCocoa
-  - RealReachability (~> 1.1.2)
   - YTKKeyValueStore (~> 0.1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  NetworkEye: 2e867ec61a4da483f620617893e2c86e069a73b6
+  OpenSSL-Universal: 79fd751a7b4db41f5b430e767c9bbf681b5c8330
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  RealReachability: 9eb2aeccff2f26491dbaa9cf36f906ad28e8e7d9
+  SQLCipher: 4684434d5791db86512cd7e02172aefba575849e
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
 
-PODFILE CHECKSUM: 6ae04d748e26487e72776b082a13112b8e649bfd
+PODFILE CHECKSUM: 7c7bc5f5f714249f9028ba061233d4f385787039
 
 COCOAPODS: 1.0.0.beta.2

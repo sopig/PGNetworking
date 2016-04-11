@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "PGNetworking.h"
-#import "PGAPIEnginePrepare.h"
+
 @interface PGAPIEngine : NSObject
 
 + (instancetype)shareInstance;
 
-- (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName encryptionType:(PGNetworkingEncryptionType)encryType success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
+- (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail;
 
-- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName encryptionType:(PGNetworkingEncryptionType)encryType success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
+- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
 
 @end

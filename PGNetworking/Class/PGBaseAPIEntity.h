@@ -18,6 +18,8 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 /////////////////////////////////////////////////////////////////////////
 @protocol PGAppContext <NSObject>
 
+
+
 @end
 /////////////////////////////////////////////////////////////////////////
 @protocol PGCommonParams <NSObject>
@@ -75,7 +77,6 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 - (void)cleanData;
 - (nullable NSDictionary *)reformParams:(nullable NSDictionary *)params;
 - (BOOL)shouldCache;
-- (PGNetworkingEncryptionType)encryptionType;
 
 @end
 
@@ -178,6 +179,5 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 - (NSDictionary *_Nullable)reformParams:(NSDictionary *_Nullable)params;
 - (void)cleanData;
 - (BOOL)shouldCache;
-- (PGNetworkingEncryptionType)encryptionType;
 
 @end

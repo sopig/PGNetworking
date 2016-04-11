@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <NetworkEye/NEHTTPEye.h>
 @interface AppDelegate ()
 
 @end
@@ -19,10 +19,7 @@
     // Override point for customization after application launch.
     
     
-    
-    
-    
-    
+    [NEHTTPEye setEnabled:YES];
     
     
     return YES;

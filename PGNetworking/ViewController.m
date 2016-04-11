@@ -11,9 +11,9 @@
 
 #import "PGBaseAPIEntity.h"
 #import "PGNetworkingReachability.h"
-#import "PGAPIEnginePrepare.h"
+#import "NSString+urlEncoding.h"
 
-
+#import "PGAPIEngine.h"
 
 @interface ViewController ()
 
@@ -26,20 +26,32 @@
     // Do any additional setup after loading the view, typically from a nib.
    
     
-    for (NSInteger i = 0; i< 5; i++) {
-        PGAPIEnginePrepare *pre = [PGAPIEnginePrepare shareInstance];
-        
-        
-        [[pre prepareManagerForServiceType:0 params:nil] GET:@"" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-            NSLog(@"%@",downloadProgress.localizedDescription);
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"%@",task);
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@",error);
-        }];
-
-    }
     
+    [[PGAPIEngine shareInstance] callGETWithParams:nil serviceType:PGNetworkingServiceTypeHome apiName:@"/APPEXIT" success:^(PGAPIResponse *res) {
+        
+    } fail:^(PGAPIResponse *res) {
+        
+    }];
+    
+    
+    
+    
+    return;
+    
+    
+//    http://sopig.cn/2016/03/02/CI%E6%90%AD%E5%BB%BA%E5%92%8C%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8C%96/
+    
+    NSLog(@"%@",[@"http://sopig.cn/2016/03/02/CI%E6%90%AD%E5%BB%BA%E5%92%8C%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8C%96/" urlDecoding]);
+    
+    
+    NSString *encod = [@"http://sopig.cn/2016/03/02/CI搭建和脚本自动化/" urlEncoding];
+    
+    NSLog(@"%@",encod);
+    
+    
+    UIWebView *webv = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [webv loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    [self.view addSubview:webv];
     
     
     return;

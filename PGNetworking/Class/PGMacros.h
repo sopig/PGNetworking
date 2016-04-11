@@ -95,4 +95,7 @@ DEF_SINGLETON( __class ) \
 }
 
 
+#define JX_DEFAULTS [NSUserDefaults standardUserDefaults]
+
+
 #endif /* PGMacros_h */
