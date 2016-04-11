@@ -27,7 +27,7 @@
    
     
     
-    [[PGAPIEngine shareInstance] callGETWithParams:nil serviceType:PGNetworkingServiceTypeHome apiName:@"/APPEXIT" success:^(PGAPIResponse *res) {
+    [[PGAPIEngine shareInstance] callGETWithParams:nil serviceType:PGNetworkingServiceTypeProduct apiName:@"product/regionList.htm" success:^(PGAPIResponse *res) {
         
     } fail:^(PGAPIResponse *res) {
         

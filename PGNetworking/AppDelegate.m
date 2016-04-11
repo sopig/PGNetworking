@@ -8,12 +8,17 @@
 
 #import "AppDelegate.h"
 #import <NetworkEye/NEHTTPEye.h>
+#import "JXAppConfigSurport.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
++ (void)load {
+    [super load];
+    [[JXAppConfigSurport surport] setDefaultHostDomain];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

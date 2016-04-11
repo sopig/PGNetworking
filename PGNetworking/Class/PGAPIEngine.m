@@ -56,15 +56,17 @@
     
     NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:serviceType];
 
-    NSString *url = [self getUrl:baseUrl params:params];
+    NSString *url = [self getUrl:[NSString stringWithFormat:@"%@%@",baseUrl,apiName] params:params];
+    
+    
     
     
     [[self prepareManager] GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        NSLog(@"%@",[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        NSLog(@"%@",error);
     }];
     
     
@@ -87,8 +89,8 @@
     
     
     NSDictionary *commonParams = [JXCommonParamsGenerator commonParamsDictionary];
-    NSAssert(!commonParams, @"commonParams not ready");
-    NSAssert(commonParams.count <= 0, @"commonParams not ready");
+    NSAssert(commonParams, @"commonParams not ready");
+    NSAssert(commonParams.count > 0, @"commonParams not ready");
     
     NSMutableDictionary *allParams = [commonParams mutableCopy];
     if (params.count > 0) {
