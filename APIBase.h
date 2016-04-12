@@ -10,4 +10,5 @@
 
 @interface APIBase : PGBaseAPIEntity<PGAPIEntity,PGAPIResponseDelegate,PGAPIResponseDataReformer,PGAPIParamsDataSource,PGAPIValidator,PGApiInterceptor>
 
+
 @end

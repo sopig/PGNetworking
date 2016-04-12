@@ -89,6 +89,7 @@
     if (!url || url.length <= 0) {
         apiResponse.responseType = PGAPIEntityResponseTypeParamsError;
         fail(apiResponse);
+        return 0;
     }
     NSString *requestId = [NSString stringWithFormat:@"%@",[self generateRequestId]];
     
@@ -107,11 +108,14 @@
         if (error) {
             apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
             apiResponse.error = error;
+            fail(apiResponse);
+            return ;
         }
         
-        if (![response isKindOfClass:NSDictionary.class]) {
+        if (response && ![response isKindOfClass:NSDictionary.class]) {
             apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
             fail(apiResponse);
+            return ;
         }
         
         NSDictionary *resDic = nil;
@@ -185,6 +189,7 @@
     if (!url || url.length <= 0) {
         apiResponse.responseType = PGAPIEntityResponseTypeParamsError;
         fail(apiResponse);
+        return 0;
     }
     NSString *requestId = [NSString stringWithFormat:@"%@",[self generateRequestId]];
     
@@ -204,11 +209,14 @@
          if (error) {
              apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
              apiResponse.error = error;
+             fail(apiResponse);
+             return ;
          }
          
-         if (![response isKindOfClass:NSDictionary.class]) {
+         if (response && ![response isKindOfClass:NSDictionary.class]) {
              apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
              fail(apiResponse);
+             return;
          }
          
          NSDictionary *resDic = nil;
