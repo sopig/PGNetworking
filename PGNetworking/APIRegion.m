@@ -51,7 +51,9 @@
 
 //数据转化为model
 - (id)api:(PGBaseAPIEntity *)api reformData:(NSDictionary *)data {
-    return nil;
+    
+    return [NSObject new];
+    
 }
 
 //回调
@@ -60,7 +62,7 @@
 }
 
 - (void)doSuccess:(PGBaseAPIEntity *)api{
-    
+  id x =  [api fetchDataWithReformer:self];
 }
 
 @end

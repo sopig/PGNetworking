@@ -60,8 +60,7 @@
     NSString *url = [self getUrl:[NSString stringWithFormat:@"%@%@",baseUrl,apiName] params:params];
     //
     PGAPIResponse *apiResponse = [PGAPIResponse new];
-    NSMutableDictionary *mDic = [NSMutableDictionary dictionary];
-    [mDic addEntriesFromDictionary:[JXCommonParamsGenerator commonParamsDictionary]];
+    NSMutableDictionary *mDic = [[JXCommonParamsGenerator commonParamsDictionary] mutableCopy];
     [mDic addEntriesFromDictionary:params];
     apiResponse.requestParams = [mDic copy];
     apiResponse.requestId = 0;
@@ -138,7 +137,99 @@
 }
 
 - (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail {
-    return 0;
+    
+    NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:serviceType];
+    NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,apiName];
+    
+    
+    
+    PGAPIResponse *apiResponse = [PGAPIResponse new];
+    NSMutableDictionary *mDic = [[JXCommonParamsGenerator commonParamsDictionary] mutableCopy];
+    [mDic addEntriesFromDictionary:params];
+    apiResponse.requestParams = [mDic copy];
+    apiResponse.requestId = 0;
+    
+    NSDictionary *allParams = nil;
+    BOOL shouldEncry = [PGNetworkingConfig shouldEncryption];
+    
+    if (shouldEncry) {
+        allParams = [self EncrptyParameter:mDic];
+       
+    } else {
+        allParams = [mDic copy];
+    }
+
+    if (!url || url.length <= 0) {
+        apiResponse.responseType = PGAPIEntityResponseTypeParamsError;
+        fail(apiResponse);
+    }
+    NSString *requestId = [NSString stringWithFormat:@"%@",[self generateRequestId]];
+    
+    
+     NSURLSessionDataTask *task = [[self prepareManager] POST:url parameters:allParams progress:^(NSProgress * _Nonnull uploadProgress) {
+    
+     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         
+         task.taskDescription = requestId;
+         apiResponse.task = task;
+         apiResponse.request = task.currentRequest;
+         apiResponse.response = task.response;
+         NSError *error = nil;
+         id response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+         
+         //
+         if (error) {
+             apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+             apiResponse.error = error;
+         }
+         
+         if (![response isKindOfClass:NSDictionary.class]) {
+             apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+             fail(apiResponse);
+         }
+         
+         NSDictionary *resDic = nil;
+         if ([PGNetworkingConfig shouldEncryption]) {
+             resDic = [[self decrptyParameterForParamDic:(NSDictionary *)response] copy];
+         } else {
+             resDic = [response copy];
+         }
+         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+         apiResponse.responseData = responseObject;
+         apiResponse.content = responseObject;
+         apiResponse.contentString = [resDic yy_modelToJSONString];
+         apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
+         
+         APILog(apiResponse);
+         success(apiResponse);
+
+         
+         
+         
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         task.taskDescription = requestId;
+         apiResponse.request = task.currentRequest;
+         if (-1001 == error.code ) {
+             apiResponse.responseType = PGAPIEntityResponseTypeTimeout;
+         } else {
+             apiResponse.responseType = PGAPIEntityResponseTypeNoNetWork;
+         }
+         
+         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+         apiResponse.responseData = nil;
+         apiResponse.content = nil;
+         apiResponse.task = task;
+         apiResponse.error = task.error;
+         apiResponse.contentString = nil;
+         
+         APILog(apiResponse);
+         
+         fail(apiResponse);
+
+     }];
+    
+    return task.taskDescription.integerValue;
+
 }
 
 
@@ -263,6 +354,32 @@
     return parameStr;
 }
 
+
+- (NSDictionary *)EncrptyParameter:(NSDictionary *)paramsDic{
+    NSString *parameString = [self queryStringFromParams:paramsDic];
+    
+    //3des密钥(base64编码后)
+    NSString *desKey = [JXUUID base64DesKeyString];
+    
+    //用3des密钥加密参数得到加密后数据
+    NSString *encrParameString = [JXDES tripleDES:parameString encryptOrDecrypt:kCCEncrypt DESBase64Key:desKey];
+    
+    //用RSA加密3des密钥
+    NSString *encrypt3Des = [JXRSA encryptToStringWithCipherString:desKey];
+    
+    //拼接参数
+    
+    if (!encrParameString  || !encrypt3Des) {
+        return nil;
+    }
+    
+    NSDictionary *paramDict = @{
+                                DATAKEY:encrParameString,
+                                ENCRPTYKEY:encrypt3Des,
+                                HTTPTYPE:HTTPDEVICE
+                                };
+    return [paramDict copy];
+}
 
 
 - (NSString *)jsonStringWithObject:(id)jsonObject{

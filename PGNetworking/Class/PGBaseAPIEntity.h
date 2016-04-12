@@ -152,7 +152,7 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 @property (nonatomic, weak, nullable) NSObject<PGAPIEntity> *child;
 @property (nonatomic, weak, nullable) id<PGApiInterceptor> interceptor;
 
-@property (nonatomic, copy, readonly) NSString *_Nonnull errorMessage;
+@property (nonatomic, copy, readonly) NSString *_Nullable errorMessage;
 @property (nonatomic, readonly) PGAPIEntityResponseType responseType;
 
 

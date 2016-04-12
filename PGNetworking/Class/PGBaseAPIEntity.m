@@ -102,7 +102,7 @@
                 {
                     case PGAPIEntityRequestTypeGet:
                         {
-                            [[PGAPIEngine shareInstance] callGETWithParams:apiParams serviceType:self.child.serviceType apiName:self.child.apiName success:^(PGAPIResponse *res) {
+                           NSUInteger REQUEST_ID = [[PGAPIEngine shareInstance] callGETWithParams:apiParams serviceType:self.child.serviceType apiName:self.child.apiName success:^(PGAPIResponse *res) {
                                 
                                 [self successedOnCallingAPI:res];
                                 
@@ -111,6 +111,7 @@
                                 [self failedOnCallingAPI:res withErrorType:res.responseType];
                             }];
                             
+                            [self.requestIdList addObject:@(REQUEST_ID)];
                         }
                         
                         break;
@@ -137,9 +138,9 @@
 }
 
 - (BOOL)hasCacheWithParams:(NSDictionary *)params {
-   PGNetworkingServiceType serviceType = self.child.serviceType;
-    NSString *apiName = self.child.apiName;
-    NSDictionary *result = [self.cache fetchCachedDataForkey:@""];
+//   PGNetworkingServiceType serviceType = self.child.serviceType;
+//    NSString *apiName = self.child.apiName;
+    NSDictionary *result = [self.cache fetchCachedDataForkey:[self keyForcache]];
 //    NSData *result = [self.cache fetchCachedDataWithServiceType:serviceType apiName:apiName requestParams:params];
     
     if (result == nil) {
@@ -184,16 +185,16 @@
 
 - (void)successedOnCallingAPI:(PGAPIResponse *)response
 {
-    if (response.content) {
-        self.fetchedRawData = [response.content copy];
+    if (response.contentString) {
+        self.fetchedRawData = [response.contentString copy];
     } else {
-        self.fetchedRawData = [response.responseData copy];
+        self.fetchedRawData = [response.contentString copy];
     }
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
         
         if ([self shouldCache] && !response.isCache) {
-            [self.cache saveCacheWithData:[response.contentString toDictionary] forKey:[self keyForcache:response]];
+            [self.cache saveCacheWithData:[response.contentString toDictionary] forKey:[self keyForcache]];
 //            [self.cache saveCacheWithData:[response.contentString toDictionary] serviceType:self.child.serviceType apiName:self.child.apiName requestParams:response.requestParams];
         }
         
@@ -351,13 +352,16 @@
 
 #pragma mark - _Private
 
-- (NSString *)keyForcache:(PGAPIResponse *)res {
+- (NSString *)keyForcache{
+    NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:self.child.serviceType];
     
-    if (!res) {
-        return nil;
-    }
+    NSMutableDictionary *mDic = [NSMutableDictionary dictionary];
+    [mDic addEntriesFromDictionary:[JXCommonParamsGenerator commonParamsDictionary]];
+    [mDic addEntriesFromDictionary:[self.paramSource paramsForApi:self]];
     
-    return [NSString stringWithFormat:@"%@://%@%@/?%@",res.request.URL.scheme,res.request.URL.host,res.request.URL.path,[res.requestParams yy_modelToJSONString]];
+    NSString *paramsString = [mDic yy_modelToJSONString];
+    
+    return [NSString stringWithFormat:@"%@%@",baseUrl,[paramsString urlEncoding]];
 }
 
 

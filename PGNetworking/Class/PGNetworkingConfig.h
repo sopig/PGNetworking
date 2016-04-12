@@ -20,14 +20,13 @@
 //使用什么加密方式
 #define kPGNetworkingEncrypType PGNetworkingEncryptionTypeUse
 
-static NSTimeInterval kCacheOutdateTimeSeconds = 1;
+static NSTimeInterval kCacheOutdateTimeSeconds = 0;
 static NSTimeInterval kPGNetworkingTimeoutSeconds = 10;
 
 
 @interface PGNetworkingConfig : NSObject
 
 @property (nonatomic, strong, nonnull) NSObject<PGCommonParamsGenerator> *commonParamsGenerator;
-
 
 
 + (NSString *_Nonnull)baseUrlWithServiceType:(PGNetworkingServiceType)serviceType;
