@@ -15,6 +15,8 @@
 
 #import "PGAPIEngine.h"
 
+#import "APIRegion.h"
+
 @interface ViewController ()
 
 @end
@@ -26,8 +28,16 @@
     // Do any additional setup after loading the view, typically from a nib.
    
     
+    [[APIRegion new] loadData];
     
-    [[PGAPIEngine shareInstance] callGETWithParams:nil serviceType:PGNetworkingServiceTypeProduct apiName:@"product/regionList.htm" success:^(PGAPIResponse *res) {
+    
+    
+    return;
+    
+    [[PGAPIEngine shareInstance] callGETWithParams:@{} serviceType:PGNetworkingServiceTypeProduct apiName:@"/product/regionList.htm" success:^(PGAPIResponse *res) {
+        
+        NSLog(@"%@\n%@\n%@\n",[NSString stringWithFormat:@"%@://%@%@",res.request.URL.scheme,res.request.URL.host,res.request.URL.path],res.requestParams,res.contentString);
+        
         
     } fail:^(PGAPIResponse *res) {
         

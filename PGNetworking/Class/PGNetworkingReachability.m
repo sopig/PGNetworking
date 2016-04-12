@@ -22,7 +22,8 @@
 }
 
 + (BOOL)isReachable{
-   return [[AFNetworkReachabilityManager sharedManager] isReachable];
+    return YES;
+    // return [[AFNetworkReachabilityManager sharedManager] isReachable];
 }
 
 + (AFNetworkReachabilityStatus )netStatus{

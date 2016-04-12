@@ -42,6 +42,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>com.jiuxian.appcpsid</key>
-	<string>appcpsid</string>
+	<string>appstore</string>
 </dict>
 </plist>

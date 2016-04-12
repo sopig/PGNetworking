@@ -11,15 +11,20 @@
 @interface PGAPIResponse : NSObject
 
 @property (nonatomic, assign) PGAPIEntityResponseType responseType;
+@property (nonatomic, copy) NSURLRequest *request;
+@property (nonatomic, copy) NSURLResponse *response;
+@property (nonatomic, copy) NSURLSessionDataTask *task;
 
-@property (nonatomic, copy, readonly) id content;
-@property (nonatomic, copy, readonly) NSString *contentString;
 
-@property (nonatomic, assign, readonly) NSInteger requestId;
-@property (nonatomic, copy, readonly) NSURLRequest *request;
-@property (nonatomic, copy, readonly) NSData *responseData;
+@property (nonatomic, copy) id content;
+@property (nonatomic, copy) NSData *responseData;
+@property (nonatomic, copy) NSString *contentString;
+
+
+@property (nonatomic, assign) NSInteger requestId;
+
 @property (nonatomic, copy) NSDictionary *requestParams;
-@property (nonatomic, assign, readonly) BOOL isCache;
+@property (nonatomic, assign) BOOL isCache;
 
-
+@property (nonatomic, copy) NSError *error;
 @end

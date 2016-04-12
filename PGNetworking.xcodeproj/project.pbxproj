@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8C6C3D7586FA60E5E94C4C8D /* libPods-PGNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 214E910497B13078034A9376 /* libPods-PGNetworking.a */; };
+		A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A51D32911CBCCDC5007B33FE /* APIRegion.m */; };
+		A51D32951CBCD797007B33FE /* NSString+json.m in Sources */ = {isa = PBXBuildFile; fileRef = A51D32941CBCD797007B33FE /* NSString+json.m */; };
 		A5C798551CB395D800236B1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798541CB395D800236B1C /* main.m */; };
 		A5C798581CB395D800236B1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798571CB395D800236B1C /* AppDelegate.m */; };
 		A5C7985B1CB395D800236B1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7985A1CB395D800236B1C /* ViewController.m */; };
@@ -38,6 +40,10 @@
 /* Begin PBXFileReference section */
 		214E910497B13078034A9376 /* libPods-PGNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PGNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43736E87EF6611CA9BFD4142 /* Pods-PGNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.debug.xcconfig"; sourceTree = "<group>"; };
+		A51D32901CBCCDC5007B33FE /* APIRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRegion.h; sourceTree = "<group>"; };
+		A51D32911CBCCDC5007B33FE /* APIRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRegion.m; sourceTree = "<group>"; };
+		A51D32931CBCD797007B33FE /* NSString+json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+json.h"; sourceTree = "<group>"; };
+		A51D32941CBCD797007B33FE /* NSString+json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+json.m"; sourceTree = "<group>"; };
 		A5C798501CB395D800236B1C /* PGNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C798541CB395D800236B1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5C798561CB395D800236B1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 				A5C798611CB395D800236B1C /* LaunchScreen.storyboard */,
 				A5C798641CB395D800236B1C /* Info.plist */,
 				A5C798531CB395D800236B1C /* Supporting Files */,
+				A51D32901CBCCDC5007B33FE /* APIRegion.h */,
+				A51D32911CBCCDC5007B33FE /* APIRegion.m */,
 			);
 			path = PGNetworking;
 			sourceTree = "<group>";
@@ -228,6 +236,8 @@
 				FACE2F491CB3E3DF007C47E3 /* UIDevice+JXHardware.m */,
 				FA4DCC001CB7562F006769B0 /* NSString+urlEncoding.h */,
 				FA4DCC011CB7562F006769B0 /* NSString+urlEncoding.m */,
+				A51D32931CBCD797007B33FE /* NSString+json.h */,
+				A51D32941CBCD797007B33FE /* NSString+json.m */,
 			);
 			path = Assistants;
 			sourceTree = "<group>";
@@ -373,7 +383,9 @@
 				A5C798961CB49D3400236B1C /* PGAPIResponse.m in Sources */,
 				FA4DCC1C1CBB9976006769B0 /* JXRSA.m in Sources */,
 				FA4DCC0C1CBB8181006769B0 /* JXAppconfigPlist.m in Sources */,
+				A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */,
 				FACE2F501CB3E3E0007C47E3 /* JXCommonParamsGenerator.m in Sources */,
+				A51D32951CBCD797007B33FE /* NSString+json.m in Sources */,
 				A5C798581CB395D800236B1C /* AppDelegate.m in Sources */,
 				FA4DCC0E1CBB8181006769B0 /* JXAppContext.m in Sources */,
 				FA4DCC1D1CBB9976006769B0 /* JXUUID.m in Sources */,
@@ -497,10 +509,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
 				INFOPLIST_FILE = PGNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "faf73873-fbd6-44af-b8fd-a8cd2cef4108";
+				PROVISIONING_PROFILE = "51a597ca-23ec-4fa8-971d-661268a7f6d0";
 			};
 			name = Debug;
 		};
@@ -512,10 +525,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
 				INFOPLIST_FILE = PGNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "faf73873-fbd6-44af-b8fd-a8cd2cef4108";
+				PROVISIONING_PROFILE = "51a597ca-23ec-4fa8-971d-661268a7f6d0";
 			};
 			name = Release;
 		};

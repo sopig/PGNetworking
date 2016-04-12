@@ -9,6 +9,7 @@
 #import "PGAPIEngine.h"
 #import "JXCommonParamsGenerator.h"
 #import "NSString+urlEncoding.h"
+#import "NSString+json.h"
 #import "JXEncryption.h"
 
 @interface PGAPIEngine ()
@@ -55,23 +56,85 @@
 - (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail{
     
     NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:serviceType];
-
+    
     NSString *url = [self getUrl:[NSString stringWithFormat:@"%@%@",baseUrl,apiName] params:params];
+    //
+    PGAPIResponse *apiResponse = [PGAPIResponse new];
+    NSMutableDictionary *mDic = [NSMutableDictionary dictionary];
+    [mDic addEntriesFromDictionary:[JXCommonParamsGenerator commonParamsDictionary]];
+    [mDic addEntriesFromDictionary:params];
+    apiResponse.requestParams = [mDic copy];
+    apiResponse.requestId = 0;
     
     
+    if (!url || url.length <= 0) {
+        apiResponse.responseType = PGAPIEntityResponseTypeParamsError;
+        fail(apiResponse);
+    }
+    NSString *requestId = [NSString stringWithFormat:@"%@",[self generateRequestId]];
     
-    
-    [[self prepareManager] GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
+    NSURLSessionDataTask *task = [[self prepareManager] GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil]);
+        
+        task.taskDescription = requestId;
+        apiResponse.task = task;
+        apiResponse.request = task.currentRequest;
+        apiResponse.response = task.response;
+        NSError *error = nil;
+        id response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+        
+        //
+        if (error) {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            apiResponse.error = error;
+        }
+        
+        if (![response isKindOfClass:NSDictionary.class]) {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            fail(apiResponse);
+        }
+        
+        NSDictionary *resDic = nil;
+        if ([PGNetworkingConfig shouldEncryption]) {
+            resDic = [[self decrptyParameterForParamDic:(NSDictionary *)response] copy];
+        } else {
+            resDic = [response copy];
+        }
+        apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+        apiResponse.responseData = responseObject;
+        apiResponse.content = responseObject;
+        apiResponse.contentString = [resDic yy_modelToJSONString];
+        apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
+        
+        APILog(apiResponse);
+        success(apiResponse);
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+        
+        task.taskDescription = requestId;
+        apiResponse.request = task.currentRequest;
+        if (-1001 == error.code ) {
+           apiResponse.responseType = PGAPIEntityResponseTypeTimeout;
+        } else {
+           apiResponse.responseType = PGAPIEntityResponseTypeNoNetWork;
+        }
+        
+        apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+        apiResponse.responseData = nil;
+        apiResponse.content = nil;
+        apiResponse.task = task;
+        apiResponse.error = task.error;
+        apiResponse.contentString = nil;
+        
+        APILog(apiResponse);
+        
+        fail(apiResponse);
     }];
     
     
-    
-    return 0;
+    return task.taskDescription.integerValue;
 }
 
 - (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail {
@@ -96,14 +159,8 @@
     if (params.count > 0) {
         [allParams addEntriesFromDictionary:params];
     }
-    
-    ///////////////////////////////////////////////
-    NSLog(@"====================");
-    NSLog(@"%@?%@",url,[self queryStringFromParams:allParams]);
-    NSLog(@"====================");
-    ///////////////////////////////////////////////
+
     NSMutableString *paramStr = nil;
-    
     
     BOOL shouldEncry = [PGNetworkingConfig shouldEncryption];
     
@@ -115,6 +172,65 @@
     
     return [NSString stringWithFormat:@"%@?%@",url,paramStr];
 }
+
+
+
+- (NSString *)queryStringFromParams:(NSDictionary *)paramDic {
+    NSMutableArray *params = [[NSMutableArray alloc] initWithCapacity:paramDic.count];
+    [paramDic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        if (obj == nil || obj == [NSNull null]) {
+            [params addObject:[NSString stringWithFormat:@"%@=", key]];
+        }
+        else {
+            if ([obj isKindOfClass:[NSString class]]) {
+                NSString *value = (NSString *) obj;
+                value = [value trimLeftAndRight];
+                value = [value urlEncoding];
+                [params addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
+            }
+            else {
+                [params addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];
+            }
+        }
+    }];
+    
+    return [params componentsJoinedByString:@"&"];
+}
+
+
+//数据返回解密
+- (NSDictionary *)decrptyParameterForParamDic:(NSDictionary *)responseDic {
+    
+    //容错处理
+    if ([responseDic objectForKey:DATAKEY] && [responseDic objectForKey:ENCRPTYKEY]) {
+        
+        // key存在
+        if ((![[responseDic objectForKey:DATAKEY] isEqual:[NSNull null]]) && (![[responseDic objectForKey:ENCRPTYKEY] isEqual:[NSNull null]])) {
+            //k1 k2不为NULL
+            //加密的des密文
+            NSString *desEncString = [responseDic objectForKey:ENCRPTYKEY];
+            
+            //RSA解密获取3des明文密钥(base64编码)
+            NSString *desString = [JXRSA decryptToStringWithCipherString:desEncString];
+            
+            //加密的数据密文
+            NSString *encDataString = [responseDic objectForKey:DATAKEY];
+            
+            //用3des密钥解密加密的数据
+            NSString *desDataString = [JXDES tripleDES:encDataString encryptOrDecrypt:kCCDecrypt DESBase64Key:desString];
+            
+            NSDictionary *tmpDict = [desDataString toDictionary];
+            
+            return tmpDict;
+            
+        } else {
+            return nil;
+        }
+    }
+    return nil;
+}
+
 
 
 - (NSString *)getEncrptyParameterStringForParamDic:(NSDictionary *)paramDic {
@@ -148,29 +264,39 @@
 }
 
 
-- (NSString *)queryStringFromParams:(NSDictionary *)paramDic {
-    NSMutableArray *params = [[NSMutableArray alloc] initWithCapacity:paramDic.count];
-    [paramDic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        
-        if (obj == nil || obj == [NSNull null]) {
-            [params addObject:[NSString stringWithFormat:@"%@=", key]];
-        }
-        else {
-            if ([obj isKindOfClass:[NSString class]]) {
-                NSString *value = (NSString *) obj;
-                value = [value trimLeftAndRight];
-                value = [value urlEncoding];
-                [params addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
-            }
-            else {
-                [params addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];
-            }
-        }
-    }];
+
+- (NSString *)jsonStringWithObject:(id)jsonObject{
+    // 将字典或者数组转化为JSON串
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
     
-    return [params componentsJoinedByString:@"&"];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData
+                                                 encoding:NSUTF8StringEncoding];
+    
+    if ([jsonString length] > 0 && error == nil){
+        return jsonString;
+    }else{
+        return nil;
+    }
 }
 
+
+
+- (NSNumber *)generateRequestId
+{
+    if (_recordedRequestId == nil) {
+        _recordedRequestId = @(1);
+    } else {
+        if ([_recordedRequestId integerValue] == NSIntegerMax) {
+            _recordedRequestId = @(1);
+        } else {
+            _recordedRequestId = @([_recordedRequestId integerValue] + 1);
+        }
+    }
+    return _recordedRequestId;
+}
 
 
 

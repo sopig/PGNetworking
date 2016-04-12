@@ -17,9 +17,13 @@
 
 - (NSString *)urlEncoding{
     
-    NSString *str = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"]];
-    //空格替换成+
+    NSString *str = (NSString *) CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) self, NULL, (CFStringRef) @"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8));
     return [str stringByReplacingOccurrencesOfString:@"%20" withString:@"+"];
+    
+    //
+//    NSString *str = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"]];
+//    //空格替换成+
+//    return [str stringByReplacingOccurrencesOfString:@"%20" withString:@"+"];
 }
 
 - (NSString *)urlDecoding {

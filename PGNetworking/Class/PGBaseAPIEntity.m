@@ -101,6 +101,17 @@
                 switch (self.child.requestType)
                 {
                     case PGAPIEntityRequestTypeGet:
+                        {
+                            [[PGAPIEngine shareInstance] callGETWithParams:apiParams serviceType:self.child.serviceType apiName:self.child.apiName success:^(PGAPIResponse *res) {
+                                
+                                [self successedOnCallingAPI:res];
+                                
+                            } fail:^(PGAPIResponse *res) {
+                                
+                                [self failedOnCallingAPI:res withErrorType:res.responseType];
+                            }];
+                            
+                        }
                         
                         break;
                     case PGAPIEntityRequestTypePost:
@@ -126,9 +137,10 @@
 }
 
 - (BOOL)hasCacheWithParams:(NSDictionary *)params {
-    NSString *serviceIdentifier = self.child.serviceType;
+   PGNetworkingServiceType serviceType = self.child.serviceType;
     NSString *apiName = self.child.apiName;
-    NSData *result = [self.cache fetchCachedDataWithServiceIdentifier:serviceIdentifier apiName:apiName requestParams:params];
+    NSDictionary *result = [self.cache fetchCachedDataForkey:@""];
+//    NSData *result = [self.cache fetchCachedDataWithServiceType:serviceType apiName:apiName requestParams:params];
     
     if (result == nil) {
         return NO;
@@ -181,7 +193,8 @@
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
         
         if ([self shouldCache] && !response.isCache) {
-            [self.cache saveCacheWithData:response.responseData serviceIdentifier:self.child.serviceType apiName:self.child.apiName requestParams:response.requestParams];
+            [self.cache saveCacheWithData:[response.contentString toDictionary] forKey:[self keyForcache:response]];
+//            [self.cache saveCacheWithData:[response.contentString toDictionary] serviceType:self.child.serviceType apiName:self.child.apiName requestParams:response.requestParams];
         }
         
         [self beforePerformSuccessWithResponse:response];
@@ -335,6 +348,17 @@
     return resultData;
 }
 
+
+#pragma mark - _Private
+
+- (NSString *)keyForcache:(PGAPIResponse *)res {
+    
+    if (!res) {
+        return nil;
+    }
+    
+    return [NSString stringWithFormat:@"%@://%@%@/?%@",res.request.URL.scheme,res.request.URL.host,res.request.URL.path,[res.requestParams yy_modelToJSONString]];
+}
 
 
 @end

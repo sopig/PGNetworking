@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PGNetwokingType.h"
 
+
 //调用成功之后的params里取出 requestId
 static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRequestID";
 
@@ -70,7 +71,7 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 
 @required
 - (NSString *_Nonnull)apiName;
-- (NSString *_Nonnull)serviceType;
+- (PGNetworkingServiceType)serviceType;
 - (PGAPIEntityRequestType)requestType;
 
 @optional
@@ -100,6 +101,8 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 
 /////////////////////////////////////////////////////////////////////////
 @protocol PGAPIValidator <NSObject>
+
+@optional
 //数据格式的验证
 - (BOOL)api:(PGBaseAPIEntity *_Nonnull)api isCorrectWithCallBackData:(NSDictionary *_Nullable)data;
 

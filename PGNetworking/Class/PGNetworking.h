@@ -12,6 +12,7 @@
 #import <ReactiveCocoa.h>
 #import <AFNetworking.h>
 #import <YTKKeyValueStore.h>
+#import <YYModel.h>
 
 #import "PGNetworkingReachability.h"
 #import "PGNetworkingConfig.h"
@@ -20,6 +21,8 @@
 #import "PGAPIResponse.h"
 #import "PGAPIEngine.h"
 #import "PGMacros.h"
+#import "NSString+urlEncoding.h"
+#import "NSString+json.h"
 
 
 

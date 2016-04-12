@@ -25,7 +25,7 @@
 		<key>JXBASE_URL_PAY</key>
 		<string>http://testapppromotion.jiuxian.com/</string>
 		<key>isENCRPTY</key>
-		<string>1</string>
+		<true/>
 	</dict>
 	<key>server_qa</key>
 	<dict>
@@ -50,7 +50,7 @@
 		<key>JXBASE_URL_PAY</key>
 		<string>http://192.168.6.202:8040/JXPromotion/</string>
 		<key>isENCRPTY</key>
-		<string>0</string>
+		<false/>
 	</dict>
 	<key>server_developer</key>
 	<dict>
@@ -75,7 +75,7 @@
 		<key>JXBASE_URL_PAY</key>
 		<string>http://192.168.6.201:8040/JXPromotion/</string>
 		<key>isENCRPTY</key>
-		<string>0</string>
+		<false/>
 	</dict>
 	<key>server_online</key>
 	<dict>
@@ -88,19 +88,19 @@
 		<key>JIUZHANG_COLLECTURL</key>
 		<string>http://shu.jiuxian.com/collect.htm</string>
 		<key>JXBASE_URL_HOME</key>
-		<string>http://apphome.jiuxian.com/</string>
+		<string>http://apphome.jiuxian.com</string>
 		<key>JXBASE_URL_OMS</key>
-		<string>http://appoms.jiuxian.com/</string>
+		<string>http://appoms.jiuxian.com</string>
 		<key>JXBASE_URL_PRODUCT</key>
-		<string>http://appproduct.jiuxian.com/</string>
+		<string>http://appproduct.jiuxian.com</string>
 		<key>JXBASE_URL_PROMOTION</key>
-		<string>http://apppromotion.jiuxian.com/</string>
+		<string>http://apppromotion.jiuxian.com</string>
 		<key>JXBASE_URL_USER</key>
-		<string>http://appuser.jiuxian.com/</string>
+		<string>http://appuser.jiuxian.com</string>
 		<key>JXBASE_URL_PAY</key>
-		<string>http://apppromotion.jiuxian.com/</string>
+		<string>http://apppromotion.jiuxian.com</string>
 		<key>isENCRPTY</key>
-		<string>1</string>
+		<true/>
 	</dict>
 	<key>server_gray</key>
 	<dict>
@@ -125,7 +125,7 @@
 		<key>JXBASE_URL_PAY</key>
 		<string>http://192.168.18.234:8010/JXPromotion/</string>
 		<key>isENCRPTY</key>
-		<string>1</string>
+		<true/>
 	</dict>
 	<key>server_reserve</key>
 	<dict>
@@ -150,7 +150,7 @@
 		<key>JXBASE_URL_PAY</key>
 		<string>http://192.168.6.200:8010/JXPromotion/</string>
 		<key>isENCRPTY</key>
-		<string>0</string>
+		<false/>
 	</dict>
 </dict>
 </plist>

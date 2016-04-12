@@ -91,8 +91,20 @@
 }
 
 #pragma mark -  URL Cache
-- (NSData *)fetchCachedDataWithServiceIdentifier:(NSString *)serviceIdentifier apiName:(NSString *)apiName requestParams:(NSDictionary *)params{
-    NSString *key = [self keyWithServiceIdentifier:serviceIdentifier apiName:apiName requestParams:params];
+- (NSDictionary *)fetchCachedDataForkey:(NSString *)key {
+    //如果无网络则直接返回缓存数据
+    if (![PGNetworkingReachability isReachable]) {
+        return [self getObjectByKey:key];
+    }
+    //如果缓存过期
+    if ([self isOutdatedForKey:key]) {
+        return nil;
+    } else {
+        return [self getObjectByKey:key];
+    }
+}
+- (NSData *)fetchCachedDataWithServiceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)params{
+    NSString *key = [self keyWithServiceType:serviceType apiName:apiName requestParams:params];
     
     //如果无网络则直接返回缓存数据
     if (![PGNetworkingReachability isReachable]) {
@@ -106,8 +118,16 @@
     }
 }
 
-- (void)saveCacheWithData:(NSData *)responseData serviceIdentifier:(NSString *)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams{
-    NSString *key = [self keyWithServiceIdentifier:serviceType apiName:apiName requestParams:requestParams];
+- (void)saveCacheWithData:(NSDictionary *)responseData forKey:(NSString *_Nonnull)key {
+    if ([self getObjectByKey:key]) {
+        [self deleteObjectByKey:key];
+    }
+    
+    [self putObject:responseData forKey:key];
+}
+
+- (void)saveCacheWithData:(NSDictionary *)responseData serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams{
+    NSString *key = [self keyWithServiceType:serviceType apiName:apiName requestParams:requestParams];
     
     if ([self getObjectByKey:key]) {
         [self deleteObjectByKey:key];
@@ -116,9 +136,9 @@
     [self putObject:responseData forKey:key];
 }
 
-- (NSString *)keyWithServiceIdentifier:(NSString *)serviceIdentifier apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams
+- (NSString *)keyWithServiceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams
 {
-    return @"";
+    return @"sKey";
 }
 
 @end
