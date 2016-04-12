@@ -56,8 +56,8 @@
 - (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail{
     
     NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:serviceType];
+    NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,apiName];
     
-    NSString *url = [self getUrl:[NSString stringWithFormat:@"%@%@",baseUrl,apiName] params:params];
     //
     PGAPIResponse *apiResponse = [PGAPIResponse new];
     NSMutableDictionary *mDic = [[JXCommonParamsGenerator commonParamsDictionary] mutableCopy];
@@ -65,14 +65,24 @@
     apiResponse.requestParams = [mDic copy];
     apiResponse.requestId = 0;
     
+    NSDictionary *allParams = nil;
+    BOOL shouldEncry = [PGNetworkingConfig shouldEncryption];
     
+    if (shouldEncry) {
+        allParams = [self EncrptyParameter:mDic];
+        
+    } else {
+        allParams = [mDic copy];
+    }
+    
+
     if (!url || url.length <= 0) {
         apiResponse.responseType = PGAPIEntityResponseTypeParamsError;
         fail(apiResponse);
     }
     NSString *requestId = [NSString stringWithFormat:@"%@",[self generateRequestId]];
     
-    NSURLSessionDataTask *task = [[self prepareManager] GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSURLSessionDataTask *task = [[self prepareManager] GET:url parameters:allParams progress:^(NSProgress * _Nonnull downloadProgress) {
 
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -239,33 +249,6 @@
 
 #pragma mark - _private
 
-- (NSString *)getUrl:(NSString *)url params:(NSDictionary *)params {
-    
-    
-    NSDictionary *commonParams = [JXCommonParamsGenerator commonParamsDictionary];
-    NSAssert(commonParams, @"commonParams not ready");
-    NSAssert(commonParams.count > 0, @"commonParams not ready");
-    
-    NSMutableDictionary *allParams = [commonParams mutableCopy];
-    if (params.count > 0) {
-        [allParams addEntriesFromDictionary:params];
-    }
-
-    NSMutableString *paramStr = nil;
-    
-    BOOL shouldEncry = [PGNetworkingConfig shouldEncryption];
-    
-    if (shouldEncry) {
-        paramStr = [NSMutableString stringWithString:[self getEncrptyParameterStringForParamDic:allParams]];
-    } else {
-        paramStr = [NSMutableString stringWithString:[self queryStringFromParams:allParams]];
-    }
-    
-    return [NSString stringWithFormat:@"%@?%@",url,paramStr];
-}
-
-
-
 - (NSString *)queryStringFromParams:(NSDictionary *)paramDic {
     NSMutableArray *params = [[NSMutableArray alloc] initWithCapacity:paramDic.count];
     [paramDic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -322,37 +305,6 @@
     return nil;
 }
 
-
-
-- (NSString *)getEncrptyParameterStringForParamDic:(NSDictionary *)paramDic {
-    
-    NSString *parameString = [self queryStringFromParams:paramDic];
-    
-    //3des密钥(base64编码后)
-    NSString *desKey = [JXUUID base64DesKeyString];
-    
-    //用3des密钥加密参数得到加密后数据
-    NSString *encrParameString = [JXDES tripleDES:parameString encryptOrDecrypt:kCCEncrypt DESBase64Key:desKey];
-    
-    //用RSA加密3des密钥
-    NSString *encrypt3Des = [JXRSA encryptToStringWithCipherString:desKey];
-    
-    //拼接参数
-    
-    if (!encrParameString  || !encrypt3Des) {
-        return nil;
-    }
-    
-    NSDictionary *paramDict = @{
-                                DATAKEY:encrParameString,
-                                ENCRPTYKEY:encrypt3Des,
-                                HTTPTYPE:HTTPDEVICE
-                                };
-    
-    NSString *parameStr = [self queryStringFromParams:paramDict];
-    
-    return parameStr;
-}
 
 
 - (NSDictionary *)EncrptyParameter:(NSDictionary *)paramsDic{

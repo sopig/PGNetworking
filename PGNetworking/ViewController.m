@@ -34,19 +34,7 @@
     
     return;
     
-    [[PGAPIEngine shareInstance] callGETWithParams:@{} serviceType:PGNetworkingServiceTypeProduct apiName:@"/product/regionList.htm" success:^(PGAPIResponse *res) {
-        
-        NSLog(@"%@\n%@\n%@\n",[NSString stringWithFormat:@"%@://%@%@",res.request.URL.scheme,res.request.URL.host,res.request.URL.path],res.requestParams,res.contentString);
-        
-        
-    } fail:^(PGAPIResponse *res) {
-        
-    }];
     
-    
-    
-    
-    return;
     
     
 //    http://sopig.cn/2016/03/02/CI%E6%90%AD%E5%BB%BA%E5%92%8C%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8C%96/

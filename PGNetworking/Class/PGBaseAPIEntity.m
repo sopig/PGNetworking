@@ -116,7 +116,19 @@
                         
                         break;
                     case PGAPIEntityRequestTypePost:
+                        {
+                            NSUInteger REQUEST_ID = [[PGAPIEngine shareInstance] callPOSTWithParams:apiParams serviceType:self.child.serviceType apiName:self.child.apiName success:^(PGAPIResponse *res) {
+                            
+                                [self successedOnCallingAPI:res];
+                            
+                            } fail:^(PGAPIResponse *res) {
+                            
+                                [self failedOnCallingAPI:res withErrorType:res.responseType];
+                            }];
                         
+                            [self.requestIdList addObject:@(REQUEST_ID)];
+                        }
+
                         break;
                 }
                 

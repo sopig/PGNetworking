@@ -17,10 +17,8 @@
 
 //
 - (NSDictionary *)fetchCachedDataForkey:(NSString *)key;
-- (NSData *)fetchCachedDataWithServiceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)params;
-
 - (void)saveCacheWithData:(NSDictionary *)responseData forKey:(NSString *)key;
-- (void)saveCacheWithData:(NSDictionary *)responseData serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams;
+
 
 //基础方法
 - (void)putObject:(id)obj forKey:(NSString *)sKey;

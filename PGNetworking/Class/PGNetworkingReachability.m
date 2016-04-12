@@ -7,8 +7,17 @@
 //
 
 #import "PGNetworkingReachability.h"
-
+#import "JXCache.h"
 @implementation PGNetworkingReachability
+
++ (void)load{
+    [super load];
+    [[self openNetworkCheck] subscribeNext:^(NSNotification * x) {
+        
+        [[JXCache cache] putObject:x.userInfo[AFNetworkingReachabilityNotificationStatusItem]
+                            forKey:AFNetworkingReachabilityNotificationStatusItem];
+    }];
+}
 
 + (RACSignal *)openNetworkCheck{
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
@@ -22,8 +31,24 @@
 }
 
 + (BOOL)isReachable{
+    if (![[JXCache cache] getObjectByKey:AFNetworkingReachabilityNotificationStatusItem]) {
+        return YES;
+    }
+    else {
+        NSNumber *netStatu = (NSNumber *)[[JXCache cache] getObjectByKey:AFNetworkingReachabilityNotificationStatusItem];
+        switch (netStatu.integerValue) {
+            case AFNetworkReachabilityStatusUnknown:
+            case AFNetworkReachabilityStatusNotReachable:
+                return NO;
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                return YES;
+                break;
+        }
+    }
+
     return YES;
-    // return [[AFNetworkReachabilityManager sharedManager] isReachable];
 }
 
 + (AFNetworkReachabilityStatus )netStatus{
