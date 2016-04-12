@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSNumber *recordedRequestId;
 
+@property (nonatomic, strong) NSMutableDictionary *taskCenter;
+
 @end
 
 @implementation PGAPIEngine
@@ -27,6 +29,14 @@
         __instance = [PGAPIEngine new];
     });
     return __instance;
+}
+
+
+- (NSMutableDictionary *)taskCenter {
+    if (!_taskCenter) {
+        _taskCenter = [NSMutableDictionary dictionary];
+    }
+    return _taskCenter;
 }
 
 
@@ -142,6 +152,9 @@
         fail(apiResponse);
     }];
     
+    task.taskDescription = requestId;
+    
+    [self.taskCenter setObject:task forKey:requestId];
     
     return task.taskDescription.integerValue;
 }
@@ -238,13 +251,23 @@
 
      }];
     
+    [self.taskCenter setObject:task forKey:requestId];
+    
     return task.taskDescription.integerValue;
 
 }
 
+- (void)cancelRequestWithRequestID:(NSInteger)requestID {
+    NSURLSessionDataTask *task = self.taskCenter[[NSString stringWithFormat:@"%ld",(long)requestID]];
+    [task cancel];
+    [self.taskCenter removeObjectForKey:[NSString stringWithFormat:@"%ld",(long)requestID]];
+}
 
-
-
+- (void)cancelRequestWithRequestIDs:(NSArray *)requestIDs {
+    [requestIDs enumerateObjectsUsingBlock:^(NSNumber *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self cancelRequestWithRequestID:obj.integerValue];
+    }];
+}
 
 
 #pragma mark - _private

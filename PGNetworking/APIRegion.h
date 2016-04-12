@@ -7,8 +7,8 @@
 //
 
 #import "PGBaseAPIEntity.h"
+#import "APIBase.h"
 
-@interface APIRegion : PGBaseAPIEntity<PGAPIEntity,PGAPIResponseDelegate,PGAPIResponseDataReformer,PGAPIParamsDataSource,PGAPIValidator,PGApiInterceptor>
-
+@interface APIRegion : APIBase
 
 @end

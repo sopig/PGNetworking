@@ -35,8 +35,10 @@
         return YES;
     }
     else {
-        NSNumber *netStatu = (NSNumber *)[[JXCache cache] getObjectByKey:AFNetworkingReachabilityNotificationStatusItem];
-        switch (netStatu.integerValue) {
+        NSArray *net = (NSArray *)[[JXCache cache] getObjectByKey:AFNetworkingReachabilityNotificationStatusItem];
+        NSNumber *netStatus = net[0];
+        
+        switch (netStatus.integerValue) {
             case AFNetworkReachabilityStatusUnknown:
             case AFNetworkReachabilityStatusNotReachable:
                 return NO;

@@ -150,23 +150,23 @@
 }
 
 - (BOOL)hasCacheWithParams:(NSDictionary *)params {
-//   PGNetworkingServiceType serviceType = self.child.serviceType;
-//    NSString *apiName = self.child.apiName;
+
     NSDictionary *result = [self.cache fetchCachedDataForkey:[self keyForcache]];
-//    NSData *result = [self.cache fetchCachedDataWithServiceType:serviceType apiName:apiName requestParams:params];
     
     if (result == nil) {
         return NO;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
+       
+       PGAPIResponse *response = [PGAPIResponse new];
+        response.content = [result copy];
+        response.contentString = [result yy_modelToJSONString];
+        response.isCache = YES;
         
-//        PGAPIResponse *response = [PGAPIResponse new];
+        APILog(response);
+        [self successedOnCallingAPI:response];
         
-//        AIFURLResponse *response = [[AIFURLResponse alloc] initWithData:result];
-//        response.requestParams = params;
-//        [AIFLogger logDebugInfoWithCachedResponse:response methodName:methodName serviceIdentifier:[[AIFServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier]];
-//        [self successedOnCallingAPI:response];
     });
     return YES;
 }
@@ -207,7 +207,6 @@
         
         if ([self shouldCache] && !response.isCache) {
             [self.cache saveCacheWithData:[response.contentString toDictionary] forKey:[self keyForcache]];
-//            [self.cache saveCacheWithData:[response.contentString toDictionary] serviceType:self.child.serviceType apiName:self.child.apiName requestParams:response.requestParams];
         }
         
         [self beforePerformSuccessWithResponse:response];
@@ -340,14 +339,16 @@
 #pragma mark -  Public
 - (void)cancelAllRequests
 {
-//    [[AIFApiProxy sharedInstance] cancelRequestWithRequestIDList:self.requestIdList];
+    
+    [[PGAPIEngine shareInstance] cancelRequestWithRequestIDs:self.requestIdList];
+    
     [self.requestIdList removeAllObjects];
 }
 
 - (void)cancelRequestWithRequestId:(NSInteger)requestID
 {
+    [[PGAPIEngine shareInstance] cancelRequestWithRequestID:requestID];
     [self removeRequestIdWithRequestID:requestID];
-//    [[AIFApiProxy sharedInstance] cancelRequestWithRequestID:@(requestID)];
 }
 
 - (id)fetchDataWithReformer:(id<PGAPIResponseDataReformer>)reformer
@@ -367,8 +368,7 @@
 - (NSString *)keyForcache{
     NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:self.child.serviceType];
     
-    NSMutableDictionary *mDic = [NSMutableDictionary dictionary];
-    [mDic addEntriesFromDictionary:[JXCommonParamsGenerator commonParamsDictionary]];
+    NSMutableDictionary *mDic = [[JXCommonParamsGenerator commonParamsDictionary] mutableCopy];
     [mDic addEntriesFromDictionary:[self.paramSource paramsForApi:self]];
     
     NSString *paramsString = [mDic yy_modelToJSONString];

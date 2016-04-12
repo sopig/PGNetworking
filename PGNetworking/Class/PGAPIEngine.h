@@ -17,4 +17,9 @@
 
 - (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
 
+
+- (void)cancelRequestWithRequestID:(NSInteger)requestID;
+
+- (void)cancelRequestWithRequestIDs:(NSArray *)requestIDs;
+
 @end
