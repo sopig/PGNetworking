@@ -44,6 +44,9 @@
     button.titleLabel.font = [UIFont systemFontOfSize:20];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(handleTestClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
     [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
         NSLog(@"%@",x);
     }];
