@@ -20,7 +20,7 @@
 //使用什么加密方式
 #define kPGNetworkingEncrypType PGNetworkingEncryptionTypeUse
 
-static NSTimeInterval kCacheOutdateTimeSeconds = 10;
+static NSTimeInterval kCacheOutdateTimeSeconds = 0;
 static NSTimeInterval kPGNetworkingTimeoutSeconds = 10;
 
 

@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "PGNetwokingType.h"
 
-
 //调用成功之后的params里取出 requestId
 static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRequestID";
 
-
+@class RACSignal;
 @class PGBaseAPIEntity;
 @class PGAPIResponse;
 /////////////////////////////////////////////////////////////////////////

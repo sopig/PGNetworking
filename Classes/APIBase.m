@@ -7,6 +7,11 @@
 //
 
 #import "APIBase.h"
+#import "ReactiveCocoa.h"
+
+@interface APIBase ()
+
+@end
 
 @implementation APIBase
 - (instancetype)init{
@@ -16,6 +21,7 @@
         self.paramSource = self;
         self.child = self;
         self.interceptor = self;
+        
     }
     return self;
 }
@@ -57,10 +63,47 @@
 
 //回调
 - (void)doFailed:(PGBaseAPIEntity *)api{
+
+    self.whenFail(api);
     
 }
 
 - (void)doSuccess:(PGBaseAPIEntity *)api{
-    id x =  [api fetchDataWithReformer:self];
+    self.whenSuccess(api);
 }
+
+
+- (RACSignal *)sendSignal {
+    
+
+    @weakify(self);
+    RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        self.whenSuccess = ^(PGBaseAPIEntity *api){
+            [subscriber sendNext:api];
+            [subscriber sendCompleted];
+        };
+        
+        self.whenFail = ^(PGBaseAPIEntity *api){
+            [subscriber sendNext:api];
+            [subscriber sendCompleted];
+        };
+        
+         NSInteger requestID = [self loadData];
+        
+        return [RACDisposable disposableWithBlock:^{
+            
+            [self cancelRequestWithRequestId:requestID];
+            
+        }];
+    }] replayLast];
+    
+    return signal;
+}
+
+- (APIBase *)send {
+    [self loadData];
+    return self;
+}
+
 @end

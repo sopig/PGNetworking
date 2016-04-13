@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import <NetworkEye/NEHTTPEye.h>
 #import "JXAppConfigSurport.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -23,8 +23,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _window.backgroundColor = [UIColor whiteColor];
+    ViewController *vc = [ViewController new];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    [NEHTTPEye setEnabled:YES];
+    
+    _window.rootViewController = nav;
+    [_window makeKeyAndVisible];
+  
     
     
     return YES;

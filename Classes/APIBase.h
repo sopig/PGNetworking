@@ -8,7 +8,35 @@
 
 #import "PGBaseAPIEntity.h"
 
+
 @interface APIBase : PGBaseAPIEntity<PGAPIEntity,PGAPIResponseDelegate,PGAPIResponseDataReformer,PGAPIParamsDataSource,PGAPIValidator,PGApiInterceptor>
 
+//请求落地的回调
+@property (nonatomic ,strong) void (^whenSuccess)(PGBaseAPIEntity *api);
+@property (nonatomic ,strong) void (^whenFail)(PGBaseAPIEntity *api);
+
+
+
+
+
+- (PGNetworkingServiceType)serviceType ;
+
+- (NSString *)apiName;
+
+//请求参数
+- (NSDictionary *)paramsForApi:(PGBaseAPIEntity *)api;
+
+//数据转化为model
+- (id)api:(PGBaseAPIEntity *)api reformData:(NSDictionary *)data;
+
+
+//请求起飞
+- (APIBase *)send;
+
+- (RACSignal *)sendSignal;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+- (PGAPIEntityRequestType)requestType;//如果是get方式，不用覆写
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @end
