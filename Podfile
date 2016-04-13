@@ -24,6 +24,6 @@ pod 'NetworkEye', '~> 0.9.9'
 
 pod 'OpenSSL-Universal', '~> 1.0.1.18'
 
-pod 'PGNetworking', :path => '~/Desktop/PGNetworking/PGNetworking.podspec'
+pod 'PGNetworking', :path => './PGNetworking.podspec'
 end
 

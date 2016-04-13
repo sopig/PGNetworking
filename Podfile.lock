@@ -51,14 +51,14 @@ DEPENDENCIES:
   - Base64nl (~> 1.2)
   - NetworkEye (~> 0.9.9)
   - OpenSSL-Universal (~> 1.0.1.18)
-  - PGNetworking (from `~/Desktop/PGNetworking/PGNetworking.podspec`)
+  - PGNetworking (from `./PGNetworking.podspec`)
   - ReactiveCocoa
   - YTKKeyValueStore (~> 0.1.2)
   - YYModel
 
 EXTERNAL SOURCES:
   PGNetworking:
-    :path: "~/Desktop/PGNetworking/PGNetworking.podspec"
+    :path: "./PGNetworking.podspec"
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
