@@ -29,8 +29,15 @@
 
     NSArray *plistNames = [[JXAppconfigPlist propertyName] copy];
     NSMutableArray *paths = [NSMutableArray array];
+    if (plistNames.count <= 0 || !plistNames) {
+        return nil;
+    }
     [plistNames enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         NSString *path = [[NSBundle mainBundle] pathForResource:obj ofType:@"plist"];
+        
+//        NSString *bundlePath = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"/Appconfig/PGNetworking.bundle"];
+//        NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+//        NSString *path = [bundle pathForResource:obj ofType:@"plist"];
         NSAssert(path, ([NSString stringWithFormat:@"检查%@plist配置文件是否正确", obj, nil]));
         [paths addObject:path];
     }];

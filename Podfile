@@ -1,4 +1,4 @@
-#source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
+source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
 
 inhibit_all_warnings!
 
@@ -24,5 +24,6 @@ pod 'NetworkEye', '~> 0.9.9'
 
 pod 'OpenSSL-Universal', '~> 1.0.1.18'
 
+pod 'PGNetworking', :path => '~/Desktop/PGNetworking/PGNetworking.podspec'
 end
 

@@ -23,6 +23,13 @@ PODS:
   - NetworkEye (0.9.9.1):
     - FMDB/SQLCipher (~> 2.5)
   - OpenSSL-Universal (1.0.1.18)
+  - PGNetworking (0.0.1):
+    - AFNetworking (~> 3.0.4)
+    - Base64nl
+    - OpenSSL-Universal (~> 1.0.1.18)
+    - ReactiveCocoa (= 2.5)
+    - YTKKeyValueStore
+    - YYModel
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -44,9 +51,14 @@ DEPENDENCIES:
   - Base64nl (~> 1.2)
   - NetworkEye (~> 0.9.9)
   - OpenSSL-Universal (~> 1.0.1.18)
+  - PGNetworking (from `~/Desktop/PGNetworking/PGNetworking.podspec`)
   - ReactiveCocoa
   - YTKKeyValueStore (~> 0.1.2)
   - YYModel
+
+EXTERNAL SOURCES:
+  PGNetworking:
+    :path: "~/Desktop/PGNetworking/PGNetworking.podspec"
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -54,11 +66,10 @@ SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   NetworkEye: 2e867ec61a4da483f620617893e2c86e069a73b6
   OpenSSL-Universal: 79fd751a7b4db41f5b430e767c9bbf681b5c8330
+  PGNetworking: a17cbe797f3e661ffc22ea0f99cf77511d263433
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SQLCipher: 4684434d5791db86512cd7e02172aefba575849e
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
 
-PODFILE CHECKSUM: d55d273dd33aee2ea5be174524fea581000fd83d
-
-COCOAPODS: 1.0.0.beta.2
+COCOAPODS: 0.39.0

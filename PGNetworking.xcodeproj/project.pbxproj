@@ -9,33 +9,12 @@
 /* Begin PBXBuildFile section */
 		319501F3A8111D65D9E4FCD2 /* libPods-PGNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CF01F79437C1C8ED5BBA19 /* libPods-PGNetworking.a */; };
 		A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A51D32911CBCCDC5007B33FE /* APIRegion.m */; };
-		A51D32951CBCD797007B33FE /* NSString+json.m in Sources */ = {isa = PBXBuildFile; fileRef = A51D32941CBCD797007B33FE /* NSString+json.m */; };
 		A5C798551CB395D800236B1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798541CB395D800236B1C /* main.m */; };
 		A5C798581CB395D800236B1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798571CB395D800236B1C /* AppDelegate.m */; };
 		A5C7985B1CB395D800236B1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7985A1CB395D800236B1C /* ViewController.m */; };
 		A5C7985E1CB395D800236B1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C7985C1CB395D800236B1C /* Main.storyboard */; };
 		A5C798601CB395D800236B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C7985F1CB395D800236B1C /* Assets.xcassets */; };
 		A5C798631CB395D800236B1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C798611CB395D800236B1C /* LaunchScreen.storyboard */; };
-		A5C798701CB39F6D00236B1C /* PGNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */; };
-		A5C798961CB49D3400236B1C /* PGAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798951CB49D3400236B1C /* PGAPIResponse.m */; };
-		FA1A27F71CBD366700B406E7 /* APIBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1A27F61CBD366700B406E7 /* APIBase.m */; };
-		FA4DCC021CB7562F006769B0 /* NSString+urlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC011CB7562F006769B0 /* NSString+urlEncoding.m */; };
-		FA4DCC0B1CBB8181006769B0 /* JXAppconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA4DCC041CBB8181006769B0 /* JXAppconfig.plist */; };
-		FA4DCC0C1CBB8181006769B0 /* JXAppconfigPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC061CBB8181006769B0 /* JXAppconfigPlist.m */; };
-		FA4DCC0D1CBB8181006769B0 /* JXAppConfigSurport.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC081CBB8181006769B0 /* JXAppConfigSurport.m */; };
-		FA4DCC0E1CBB8181006769B0 /* JXAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC0A1CBB8181006769B0 /* JXAppContext.m */; };
-		FA4DCC1A1CBB9976006769B0 /* CRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC111CBB9976006769B0 /* CRSA.m */; };
-		FA4DCC1B1CBB9976006769B0 /* JXDES.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC131CBB9976006769B0 /* JXDES.m */; };
-		FA4DCC1C1CBB9976006769B0 /* JXRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC151CBB9976006769B0 /* JXRSA.m */; };
-		FA4DCC1D1CBB9976006769B0 /* JXUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4DCC171CBB9976006769B0 /* JXUUID.m */; };
-		FA4DCC1E1CBB9976006769B0 /* private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = FA4DCC181CBB9976006769B0 /* private_key.pem */; };
-		FA4DCC1F1CBB9976006769B0 /* public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = FA4DCC191CBB9976006769B0 /* public_key.pem */; };
-		FACE2F4E1CB3E3E0007C47E3 /* UIDevice+JXHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F491CB3E3DF007C47E3 /* UIDevice+JXHardware.m */; };
-		FACE2F501CB3E3E0007C47E3 /* JXCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F4D1CB3E3DF007C47E3 /* JXCommonParamsGenerator.m */; };
-		FACE2F531CB3E69F007C47E3 /* PGBaseAPIEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F521CB3E69F007C47E3 /* PGBaseAPIEntity.m */; };
-		FACE2F571CB4AF08007C47E3 /* PGAPIEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F561CB4AF08007C47E3 /* PGAPIEngine.m */; };
-		FACE2F5C1CB4B50A007C47E3 /* JXCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F5B1CB4B50A007C47E3 /* JXCache.m */; };
-		FACE2F5F1CB4FAC2007C47E3 /* PGNetworkingReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE2F5E1CB4FAC2007C47E3 /* PGNetworkingReachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +22,6 @@
 		656C1441833618394391F5DB /* Pods-PGNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		A51D32901CBCCDC5007B33FE /* APIRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRegion.h; sourceTree = "<group>"; };
 		A51D32911CBCCDC5007B33FE /* APIRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRegion.m; sourceTree = "<group>"; };
-		A51D32931CBCD797007B33FE /* NSString+json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+json.h"; sourceTree = "<group>"; };
-		A51D32941CBCD797007B33FE /* NSString+json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+json.m"; sourceTree = "<group>"; };
 		A5C798501CB395D800236B1C /* PGNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C798541CB395D800236B1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5C798561CB395D800236B1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,48 +32,7 @@
 		A5C7985F1CB395D800236B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C798621CB395D800236B1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C798641CB395D800236B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5C7986E1CB39F6D00236B1C /* PGNetworkingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkingConfig.h; sourceTree = "<group>"; };
-		A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkingConfig.m; sourceTree = "<group>"; };
-		A5C798811CB3B78700236B1C /* PGNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGNetworking.h; sourceTree = "<group>"; };
-		A5C798941CB49D3400236B1C /* PGAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGAPIResponse.h; sourceTree = "<group>"; };
-		A5C798951CB49D3400236B1C /* PGAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGAPIResponse.m; sourceTree = "<group>"; };
 		F959C3CB91ED9F0FEB4A26D5 /* Pods-PGNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.release.xcconfig"; sourceTree = "<group>"; };
-		FA1A27F51CBD366700B406E7 /* APIBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIBase.h; path = ../../APIBase.h; sourceTree = "<group>"; };
-		FA1A27F61CBD366700B406E7 /* APIBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIBase.m; path = ../../APIBase.m; sourceTree = "<group>"; };
-		FA4DCBEE1CB74B23006769B0 /* PGNetwokingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetwokingType.h; sourceTree = "<group>"; };
-		FA4DCC001CB7562F006769B0 /* NSString+urlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+urlEncoding.h"; sourceTree = "<group>"; };
-		FA4DCC011CB7562F006769B0 /* NSString+urlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+urlEncoding.m"; sourceTree = "<group>"; };
-		FA4DCC041CBB8181006769B0 /* JXAppconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JXAppconfig.plist; sourceTree = "<group>"; };
-		FA4DCC051CBB8181006769B0 /* JXAppconfigPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXAppconfigPlist.h; sourceTree = "<group>"; };
-		FA4DCC061CBB8181006769B0 /* JXAppconfigPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXAppconfigPlist.m; sourceTree = "<group>"; };
-		FA4DCC071CBB8181006769B0 /* JXAppConfigSurport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXAppConfigSurport.h; sourceTree = "<group>"; };
-		FA4DCC081CBB8181006769B0 /* JXAppConfigSurport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXAppConfigSurport.m; sourceTree = "<group>"; };
-		FA4DCC091CBB8181006769B0 /* JXAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXAppContext.h; sourceTree = "<group>"; };
-		FA4DCC0A1CBB8181006769B0 /* JXAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXAppContext.m; sourceTree = "<group>"; };
-		FA4DCC101CBB9976006769B0 /* CRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRSA.h; sourceTree = "<group>"; };
-		FA4DCC111CBB9976006769B0 /* CRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRSA.m; sourceTree = "<group>"; };
-		FA4DCC121CBB9976006769B0 /* JXDES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXDES.h; sourceTree = "<group>"; };
-		FA4DCC131CBB9976006769B0 /* JXDES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXDES.m; sourceTree = "<group>"; };
-		FA4DCC141CBB9976006769B0 /* JXRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXRSA.h; sourceTree = "<group>"; };
-		FA4DCC151CBB9976006769B0 /* JXRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXRSA.m; sourceTree = "<group>"; };
-		FA4DCC161CBB9976006769B0 /* JXUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXUUID.h; sourceTree = "<group>"; };
-		FA4DCC171CBB9976006769B0 /* JXUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXUUID.m; sourceTree = "<group>"; };
-		FA4DCC181CBB9976006769B0 /* private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = private_key.pem; sourceTree = "<group>"; };
-		FA4DCC191CBB9976006769B0 /* public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public_key.pem; sourceTree = "<group>"; };
-		FA4DCC211CBB9A64006769B0 /* JXEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXEncryption.h; sourceTree = "<group>"; };
-		FACE2F481CB3E3DF007C47E3 /* UIDevice+JXHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+JXHardware.h"; sourceTree = "<group>"; };
-		FACE2F491CB3E3DF007C47E3 /* UIDevice+JXHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+JXHardware.m"; sourceTree = "<group>"; };
-		FACE2F4C1CB3E3DF007C47E3 /* JXCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXCommonParamsGenerator.h; sourceTree = "<group>"; };
-		FACE2F4D1CB3E3DF007C47E3 /* JXCommonParamsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCommonParamsGenerator.m; sourceTree = "<group>"; };
-		FACE2F511CB3E69F007C47E3 /* PGBaseAPIEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGBaseAPIEntity.h; sourceTree = "<group>"; };
-		FACE2F521CB3E69F007C47E3 /* PGBaseAPIEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseAPIEntity.m; sourceTree = "<group>"; };
-		FACE2F551CB4AF08007C47E3 /* PGAPIEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGAPIEngine.h; sourceTree = "<group>"; };
-		FACE2F561CB4AF08007C47E3 /* PGAPIEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGAPIEngine.m; sourceTree = "<group>"; };
-		FACE2F581CB4B314007C47E3 /* PGMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGMacros.h; sourceTree = "<group>"; };
-		FACE2F5A1CB4B50A007C47E3 /* JXCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXCache.h; sourceTree = "<group>"; };
-		FACE2F5B1CB4B50A007C47E3 /* JXCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCache.m; sourceTree = "<group>"; };
-		FACE2F5D1CB4FAC2007C47E3 /* PGNetworkingReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkingReachability.h; sourceTree = "<group>"; };
-		FACE2F5E1CB4FAC2007C47E3 /* PGNetworkingReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkingReachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +67,6 @@
 		A5C798471CB395D800236B1C = {
 			isa = PBXGroup;
 			children = (
-				A5C7986A1CB39EEC00236B1C /* Class */,
 				A5C798521CB395D800236B1C /* PGNetworking */,
 				A5C798511CB395D800236B1C /* Products */,
 				9D49D7A44795D62E41369629 /* Pods */,
@@ -171,89 +106,6 @@
 				A5C798541CB395D800236B1C /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A5C7986A1CB39EEC00236B1C /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				FA4DCBEE1CB74B23006769B0 /* PGNetwokingType.h */,
-				FA4DCC0F1CBB9976006769B0 /* encryption */,
-				FA4DCC031CBB8181006769B0 /* Appconfig */,
-				FACE2F591CB4B50A007C47E3 /* Cache */,
-				FACE2F471CB3E3DF007C47E3 /* Assistants */,
-				FACE2F4C1CB3E3DF007C47E3 /* JXCommonParamsGenerator.h */,
-				FACE2F4D1CB3E3DF007C47E3 /* JXCommonParamsGenerator.m */,
-				A5C7986E1CB39F6D00236B1C /* PGNetworkingConfig.h */,
-				A5C7986F1CB39F6D00236B1C /* PGNetworkingConfig.m */,
-				FACE2F511CB3E69F007C47E3 /* PGBaseAPIEntity.h */,
-				FACE2F521CB3E69F007C47E3 /* PGBaseAPIEntity.m */,
-				A5C798811CB3B78700236B1C /* PGNetworking.h */,
-				A5C798941CB49D3400236B1C /* PGAPIResponse.h */,
-				A5C798951CB49D3400236B1C /* PGAPIResponse.m */,
-				FACE2F551CB4AF08007C47E3 /* PGAPIEngine.h */,
-				FACE2F561CB4AF08007C47E3 /* PGAPIEngine.m */,
-				FACE2F581CB4B314007C47E3 /* PGMacros.h */,
-				FACE2F5D1CB4FAC2007C47E3 /* PGNetworkingReachability.h */,
-				FACE2F5E1CB4FAC2007C47E3 /* PGNetworkingReachability.m */,
-				FA1A27F51CBD366700B406E7 /* APIBase.h */,
-				FA1A27F61CBD366700B406E7 /* APIBase.m */,
-			);
-			name = Class;
-			path = PGNetworking/Class;
-			sourceTree = "<group>";
-		};
-		FA4DCC031CBB8181006769B0 /* Appconfig */ = {
-			isa = PBXGroup;
-			children = (
-				FA4DCC041CBB8181006769B0 /* JXAppconfig.plist */,
-				FA4DCC051CBB8181006769B0 /* JXAppconfigPlist.h */,
-				FA4DCC061CBB8181006769B0 /* JXAppconfigPlist.m */,
-				FA4DCC071CBB8181006769B0 /* JXAppConfigSurport.h */,
-				FA4DCC081CBB8181006769B0 /* JXAppConfigSurport.m */,
-				FA4DCC091CBB8181006769B0 /* JXAppContext.h */,
-				FA4DCC0A1CBB8181006769B0 /* JXAppContext.m */,
-			);
-			path = Appconfig;
-			sourceTree = "<group>";
-		};
-		FA4DCC0F1CBB9976006769B0 /* encryption */ = {
-			isa = PBXGroup;
-			children = (
-				FA4DCC211CBB9A64006769B0 /* JXEncryption.h */,
-				FA4DCC101CBB9976006769B0 /* CRSA.h */,
-				FA4DCC111CBB9976006769B0 /* CRSA.m */,
-				FA4DCC121CBB9976006769B0 /* JXDES.h */,
-				FA4DCC131CBB9976006769B0 /* JXDES.m */,
-				FA4DCC141CBB9976006769B0 /* JXRSA.h */,
-				FA4DCC151CBB9976006769B0 /* JXRSA.m */,
-				FA4DCC161CBB9976006769B0 /* JXUUID.h */,
-				FA4DCC171CBB9976006769B0 /* JXUUID.m */,
-				FA4DCC181CBB9976006769B0 /* private_key.pem */,
-				FA4DCC191CBB9976006769B0 /* public_key.pem */,
-			);
-			path = encryption;
-			sourceTree = "<group>";
-		};
-		FACE2F471CB3E3DF007C47E3 /* Assistants */ = {
-			isa = PBXGroup;
-			children = (
-				FACE2F481CB3E3DF007C47E3 /* UIDevice+JXHardware.h */,
-				FACE2F491CB3E3DF007C47E3 /* UIDevice+JXHardware.m */,
-				FA4DCC001CB7562F006769B0 /* NSString+urlEncoding.h */,
-				FA4DCC011CB7562F006769B0 /* NSString+urlEncoding.m */,
-				A51D32931CBCD797007B33FE /* NSString+json.h */,
-				A51D32941CBCD797007B33FE /* NSString+json.m */,
-			);
-			path = Assistants;
-			sourceTree = "<group>";
-		};
-		FACE2F591CB4B50A007C47E3 /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-				FACE2F5A1CB4B50A007C47E3 /* JXCache.h */,
-				FACE2F5B1CB4B50A007C47E3 /* JXCache.m */,
-			);
-			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,9 +168,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4DCC1E1CBB9976006769B0 /* private_key.pem in Resources */,
-				FA4DCC1F1CBB9976006769B0 /* public_key.pem in Resources */,
-				FA4DCC0B1CBB8181006769B0 /* JXAppconfig.plist in Resources */,
 				A5C798631CB395D800236B1C /* LaunchScreen.storyboard in Resources */,
 				A5C798601CB395D800236B1C /* Assets.xcassets in Resources */,
 				A5C7985E1CB395D800236B1C /* Main.storyboard in Resources */,
@@ -381,26 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C7985B1CB395D800236B1C /* ViewController.m in Sources */,
-				FA1A27F71CBD366700B406E7 /* APIBase.m in Sources */,
-				FACE2F571CB4AF08007C47E3 /* PGAPIEngine.m in Sources */,
-				FACE2F5F1CB4FAC2007C47E3 /* PGNetworkingReachability.m in Sources */,
-				FACE2F5C1CB4B50A007C47E3 /* JXCache.m in Sources */,
-				A5C798701CB39F6D00236B1C /* PGNetworkingConfig.m in Sources */,
-				A5C798961CB49D3400236B1C /* PGAPIResponse.m in Sources */,
-				FA4DCC1C1CBB9976006769B0 /* JXRSA.m in Sources */,
-				FA4DCC0C1CBB8181006769B0 /* JXAppconfigPlist.m in Sources */,
 				A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */,
-				FACE2F501CB3E3E0007C47E3 /* JXCommonParamsGenerator.m in Sources */,
-				A51D32951CBCD797007B33FE /* NSString+json.m in Sources */,
 				A5C798581CB395D800236B1C /* AppDelegate.m in Sources */,
-				FA4DCC0E1CBB8181006769B0 /* JXAppContext.m in Sources */,
-				FA4DCC1D1CBB9976006769B0 /* JXUUID.m in Sources */,
-				FA4DCC1A1CBB9976006769B0 /* CRSA.m in Sources */,
-				FA4DCC0D1CBB8181006769B0 /* JXAppConfigSurport.m in Sources */,
-				FA4DCC1B1CBB9976006769B0 /* JXDES.m in Sources */,
-				FACE2F531CB3E69F007C47E3 /* PGBaseAPIEntity.m in Sources */,
-				FACE2F4E1CB3E3E0007C47E3 /* UIDevice+JXHardware.m in Sources */,
-				FA4DCC021CB7562F006769B0 /* NSString+urlEncoding.m in Sources */,
 				A5C798551CB395D800236B1C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,14 +343,14 @@
 			baseConfigurationReference = 656C1441833618394391F5DB /* Pods-PGNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: shai chen (VN2N9U46J9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: shai chen (VN2N9U46J9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
 				INFOPLIST_FILE = PGNetworking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "faf73873-fbd6-44af-b8fd-a8cd2cef4108";
+				PROVISIONING_PROFILE = "51a597ca-23ec-4fa8-971d-661268a7f6d0";
 			};
 			name = Debug;
 		};
@@ -535,7 +366,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "faf73873-fbd6-44af-b8fd-a8cd2cef4108";
+				PROVISIONING_PROFILE = "51a597ca-23ec-4fa8-971d-661268a7f6d0";
 			};
 			name = Release;
 		};
