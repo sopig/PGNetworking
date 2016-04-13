@@ -28,6 +28,9 @@
 }
 
 - (NSString *)cpsId {
+    if (![[[NSBundle mainBundle] infoDictionary] objectForKey:@"com.jiuxian.appcpsid"]) {
+        return @"";
+    }
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"com.jiuxian.appcpsid"];
 }
 

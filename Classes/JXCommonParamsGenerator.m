@@ -9,6 +9,9 @@
 #import "JXCommonParamsGenerator.h"
 #import "JXAppContext.h"
 
+#define saveNil(obj) if (!obj)\
+         obj = @"";
+
 
 @implementation JXCommonParamsGenerator
 
