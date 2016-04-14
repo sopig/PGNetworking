@@ -50,12 +50,7 @@
     [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
         NSLog(@"%@",x);
     }];
-    
-    
 
-    
-    
-    
     
 }
 

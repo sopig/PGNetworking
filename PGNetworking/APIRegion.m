@@ -10,8 +10,4 @@
 
 @implementation APIRegion
 
-- (void)dealloc{
-    NSLog(@"");
-}
-
 @end

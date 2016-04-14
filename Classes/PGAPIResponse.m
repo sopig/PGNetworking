@@ -10,4 +10,9 @@
 
 @implementation PGAPIResponse
 
+
+- (void)dealloc {
+
+}
+
 @end

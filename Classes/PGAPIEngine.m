@@ -18,6 +18,11 @@
 
 @property (nonatomic, strong) NSMutableDictionary *taskCenter;
 
+
+@property (nonatomic, strong) NSURLSessionConfiguration *config;
+
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
 @end
 
 @implementation PGAPIEngine
@@ -41,29 +46,33 @@
 
 
 - (AFHTTPSessionManager *)prepareManager{
+    if (!_config) {
+        _config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        _config.timeoutIntervalForRequest = kPGNetworkingTimeoutSeconds;
+        _config.timeoutIntervalForResource = kPGNetworkingTimeoutSeconds;
+        _config.networkServiceType = NSURLNetworkServiceTypeDefault;
+        _config.discretionary = YES;
+    }
     
-    NSURLSessionConfiguration * config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    config.timeoutIntervalForRequest = kPGNetworkingTimeoutSeconds;
-    config.timeoutIntervalForResource = kPGNetworkingTimeoutSeconds;
-    config.networkServiceType = NSURLNetworkServiceTypeDefault;
-    config.discretionary = YES;
+    if (!_manager) {
+        _manager =[[AFHTTPSessionManager alloc] initWithSessionConfiguration:_config];
+        AFHTTPRequestSerializer *reqSerializer = [AFHTTPRequestSerializer serializer];
+        [reqSerializer setValue:@"text/html; q=1.0, text/*; q=0.8, image/gif; q=0.6, image/jpeg; q=0.6, image/*; q=0.5, */*; q=0.1" forHTTPHeaderField:@"Accept"];
+        
+        AFHTTPResponseSerializer *resSerializer = [AFHTTPResponseSerializer serializer];
+        resSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/x-www-form-urlencoded", @"text/html",@"text/plain",@"text/css",@"text/javascript",@"application/json" ,nil];
+        
+        _manager.requestSerializer = reqSerializer;
+        _manager.responseSerializer = resSerializer;
+    }
     
     
-    AFHTTPSessionManager *manager =[[AFHTTPSessionManager alloc] initWithSessionConfiguration:config];
-    AFHTTPRequestSerializer *reqSerializer = [AFHTTPRequestSerializer serializer];
-    [reqSerializer setValue:@"text/html; q=1.0, text/*; q=0.8, image/gif; q=0.6, image/jpeg; q=0.6, image/*; q=0.5, */*; q=0.1" forHTTPHeaderField:@"Accept"];
-    
-    AFHTTPResponseSerializer *resSerializer = [AFHTTPResponseSerializer serializer];
-    resSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/x-www-form-urlencoded", @"text/html",@"text/plain",@"text/css",@"text/javascript",@"application/json" ,nil];
-    
-    manager.requestSerializer = reqSerializer;
-    manager.responseSerializer = resSerializer;
-    
-    return manager;
+    return _manager;
 }
 
 
 - (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail{
+    
     
     NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:serviceType];
     NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,apiName];

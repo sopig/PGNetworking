@@ -96,6 +96,7 @@
                 return 0;
             }
             
+            
             // 实际的网络请求
             if ([self isReachable]) {
                 switch (self.child.requestType)
@@ -103,11 +104,11 @@
                     case PGAPIEntityRequestTypeGet:
                         {
                            NSUInteger REQUEST_ID = [[PGAPIEngine shareInstance] callGETWithParams:apiParams serviceType:self.child.serviceType apiName:self.child.apiName success:^(PGAPIResponse *res) {
-                                
+                               
                                 [self successedOnCallingAPI:res];
-                                
+                    
                             } fail:^(PGAPIResponse *res) {
-                                
+                               
                                 [self failedOnCallingAPI:res withErrorType:res.responseType];
                             }];
                             

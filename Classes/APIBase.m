@@ -63,28 +63,32 @@
 
 //回调
 - (void)doFailed:(PGBaseAPIEntity *)api{
-
-    self.whenFail(api);
-    
+    if (self.whenFail) {
+         self.whenFail(api);
+    }
 }
 
 - (void)doSuccess:(PGBaseAPIEntity *)api{
-    self.whenSuccess(api);
+    if (self.whenSuccess) {
+        self.whenSuccess(api);
+    }
 }
 
 
 - (RACSignal *)sendSignal {
     
-
     @weakify(self);
     RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
+        @weakify(subscriber);
         self.whenSuccess = ^(PGBaseAPIEntity *api){
+            @strongify(subscriber);
             [subscriber sendNext:api];
             [subscriber sendCompleted];
         };
         
         self.whenFail = ^(PGBaseAPIEntity *api){
+             @strongify(subscriber);
             [subscriber sendNext:api];
             [subscriber sendCompleted];
         };
@@ -106,4 +110,8 @@
     return self;
 }
 
+
+- (void)dealloc{
+
+}
 @end
