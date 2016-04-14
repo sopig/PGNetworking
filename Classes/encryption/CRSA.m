@@ -78,7 +78,7 @@
             status = RSA_public_encrypt((int)length, (unsigned char *) input, (unsigned char *) encData, _rsa, PADDING);
             break;
 
-        default:
+        case KeyTypePrivate:
             status = RSA_private_encrypt((int)length, (unsigned char *) input, (unsigned char *) encData, _rsa, PADDING);
             break;
     }
@@ -91,7 +91,6 @@
         NSString *ret = [returnData base64EncodedString];
         return ret;
     }
-
     free(encData);
     encData = NULL;
 

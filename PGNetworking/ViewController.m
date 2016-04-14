@@ -16,6 +16,7 @@
 #import "PGAPIEngine.h"
 
 #import "APIRegion.h"
+#import <FLEXManager.h>
 
 @interface ViewController ()
 
@@ -27,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
    
-    
+//    [[FLEXManager sharedManager] showExplorer];
 //    APIRegion *region = [APIRegion new];
 //    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
 //        NSLog(@"%@",api);
@@ -47,10 +48,19 @@
     
     
     
-    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
-        NSLog(@"%@",x);
+    RACSignal *s = [[APIRegion new] sendSignal];
+    
+    [s subscribeNext:^(id x) {
+        
+        NSLog(@"%@",s);
     }];
-
+    
+    
+//    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
+//        NSLog(@"%@",x);
+//    }];
+    
+    
     
 }
 

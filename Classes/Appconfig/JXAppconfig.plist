@@ -38,17 +38,17 @@
 		<key>JIUZHANG_COLLECTURL</key>
 		<string>http://192.168.5.5:8010/jxclick_collect/collect.htm</string>
 		<key>JXBASE_URL_HOME</key>
-		<string>http://192.168.6.202:8010/JXHome/</string>
+		<string>http://192.168.6.202:8010/JXHome</string>
 		<key>JXBASE_URL_OMS</key>
-		<string>http://192.168.6.202:8020/JXOms/</string>
+		<string>http://192.168.6.202:8020/JXOms</string>
 		<key>JXBASE_URL_PRODUCT</key>
-		<string>http://192.168.6.202:8030/JXProduct/</string>
+		<string>http://192.168.6.202:8030/JXProduct</string>
 		<key>JXBASE_URL_PROMOTION</key>
-		<string>http://192.168.6.202:8040/JXPromotion/</string>
+		<string>http://192.168.6.202:8040/JXPromotion</string>
 		<key>JXBASE_URL_USER</key>
-		<string>http://192.168.6.202:8050/JXUser/</string>
+		<string>http://192.168.6.202:8050/JXUser</string>
 		<key>JXBASE_URL_PAY</key>
-		<string>http://192.168.6.202:8040/JXPromotion/</string>
+		<string>http://192.168.6.202:8040/JXPromotion</string>
 		<key>isENCRPTY</key>
 		<false/>
 	</dict>
@@ -113,17 +113,17 @@
 		<key>JIUZHANG_URL</key>
 		<string>http://shu.jiuxian.com/appInit.htm</string>
 		<key>JXBASE_URL_HOME</key>
-		<string>http://192.168.18.205:8010/JXHome/</string>
+		<string>http://192.168.18.205:8010/JXHome</string>
 		<key>JXBASE_URL_OMS</key>
-		<string>http://192.168.18.232:8010/JXOms/</string>
+		<string>http://192.168.18.232:8010/JXOms</string>
 		<key>JXBASE_URL_PRODUCT</key>
-		<string>http://192.168.18.233:8010/JXProduct/</string>
+		<string>http://192.168.18.233:8010/JXProduct</string>
 		<key>JXBASE_URL_PROMOTION</key>
-		<string>http://192.168.18.234:8010/JXPromotion/</string>
+		<string>http://192.168.18.234:8010/JXPromotion</string>
 		<key>JXBASE_URL_USER</key>
-		<string>http://192.168.18.235:8010/JXUser/</string>
+		<string>http://192.168.18.235:8010/JXUser</string>
 		<key>JXBASE_URL_PAY</key>
-		<string>http://192.168.18.234:8010/JXPromotion/</string>
+		<string>http://192.168.18.234:8010/JXPromotion</string>
 		<key>isENCRPTY</key>
 		<true/>
 	</dict>
@@ -138,17 +138,17 @@
 		<key>JIUZHANG_COLLECTURL</key>
 		<string>http://192.168.5.5:8010/jxclick_collect/collect.htm</string>
 		<key>JXBASE_URL_HOME</key>
-		<string>http://192.168.6.200:8010/JXHome/</string>
+		<string>http://192.168.6.200:8010/JXHome</string>
 		<key>JXBASE_URL_OMS</key>
-		<string>http://192.168.6.200:8010/JXOms/</string>
+		<string>http://192.168.6.200:8010/JXOms</string>
 		<key>JXBASE_URL_PRODUCT</key>
-		<string>http://192.168.6.200:8010/JXProduct/</string>
+		<string>http://192.168.6.200:8010/JXProduct</string>
 		<key>JXBASE_URL_PROMOTION</key>
-		<string>http://192.168.6.200:8010/JXPromotion/</string>
+		<string>http://192.168.6.200:8010/JXPromotion</string>
 		<key>JXBASE_URL_USER</key>
-		<string>http://192.168.6.200:8010/JXUser/</string>
+		<string>http://192.168.6.200:8010/JXUser</string>
 		<key>JXBASE_URL_PAY</key>
-		<string>http://192.168.6.200:8010/JXPromotion/</string>
+		<string>http://192.168.6.200:8010/JXPromotion</string>
 		<key>isENCRPTY</key>
 		<false/>
 	</dict>

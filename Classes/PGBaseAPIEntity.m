@@ -230,17 +230,6 @@
 
 #pragma mark - method for interceptor
 
-/*
- 拦截器的功能可以由子类通过继承实现，也可以由其它对象实现,两种做法可以共存
- 当两种情况共存的时候，子类重载的方法一定要调用一下super
- 然后它们的调用顺序是BaseManager会先调用子类重载的实现，再调用外部interceptor的实现
- 
- notes:
- 正常情况下，拦截器是通过代理的方式实现的，因此可以不需要以下这些代码
- 但是为了将来拓展方便，如果在调用拦截器之前manager又希望自己能够先做一些事情，所以这些方法还是需要能够被继承重载的
- 所有重载的方法，都要调用一下super,这样才能保证外部interceptor能够被调到
- 这就是decorate pattern
- */
 - (void)beforePerformSuccessWithResponse:(PGAPIResponse *)response
 {
     self.errorType = PGAPIEntityResponseTypeSuccess;
@@ -305,8 +294,7 @@
     }
 }
 
-//如果需要在调用API之前额外添加一些参数，比如pageNumber和pageSize之类的就在这里添加
-//子类中覆盖这个函数的时候就不需要调用[super reformParams:params]了
+
 - (NSDictionary *)reformParams:(NSDictionary *)params
 {
     IMP childIMP = [self.child methodForSelector:@selector(reformParams:)];

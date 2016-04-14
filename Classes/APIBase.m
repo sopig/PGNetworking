@@ -11,6 +11,8 @@
 
 @interface APIBase ()
 
+@property (nonatomic , strong) PGBaseAPIEntity *api;
+
 @end
 
 @implementation APIBase
@@ -25,6 +27,7 @@
     }
     return self;
 }
+
 
 - (PGNetworkingServiceType)serviceType {
     return PGNetworkingServiceTypeProduct;
@@ -63,6 +66,7 @@
 
 //回调
 - (void)doFailed:(PGBaseAPIEntity *)api{
+    
     if (self.whenFail) {
          self.whenFail(api);
     }
@@ -77,32 +81,31 @@
 
 - (RACSignal *)sendSignal {
     
-    @weakify(self);
-    RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        @strongify(self);
-        @weakify(subscriber);
+    
+   return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @weakify(self);
+       
         self.whenSuccess = ^(PGBaseAPIEntity *api){
-            @strongify(subscriber);
+            @strongify(self);
             [subscriber sendNext:api];
             [subscriber sendCompleted];
         };
         
         self.whenFail = ^(PGBaseAPIEntity *api){
-             @strongify(subscriber);
-            [subscriber sendNext:api];
+            @strongify(self);
+            [subscriber sendNext:self];
             [subscriber sendCompleted];
         };
         
-         NSInteger requestID = [self loadData];
+        NSInteger requestID = [self loadData];
         
         return [RACDisposable disposableWithBlock:^{
-            
+            @strongify(self);
             [self cancelRequestWithRequestId:requestID];
             
         }];
     }] replayLast];
-    
-    return signal;
+ 
 }
 
 - (APIBase *)send {

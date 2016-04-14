@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - Base64nl (1.2)
+  - FLEX (2.1.1)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/SQLCipher (2.6.2):
@@ -49,6 +50,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Base64nl (~> 1.2)
+  - FLEX
   - NetworkEye (~> 0.9.9)
   - OpenSSL-Universal (~> 1.0.1.18)
   - PGNetworking (from `./PGNetworking.podspec`)
@@ -63,6 +65,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
+  FLEX: 27b768fcae23a313a1eb115076d429180ca9b472
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   NetworkEye: 2e867ec61a4da483f620617893e2c86e069a73b6
   OpenSSL-Universal: 79fd751a7b4db41f5b430e767c9bbf681b5c8330

@@ -12,8 +12,8 @@
 @interface APIBase : PGBaseAPIEntity<PGAPIEntity,PGAPIResponseDelegate,PGAPIResponseDataReformer,PGAPIParamsDataSource,PGAPIValidator,PGApiInterceptor>
 
 //请求落地的回调
-@property (nonatomic ,strong) void (^whenSuccess)(PGBaseAPIEntity *api);
-@property (nonatomic ,strong) void (^whenFail)(PGBaseAPIEntity *api);
+@property (nonatomic ,copy) void (^whenSuccess)(PGBaseAPIEntity *api);
+@property (nonatomic ,copy) void (^whenFail)(PGBaseAPIEntity *api);
 
 
 
