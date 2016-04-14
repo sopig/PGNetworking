@@ -46,7 +46,9 @@
     [self.view addSubview:button];
     [button addTarget:self action:@selector(handleTestClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [[APIRegion new] sendSignal];
+//    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
+//        
+//    }];
     
 }
 

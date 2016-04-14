@@ -81,7 +81,7 @@
     
     NSAssert(0, @"这个方法会造成循环引用的问题，暂不能使用");
     
-   return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @weakify(self);
     
     
