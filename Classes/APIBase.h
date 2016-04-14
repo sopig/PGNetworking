@@ -36,7 +36,7 @@
 
 //取数据
 - (NSDictionary *)fetchData;
-- (id)fetchModel;
+//- (id)fetchModel;
 //请求起飞
 - (APIBase *)send;
 

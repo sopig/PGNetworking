@@ -1,4 +1,4 @@
-source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
+#source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
 
 inhibit_all_warnings!
 

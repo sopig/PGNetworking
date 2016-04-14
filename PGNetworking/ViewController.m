@@ -19,6 +19,7 @@
 #import <FLEXManager.h>
 
 #import "PGBaseModel.h"
+#import "regionModel.h"
 
 @interface ViewController ()
 
@@ -34,10 +35,10 @@
     APIRegion *region = [APIRegion new];
     region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
         
-        PGBaseModel *model = [PGBaseModel new];
-        [model yy_modelSetWithDictionary:[api fetchData]];
+        regionModel *m = [api fetchDataWithReformer:api];
         
-        NSLog(@"%@",[api fetchData]);
+        NSLog(@"");
+ 
     };
     region.whenFail = ^(__kindof PGBaseAPIEntity *api){
         NSLog(@"%@",api);

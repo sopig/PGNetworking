@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@interface result : NSObject
+
+@end
+
+
 @interface PGBaseModel : NSObject
 
 @property (nonatomic , strong) NSString *errCode;

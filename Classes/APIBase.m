@@ -114,9 +114,9 @@
 }
 
 
-- (id)fetchModel {
-    return [self fetchDataWithReformer:self];
-}
+//- (id)fetchModel {
+//    return [self fetchDataWithReformer:self];
+//}
 
 - (void)dealloc{
 

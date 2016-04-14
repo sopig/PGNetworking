@@ -7,7 +7,16 @@
 //
 
 #import "APIRegion.h"
-
+#import "regionModel.h"
 @implementation APIRegion
+
+
+- (id)api:(PGBaseAPIEntity *)api reformData:(NSDictionary *)data{
+    
+    regionModel *model = [regionModel yy_modelWithDictionary:data];
+    
+    return model;
+    
+}
 
 @end

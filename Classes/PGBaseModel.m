@@ -8,6 +8,10 @@
 
 #import "PGBaseModel.h"
 
+@implementation result
+
+@end
+
 @implementation PGBaseModel
 
 @end
