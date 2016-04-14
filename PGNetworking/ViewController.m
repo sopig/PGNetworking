@@ -18,6 +18,8 @@
 #import "APIRegion.h"
 #import <FLEXManager.h>
 
+#import "PGBaseModel.h"
+
 @interface ViewController ()
 
 @end
@@ -29,14 +31,18 @@
     // Do any additional setup after loading the view, typically from a nib.
    
 //    [[FLEXManager sharedManager] showExplorer];
-//    APIRegion *region = [APIRegion new];
-//    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
-//        NSLog(@"%@",[api fetchData]);
-//    };
-//    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
-//        NSLog(@"%@",api);
-//    };
-//    [region send];
+    APIRegion *region = [APIRegion new];
+    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+        
+        PGBaseModel *model = [PGBaseModel new];
+        [model yy_modelSetWithDictionary:[api fetchData]];
+        
+        NSLog(@"%@",[api fetchData]);
+    };
+    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
+        NSLog(@"%@",api);
+    };
+    [region send];
     
     UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(100, 100, 100, 100);

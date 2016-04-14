@@ -351,6 +351,7 @@
     return resultData;
 }
 
+
 - (NSDictionary *)fetchData{
     return [self.fetchedRawData copy];
 }

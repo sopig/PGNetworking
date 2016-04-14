@@ -70,6 +70,7 @@
 }
 
 - (void)doSuccess:(PGBaseAPIEntity *)api{
+
     if (self.whenSuccess) {
         self.whenSuccess(api);
     }
@@ -79,11 +80,10 @@
 - (RACSignal *)sendSignal {
     
     
-    NSAssert(0, @"这个方法会造成循环引用的问题，暂不能使用");
+    NSAssert(0, @"sendSignal方法会造成循环引用的问题，暂不能使用");
     
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @weakify(self);
-    
     
         self.whenSuccess = ^(PGBaseAPIEntity *api){
             @strongify(self);
@@ -113,6 +113,10 @@
     return self;
 }
 
+
+- (id)fetchModel {
+    return [self fetchDataWithReformer:self];
+}
 
 - (void)dealloc{
 
