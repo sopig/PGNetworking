@@ -11,8 +11,6 @@
 
 @interface APIBase ()
 
-@property (nonatomic , strong) PGBaseAPIEntity *api;
-
 @end
 
 @implementation APIBase
@@ -23,6 +21,7 @@
         self.paramSource = self;
         self.child = self;
         self.interceptor = self;
+        
         
     }
     return self;
@@ -59,14 +58,12 @@
 
 //数据转化为model
 - (id)api:(PGBaseAPIEntity *)api reformData:(NSDictionary *)data {
-    
-    return [NSObject new];
-    
+    id y = @"hello";
+    return y;
 }
 
 //回调
 - (void)doFailed:(PGBaseAPIEntity *)api{
-    
     if (self.whenFail) {
          self.whenFail(api);
     }
@@ -82,9 +79,12 @@
 - (RACSignal *)sendSignal {
     
     
+    NSAssert(0, @"这个方法会造成循环引用的问题，暂不能使用");
+    
    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @weakify(self);
-       
+    
+    
         self.whenSuccess = ^(PGBaseAPIEntity *api){
             @strongify(self);
             [subscriber sendNext:api];
@@ -96,7 +96,7 @@
             [subscriber sendNext:self];
             [subscriber sendCompleted];
         };
-        
+       
         NSInteger requestID = [self loadData];
         
         return [RACDisposable disposableWithBlock:^{

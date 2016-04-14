@@ -199,9 +199,9 @@
 - (void)successedOnCallingAPI:(PGAPIResponse *)response
 {
     if (response.contentString) {
-        self.fetchedRawData = [response.contentString copy];
+        self.fetchedRawData = [[response.contentString toDictionary] copy];
     } else {
-        self.fetchedRawData = [response.contentString copy];
+        self.fetchedRawData = [[response.contentString toDictionary] copy];
     }
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
@@ -349,6 +349,10 @@
         resultData = [self.fetchedRawData mutableCopy];
     }
     return resultData;
+}
+
+- (NSDictionary *)fetchData{
+    return [self.fetchedRawData copy];
 }
 
 

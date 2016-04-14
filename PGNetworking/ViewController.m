@@ -31,7 +31,7 @@
 //    [[FLEXManager sharedManager] showExplorer];
 //    APIRegion *region = [APIRegion new];
 //    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
-//        NSLog(@"%@",api);
+//        NSLog(@"%@",[api fetchData]);
 //    };
 //    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
 //        NSLog(@"%@",api);
@@ -46,21 +46,7 @@
     [self.view addSubview:button];
     [button addTarget:self action:@selector(handleTestClick) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    
-    RACSignal *s = [[APIRegion new] sendSignal];
-    
-    [s subscribeNext:^(id x) {
-        
-        NSLog(@"%@",s);
-    }];
-    
-    
-//    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
-//        NSLog(@"%@",x);
-//    }];
-    
-    
+    [[APIRegion new] sendSignal];
     
 }
 

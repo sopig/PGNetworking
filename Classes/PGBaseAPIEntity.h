@@ -85,8 +85,8 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 
 @required
 
-- (void)doSuccess:(PGBaseAPIEntity *_Nonnull)api;
-- (void)doFailed:(PGBaseAPIEntity *_Nonnull)api;
+- (void)doSuccess:(__kindof PGBaseAPIEntity *_Nonnull)api;
+- (void)doFailed:(__kindof PGBaseAPIEntity *_Nonnull)api;
 
 @end
 
@@ -157,6 +157,8 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
+
+- (NSDictionary *)fetchData;
 
 - (id _Nullable)fetchDataWithReformer:(id<PGAPIResponseDataReformer> _Nullable)reformer;
 
