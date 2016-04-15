@@ -8,7 +8,7 @@
 
 #import "APIBase.h"
 #import "ReactiveCocoa.h"
-
+#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
 @interface APIBase ()
 
 @end
@@ -80,15 +80,25 @@
 - (RACSignal *)sendSignal {
     
     
-    NSAssert(0, @"sendSignal方法会造成循环引用的问题，暂不能使用");
-    
-    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        @weakify(self);
-    
+//    NSAssert(0, @"sendSignal方法会造成循环引用的问题，暂不能使用");
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        
         self.whenSuccess = ^(PGBaseAPIEntity *api){
             @strongify(self);
             [subscriber sendNext:api];
             [subscriber sendCompleted];
+            
+            
+            FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
+            [detector addCandidate:subscriber];
+            NSSet *retainCycles = [detector findRetainCycles];
+            NSLog(@"%@", retainCycles);
+            
+            
+    
+            
         };
         
         self.whenFail = ^(PGBaseAPIEntity *api){
@@ -104,7 +114,7 @@
             [self cancelRequestWithRequestId:requestID];
             
         }];
-    }] replayLast];
+    }];
  
 }
 

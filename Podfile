@@ -1,8 +1,8 @@
-#source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
+source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
 
 inhibit_all_warnings!
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 
 target 'PGNetworking' do
 
@@ -27,5 +27,9 @@ pod 'OpenSSL-Universal', '~> 1.0.1.18'
 pod 'PGNetworking', :path => './PGNetworking.podspec'
 
 pod 'FLEX'
+
+pod 'FBRetainCycleDetector', :git => "https://github.com/facebook/FBRetainCycleDetector.git"
+
+
 end
 

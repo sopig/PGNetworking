@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - Base64nl (1.2)
+  - FBRetainCycleDetector (0.1.1)
   - FLEX (2.1.1)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
@@ -50,6 +51,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Base64nl (~> 1.2)
+  - FBRetainCycleDetector (from `https://github.com/facebook/FBRetainCycleDetector.git`)
   - FLEX
   - NetworkEye (~> 0.9.9)
   - OpenSSL-Universal (~> 1.0.1.18)
@@ -59,12 +61,20 @@ DEPENDENCIES:
   - YYModel
 
 EXTERNAL SOURCES:
+  FBRetainCycleDetector:
+    :git: https://github.com/facebook/FBRetainCycleDetector.git
   PGNetworking:
     :path: "./PGNetworking.podspec"
+
+CHECKOUT OPTIONS:
+  FBRetainCycleDetector:
+    :commit: 63df633f19e5085e0c6c2c1366bdd14e0d421a21
+    :git: https://github.com/facebook/FBRetainCycleDetector.git
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
+  FBRetainCycleDetector: 2f5eede420492607df2bee1807887383b9887109
   FLEX: 27b768fcae23a313a1eb115076d429180ca9b472
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   NetworkEye: 2e867ec61a4da483f620617893e2c86e069a73b6
@@ -75,6 +85,4 @@ SPEC CHECKSUMS:
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
 
-PODFILE CHECKSUM: 339faac22ae03fad0b19523d36913860a1148cdd
-
-COCOAPODS: 1.0.0.beta.2
+COCOAPODS: 0.39.0

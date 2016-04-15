@@ -21,6 +21,7 @@
 #import "PGBaseModel.h"
 #import "regionModel.h"
 
+
 @interface ViewController ()
 
 @end
@@ -32,18 +33,18 @@
     // Do any additional setup after loading the view, typically from a nib.
    
 //    [[FLEXManager sharedManager] showExplorer];
-    APIRegion *region = [APIRegion new];
-    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
-        
-        regionModel *m = [api fetchDataWithReformer:api];
-        
-        NSLog(@"");
- 
-    };
-    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
-        NSLog(@"%@",api);
-    };
-    [region send];
+//    APIRegion *region = [APIRegion new];
+//    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+//        
+//        regionModel *m = [api fetchDataWithReformer:api];
+//        
+//        NSLog(@"");
+// 
+//    };
+//    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
+//        NSLog(@"%@",api);
+//    };
+//    [region send];
     
     UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(100, 100, 100, 100);
@@ -53,9 +54,17 @@
     [self.view addSubview:button];
     [button addTarget:self action:@selector(handleTestClick) forControlEvents:UIControlEventTouchUpInside];
     
-//    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
-//        
-//    }];
+    
+    
+    
+    
+    [[[APIRegion new] sendSignal]subscribeNext:^(id x) {
+        
+    }];
+    
+   
+    
+    
     
 }
 
