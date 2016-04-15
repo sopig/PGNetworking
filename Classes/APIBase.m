@@ -79,14 +79,13 @@
 
 - (RACSignal *)sendSignal {
     
-    
 //    NSAssert(0, @"sendSignal方法会造成循环引用的问题，暂不能使用");
-    @weakify(self);
+
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         
         self.whenSuccess = ^(PGBaseAPIEntity *api){
-            @strongify(self);
+
             [subscriber sendNext:api];
             [subscriber sendCompleted];
             
@@ -97,20 +96,18 @@
             NSLog(@"%@", retainCycles);
             
             
-    
-            
         };
         
         self.whenFail = ^(PGBaseAPIEntity *api){
-            @strongify(self);
-            [subscriber sendNext:self];
+            
+            [subscriber sendNext:api];
             [subscriber sendCompleted];
         };
        
         NSInteger requestID = [self loadData];
         
         return [RACDisposable disposableWithBlock:^{
-            @strongify(self);
+          
             [self cancelRequestWithRequestId:requestID];
             
         }];

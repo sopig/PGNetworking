@@ -58,8 +58,8 @@
     
     
     
-    [[[APIRegion new] sendSignal]subscribeNext:^(id x) {
-        
+    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
+        NSLog(@"zz");
     }];
     
    
