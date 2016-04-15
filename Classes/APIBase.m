@@ -8,7 +8,7 @@
 
 #import "APIBase.h"
 #import "ReactiveCocoa.h"
-#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
+//#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
 @interface APIBase ()
 
 @end
@@ -88,12 +88,6 @@
 
             [subscriber sendNext:api];
             [subscriber sendCompleted];
-            
-            
-            FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
-            [detector addCandidate:subscriber];
-            NSSet *retainCycles = [detector findRetainCycles];
-            NSLog(@"%@", retainCycles);
             
             
         };

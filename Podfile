@@ -1,4 +1,4 @@
-source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
+#source 'ssh://git@gitlab.9ijx.com:9830/iOS/Specs.git'
 
 inhibit_all_warnings!
 
@@ -20,15 +20,15 @@ pod 'YYModel'
 
 pod 'Base64nl', '~> 1.2'
 
-pod 'NetworkEye', '~> 0.9.9'
+#pod 'NetworkEye', '~> 0.9.9'
 
 pod 'OpenSSL-Universal', '~> 1.0.1.18'
 
 pod 'PGNetworking', :path => './PGNetworking.podspec'
 
-pod 'FLEX'
+#pod 'FLEX'
 
-pod 'FBRetainCycleDetector', :git => "https://github.com/facebook/FBRetainCycleDetector.git"
+#pod 'FBRetainCycleDetector', :git => "https://github.com/facebook/FBRetainCycleDetector.git"
 
 
 end
