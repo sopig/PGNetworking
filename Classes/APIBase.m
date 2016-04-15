@@ -76,11 +76,10 @@
     }
 }
 
-
 - (RACSignal *)sendSignal {
     
 //    NSAssert(0, @"sendSignal方法会造成循环引用的问题，暂不能使用");
-
+    
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         
@@ -115,9 +114,9 @@
 }
 
 
-//- (id)fetchModel {
-//    return [self fetchDataWithReformer:self];
-//}
+- (id)fetchModel{
+    return  [self fetchDataWithReformer:self];
+}
 
 - (void)dealloc{
 

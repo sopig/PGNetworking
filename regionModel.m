@@ -10,4 +10,9 @@
 
 @implementation regionModel
 
+
+- (void)dealloc {
+    
+}
+
 @end

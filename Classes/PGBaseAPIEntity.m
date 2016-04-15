@@ -41,6 +41,10 @@
     return _requestIdList;
 }
 
+- (PGAPIEntityResponseType)responseType {
+    return self.errorType;
+}
+
 - (BOOL)isReachable {
     BOOL isReachable = [PGNetworkingReachability isReachable];
     if (!isReachable) {

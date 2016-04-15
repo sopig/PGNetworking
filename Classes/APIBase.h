@@ -36,11 +36,11 @@
 
 //取数据
 - (NSDictionary *)fetchData;
-//- (id)fetchModel;
+
+- (id)fetchModel;
 //请求起飞
 - (APIBase *)send;
 
 - (RACSignal *)sendSignal; PGDeprecated("sendSignal方法会造成循环引用的问题，暂不能使用");
-
 
 @end

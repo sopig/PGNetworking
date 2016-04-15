@@ -32,7 +32,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
    
-//    [[FLEXManager sharedManager] showExplorer];
 //    APIRegion *region = [APIRegion new];
 //    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
 //        
@@ -55,13 +54,31 @@
     [button addTarget:self action:@selector(handleTestClick) forControlEvents:UIControlEventTouchUpInside];
     
     
-    
-    
-    
-    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
-        NSLog(@"zz");
+    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
+        NSLog(@"%@",x);
     }];
     
+    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
+        NSLog(@"%@",x);
+    }];
+    
+    
+    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
+       NSLog(@"%@",x);
+    }];
+    
+    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
+        NSLog(@"%@",x);
+    }];
+    
+    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
+        NSLog(@"%@",x);
+    }];
+    
+    
+    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
+        NSLog(@"%@",x);
+    }];
    
     
     

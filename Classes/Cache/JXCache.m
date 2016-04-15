@@ -111,10 +111,4 @@
     [self putObject:responseData forKey:key];
 }
 
-
-- (NSString *)keyWithServiceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName requestParams:(NSDictionary *)requestParams
-{
-    return @"sKey";
-}
-
 @end

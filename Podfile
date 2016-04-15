@@ -2,7 +2,7 @@
 
 inhibit_all_warnings!
 
-platform :ios, '8.0'
+platform :ios, '7.0'
 
 target 'PGNetworking' do
 
