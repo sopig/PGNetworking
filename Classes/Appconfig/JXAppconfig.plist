@@ -4,39 +4,27 @@
 <dict>
 	<key>server_testApphome</key>
 	<dict>
-		<key>JIUZHANG_YONGHU</key>
-		<string>http://shu.jiuxian.com/mpushData.htm</string>
-		<key>JIUZHANG_LOGINURL</key>
-		<string>http://shu.jiuxian.com/appExit.htm</string>
-		<key>JIUZHANG_URL</key>
-		<string>http://shu.jiuxian.com/appInit.htm</string>
-		<key>JIUZHANG_COLLECTURL</key>
-		<string>http://shu.jiuxian.com/collect.htm</string>
+		<key>JXBASE_URL_JIUZHANG</key>
+		<string>http://shu.jiuxian.com</string>
 		<key>JXBASE_URL_HOME</key>
-		<string>http://testapphome.jiuxian.com/</string>
+		<string>http://testapphome.jiuxian.com</string>
 		<key>JXBASE_URL_OMS</key>
-		<string>http://testappoms.jiuxian.com/</string>
+		<string>http://testappoms.jiuxian.com</string>
 		<key>JXBASE_URL_PRODUCT</key>
-		<string>http://testappproduct.jiuxian.com/</string>
+		<string>http://testappproduct.jiuxian.com</string>
 		<key>JXBASE_URL_PROMOTION</key>
-		<string>http://testapppromotion.jiuxian.com/</string>
+		<string>http://testapppromotion.jiuxian.com</string>
 		<key>JXBASE_URL_USER</key>
-		<string>http://testappuser.jiuxian.com/</string>
+		<string>http://testappuser.jiuxian.com</string>
 		<key>JXBASE_URL_PAY</key>
-		<string>http://testapppromotion.jiuxian.com/</string>
+		<string>http://testapppromotion.jiuxian.com</string>
 		<key>isENCRPTY</key>
 		<true/>
 	</dict>
 	<key>server_qa</key>
 	<dict>
-		<key>JIUZHANG_YONGHU</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/mpushData.htm</string>
-		<key>JIUZHANG_LOGINURL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/appExit.htm</string>
-		<key>JIUZHANG_URL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/appInit.htm</string>
-		<key>JIUZHANG_COLLECTURL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/collect.htm</string>
+		<key>JXBASE_URL_JIUZHANG</key>
+		<string>http://192.168.5.5:8010</string>
 		<key>JXBASE_URL_HOME</key>
 		<string>http://192.168.6.202:8010/JXHome</string>
 		<key>JXBASE_URL_OMS</key>
@@ -54,39 +42,27 @@
 	</dict>
 	<key>server_developer</key>
 	<dict>
-		<key>JIUZHANG_YONGHU</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/mpushData.htm</string>
-		<key>JIUZHANG_LOGINURL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/appExit.htm</string>
-		<key>JIUZHANG_URL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/appInit.htm</string>
-		<key>JIUZHANG_COLLECTURL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/collect.htm</string>
+		<key>JXBASE_URL_JIUZHANG</key>
+		<string>http://192.168.5.5:8010</string>
 		<key>JXBASE_URL_HOME</key>
-		<string>http://192.168.6.201:8010/JXHome/</string>
+		<string>http://192.168.6.201:8010/JXHome</string>
 		<key>JXBASE_URL_OMS</key>
-		<string>http://192.168.6.201:8020/JXOms/</string>
+		<string>http://192.168.6.201:8020/JXOms</string>
 		<key>JXBASE_URL_PRODUCT</key>
-		<string>http://192.168.6.201:8030/JXProduct/</string>
+		<string>http://192.168.6.201:8030/JXProduct</string>
 		<key>JXBASE_URL_PROMOTION</key>
-		<string>http://192.168.6.201:8040/JXPromotion/</string>
+		<string>http://192.168.6.201:8040/JXPromotion</string>
 		<key>JXBASE_URL_USER</key>
-		<string>http://192.168.6.201:8050/JXUser/</string>
+		<string>http://192.168.6.201:8050/JXUser</string>
 		<key>JXBASE_URL_PAY</key>
-		<string>http://192.168.6.201:8040/JXPromotion/</string>
+		<string>http://192.168.6.201:8040/JXPromotion</string>
 		<key>isENCRPTY</key>
 		<false/>
 	</dict>
 	<key>server_online</key>
 	<dict>
-		<key>JIUZHANG_YONGHU</key>
-		<string>http://shu.jiuxian.com/mpushData.htm</string>
-		<key>JIUZHANG_LOGINURL</key>
-		<string>http://shu.jiuxian.com/appExit.htm</string>
-		<key>JIUZHANG_URL</key>
-		<string>http://shu.jiuxian.com/appInit.htm</string>
-		<key>JIUZHANG_COLLECTURL</key>
-		<string>http://shu.jiuxian.com/collect.htm</string>
+		<key>JXBASE_URL_JIUZHANG</key>
+		<string>http://shu.jiuxian.com</string>
 		<key>JXBASE_URL_HOME</key>
 		<string>http://apphome.jiuxian.com</string>
 		<key>JXBASE_URL_OMS</key>
@@ -104,14 +80,8 @@
 	</dict>
 	<key>server_gray</key>
 	<dict>
-		<key>JIUZHANG_YONGHU</key>
-		<string>http://shu.jiuxian.com/mpushData.htm</string>
-		<key>JIUZHANG_LOGINURL</key>
-		<string>http://shu.jiuxian.com/appExit.htm</string>
-		<key>JIUZHANG_COLLECTURL</key>
-		<string>http://shu.jiuxian.com/collect.htm</string>
-		<key>JIUZHANG_URL</key>
-		<string>http://shu.jiuxian.com/appInit.htm</string>
+		<key>JXBASE_URL_JIUZHANG</key>
+		<string>http://shu.jiuxian.com</string>
 		<key>JXBASE_URL_HOME</key>
 		<string>http://192.168.18.205:8010/JXHome</string>
 		<key>JXBASE_URL_OMS</key>
@@ -129,14 +99,8 @@
 	</dict>
 	<key>server_reserve</key>
 	<dict>
-		<key>JIUZHANG_YONGHU</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/mpushData.htm</string>
-		<key>JIUZHANG_LOGINURL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/appExit.htm</string>
-		<key>JIUZHANG_URL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/appInit.htm</string>
-		<key>JIUZHANG_COLLECTURL</key>
-		<string>http://192.168.5.5:8010/jxclick_collect/collect.htm</string>
+		<key>JXBASE_URL_JIUZHANG</key>
+		<string>http://192.168.5.5:8010</string>
 		<key>JXBASE_URL_HOME</key>
 		<string>http://192.168.6.200:8010/JXHome</string>
 		<key>JXBASE_URL_OMS</key>
