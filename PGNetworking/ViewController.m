@@ -55,30 +55,10 @@
     
     
     [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
-        NSLog(@"%@",x);
+        NSLog(@"%@",[[x fetchModel] class]);
     }];
     
-    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
-        NSLog(@"%@",x);
-    }];
-    
-    
-    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
-       NSLog(@"%@",x);
-    }];
-    
-    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
-        NSLog(@"%@",x);
-    }];
-    
-    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
-        NSLog(@"%@",x);
-    }];
-    
-    
-    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
-        NSLog(@"%@",x);
-    }];
+   
    
     
     

@@ -41,7 +41,7 @@
 }
 
 - (NSDictionary *)paramsForApi:(PGBaseAPIEntity *)api{
-    return nil;
+    return [@{@"test":@"hello PGNetworking"} copy];
 }
 
 
@@ -58,8 +58,7 @@
 
 //数据转化为model
 - (id)api:(PGBaseAPIEntity *)api reformData:(NSDictionary *)data {
-    id y = @"hello";
-    return y;
+    return @"hello PGNetworking";
 }
 
 //回调
