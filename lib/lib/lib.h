@@ -10,7 +10,6 @@
 
 @interface lib : NSObject
 
-
-+ (void)print;
++ (void)copyRight;
 
 @end

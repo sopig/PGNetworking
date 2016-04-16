@@ -10,8 +10,8 @@
 
 @implementation lib
 
-+ (void)print{
-    NSLog(@"hello world");
++ (void)copyRight{
+    NSLog(@"\n=========PGNetworking============\n   sopig.cn 20160415\n=========PGNetworking============\n");
 }
 
 @end

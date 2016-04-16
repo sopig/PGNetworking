@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "JXAppConfigSurport.h"
 #import "ViewController.h"
+#import <lib.h>
 @interface AppDelegate ()
 
 @end
@@ -18,6 +19,7 @@
 + (void)load {
     [super load];
     [[JXAppConfigSurport surport] setDefaultHostDomain];
+    [lib copyRight];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
