@@ -20,7 +20,7 @@
 
 #import "PGBaseModel.h"
 #import "regionModel.h"
-
+#import <lib.h>
 
 @interface ViewController ()
 
@@ -56,6 +56,7 @@
     
     [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
         NSLog(@"%@",[[x fetchModel] class]);
+        [lib print];
     }];
     
    
