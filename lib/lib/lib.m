@@ -11,7 +11,7 @@
 @implementation lib
 
 + (void)copyRight{
-    NSLog(@"\n=========PGNetworking============\n   sopig.cn 20160415\n=========PGNetworking============\n");
+    NSLog(@"\n=========PGNetworking============\n\n   sopig.cn 20160415\n\n=========PGNetworking============\n");
 }
 
 @end

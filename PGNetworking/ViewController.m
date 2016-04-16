@@ -56,6 +56,7 @@
     
     [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
         NSLog(@"%@",[[x fetchModel] class]);
+        [lib copyRight];
     }];
     
    
