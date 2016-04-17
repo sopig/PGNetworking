@@ -9,7 +9,7 @@
 #import "PGBaseAPIEntity.h"
 
 
-#define PGDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)
+#define PGDeprecated(instead) NS_DEPRECATED_IOS(2_0, 2_0, instead)
 
 @interface APIBase : PGBaseAPIEntity<PGAPIEntity,PGAPIResponseDelegate,PGAPIResponseDataReformer,PGAPIParamsDataSource,PGAPIValidator,PGApiInterceptor>
 
@@ -41,6 +41,5 @@
 //请求起飞
 - (APIBase *)send;
 
-- (RACSignal *)sendSignal; PGDeprecated("sendSignal方法会造成循环引用的问题，暂不能使用");
-
+- (RACSignal *)sendSignal;
 @end

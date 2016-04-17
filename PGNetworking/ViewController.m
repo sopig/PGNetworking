@@ -59,7 +59,9 @@
         [lib copyRight];
     }];
     
-   
+    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
+        
+    }];
    
     
     
