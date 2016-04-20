@@ -4,6 +4,8 @@
 <dict>
 	<key>server_testApphome</key>
 	<dict>
+		<key>description</key>
+		<string>部分节点挂载</string>
 		<key>JXBASE_URL_JIUZHANG</key>
 		<string>http://shu.jiuxian.com</string>
 		<key>JXBASE_URL_HOME</key>
@@ -23,6 +25,8 @@
 	</dict>
 	<key>server_qa</key>
 	<dict>
+		<key>description</key>
+		<string>测试【QA】</string>
 		<key>JXBASE_URL_JIUZHANG</key>
 		<string>http://192.168.5.5:8010</string>
 		<key>JXBASE_URL_HOME</key>
@@ -42,6 +46,8 @@
 	</dict>
 	<key>server_developer</key>
 	<dict>
+		<key>description</key>
+		<string>开发【develop】</string>
 		<key>JXBASE_URL_JIUZHANG</key>
 		<string>http://192.168.5.5:8010</string>
 		<key>JXBASE_URL_HOME</key>
@@ -61,6 +67,8 @@
 	</dict>
 	<key>server_online</key>
 	<dict>
+		<key>description</key>
+		<string>生产【product】</string>
 		<key>JXBASE_URL_JIUZHANG</key>
 		<string>http://shu.jiuxian.com</string>
 		<key>JXBASE_URL_HOME</key>
@@ -80,6 +88,8 @@
 	</dict>
 	<key>server_gray</key>
 	<dict>
+		<key>description</key>
+		<string>灰度【beta_alpha】</string>
 		<key>JXBASE_URL_JIUZHANG</key>
 		<string>http://shu.jiuxian.com</string>
 		<key>JXBASE_URL_HOME</key>
@@ -99,6 +109,8 @@
 	</dict>
 	<key>server_reserve</key>
 	<dict>
+		<key>description</key>
+		<string>保留【reserve】</string>
 		<key>JXBASE_URL_JIUZHANG</key>
 		<string>http://192.168.5.5:8010</string>
 		<key>JXBASE_URL_HOME</key>
