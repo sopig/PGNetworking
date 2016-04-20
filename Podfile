@@ -25,7 +25,7 @@ pod 'Base64nl', '~> 1.2'
 pod 'OpenSSL-Universal', '~> 1.0.1.18'
 
 pod 'PGNetworking', :path => './PGNetworking.podspec'
-
+pod 'PGAppconfig' , :git => "https://github.com/sopig/PGAppconfig.git"
 #pod 'FLEX'
 
 #pod 'FBRetainCycleDetector', :git => "https://github.com/facebook/FBRetainCycleDetector.git"
