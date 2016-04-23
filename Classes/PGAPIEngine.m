@@ -136,7 +136,7 @@
         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
         apiResponse.responseData = responseObject;
         apiResponse.content = responseObject;
-        apiResponse.contentString = [resDic yy_modelToJSONString];
+        apiResponse.contentString = [resDic mj_JSONString];
         apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
         
         APILog(apiResponse);
@@ -237,7 +237,7 @@
          apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
          apiResponse.responseData = responseObject;
          apiResponse.content = responseObject;
-         apiResponse.contentString = [resDic yy_modelToJSONString];
+         apiResponse.contentString = [resDic mj_JSONString];
          apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
          
          APILog(apiResponse);

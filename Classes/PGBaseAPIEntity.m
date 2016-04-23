@@ -166,7 +166,7 @@
        
        PGAPIResponse *response = [PGAPIResponse new];
         response.content = [result copy];
-        response.contentString = [result yy_modelToJSONString];
+        response.contentString = [result mj_JSONString];
         response.isCache = YES;
         
         APILog(response);
@@ -369,7 +369,7 @@
     NSMutableDictionary *mDic = [[JXCommonParamsGenerator commonParamsDictionary] mutableCopy];
     [mDic addEntriesFromDictionary:[self.paramSource paramsForApi:self]];
     
-    NSString *paramsString = [mDic yy_modelToJSONString];
+    NSString *paramsString = [mDic mj_JSONString];
     
     return [NSString stringWithFormat:@"%@%@",baseUrl,[paramsString urlEncoding]];
 }

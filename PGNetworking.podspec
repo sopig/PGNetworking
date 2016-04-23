@@ -82,5 +82,6 @@ Pod::Spec.new do |s|
   s.dependency "ReactiveCocoa", "=2.5"
   s.dependency "YTKKeyValueStore"
   s.dependency "Base64nl" 
+  s.dependency "MJExtension"
   s.dependency "OpenSSL-Universal", "~> 1.0.1.18"
 end

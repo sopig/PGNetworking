@@ -12,8 +12,7 @@
 #import <ReactiveCocoa.h>
 #import <AFNetworking.h>
 #import <YTKKeyValueStore.h>
-#import <YYModel.h>
-
+#import <MJExtension.h>
 #import "PGNetworkingReachability.h"
 #import "PGNetworkingConfig.h"
 #import "PGNetwokingType.h"

@@ -13,7 +13,8 @@
 
 - (id)api:(PGBaseAPIEntity *)api reformData:(NSDictionary *)data{
     
-    regionModel *model = [regionModel yy_modelWithDictionary:data];
+    regionModel *model = [[regionModel new] mj_setKeyValues:data];
+ 
     
     return model;
     
