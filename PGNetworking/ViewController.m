@@ -32,18 +32,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
    
-//    APIRegion *region = [APIRegion new];
-//    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
-//        
-//        regionModel *m = [api fetchDataWithReformer:api];
-//        
-//        NSLog(@"");
-// 
-//    };
-//    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
-//        NSLog(@"%@",api);
-//    };
-//    [region send];
+    APIRegion *region = [APIRegion new];
+   [region paramsForApiWithParams:^NSDictionary *{
+       return @{};
+   }];
+    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+        
+        regionModel *m = [api fetchDataWithReformer:api];
+        
+        NSLog(@"");
+ 
+    };
+    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
+        NSLog(@"%@",api);
+    };
+    [region send];
     
     UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(100, 100, 100, 100);

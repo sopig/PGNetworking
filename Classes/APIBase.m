@@ -11,6 +11,8 @@
 //#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
 @interface APIBase ()
 
+@property (nonatomic, copy) NSDictionary *(^apiParams)(void);
+
 @end
 
 @implementation APIBase
@@ -45,8 +47,16 @@
     return PGAPIEntityRequestTypeGet;
 }
 
+-(APIBase *)paramsForApiWithParams:(NSDictionary *(^)(void))block{
+    self.apiParams = block;
+    return self;
+}
+
 - (NSDictionary *)paramsForApi:(PGBaseAPIEntity *)api{
-    return [@{@"test":@"hello PGNetworking"} copy];
+    if (self.apiParams) {
+        return self.apiParams();
+    }
+    return nil;
 }
 
 

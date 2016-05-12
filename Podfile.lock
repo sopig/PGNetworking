@@ -24,6 +24,7 @@ PODS:
   - PGNetworking (0.0.1):
     - AFNetworking (~> 3.0.4)
     - Base64nl
+    - MJExtension
     - OpenSSL-Universal (~> 1.0.1.18)
     - ReactiveCocoa (= 2.5)
     - YTKKeyValueStore
@@ -65,7 +66,7 @@ SPEC CHECKSUMS:
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   OpenSSL-Universal: 79fd751a7b4db41f5b430e767c9bbf681b5c8330
   PGAppconfig: c9f12f596104411b95cee9497b9822a02db8bdf4
-  PGNetworking: 8be83fa6248d610d33e9415a0e047f2e884f6948
+  PGNetworking: 34b6ba3f30f1f7aa1e751464d965aa5f57095507
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
 

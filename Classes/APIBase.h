@@ -21,6 +21,8 @@
 
 - (PGNetworkingServiceType)serviceType ;
 
+-(APIBase *)paramsForApiWithParams:(NSDictionary *(^)(void))block;
+
 - (NSString *)apiName;
 
 //请求参数
