@@ -15,6 +15,9 @@
 		A5C7985E1CB395D800236B1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C7985C1CB395D800236B1C /* Main.storyboard */; };
 		A5C798601CB395D800236B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C7985F1CB395D800236B1C /* Assets.xcassets */; };
 		A5C798631CB395D800236B1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C798611CB395D800236B1C /* LaunchScreen.storyboard */; };
+		A5F6B4AD1D0D446200376A30 /* APIBestPay.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6B4AC1D0D446100376A30 /* APIBestPay.m */; };
+		A5F6B4B01D0D4F4200376A30 /* APIFunctionSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6B4AF1D0D4F4200376A30 /* APIFunctionSwitch.m */; };
+		A5F6B4B31D0D513900376A30 /* APIApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6B4B21D0D513900376A30 /* APIApplePay.m */; };
 		FA1A27FA1CBFD49000B406E7 /* regionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1A27F91CBFD49000B406E7 /* regionModel.m */; };
 		FA1A28551CC1EC5000B406E7 /* liblib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1A28521CC1EC3900B406E7 /* liblib.a */; };
 /* End PBXBuildFile section */
@@ -50,6 +53,12 @@
 		A5C7985F1CB395D800236B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C798621CB395D800236B1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C798641CB395D800236B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F6B4AB1D0D446100376A30 /* APIBestPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIBestPay.h; sourceTree = "<group>"; };
+		A5F6B4AC1D0D446100376A30 /* APIBestPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIBestPay.m; sourceTree = "<group>"; };
+		A5F6B4AE1D0D4F4200376A30 /* APIFunctionSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIFunctionSwitch.h; sourceTree = "<group>"; };
+		A5F6B4AF1D0D4F4200376A30 /* APIFunctionSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIFunctionSwitch.m; sourceTree = "<group>"; };
+		A5F6B4B11D0D513900376A30 /* APIApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIApplePay.h; sourceTree = "<group>"; };
+		A5F6B4B21D0D513900376A30 /* APIApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIApplePay.m; sourceTree = "<group>"; };
 		BD05341F9EC5945FED3AF7F6 /* libPods-PGNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PGNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD227B1A25FD664B1D41A3E /* Pods-PGNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1A27F81CBFD49000B406E7 /* regionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regionModel.h; sourceTree = "<group>"; };
@@ -114,6 +123,12 @@
 				A5C798531CB395D800236B1C /* Supporting Files */,
 				A51D32901CBCCDC5007B33FE /* APIRegion.h */,
 				A51D32911CBCCDC5007B33FE /* APIRegion.m */,
+				A5F6B4AE1D0D4F4200376A30 /* APIFunctionSwitch.h */,
+				A5F6B4AF1D0D4F4200376A30 /* APIFunctionSwitch.m */,
+				A5F6B4AB1D0D446100376A30 /* APIBestPay.h */,
+				A5F6B4AC1D0D446100376A30 /* APIBestPay.m */,
+				A5F6B4B11D0D513900376A30 /* APIApplePay.h */,
+				A5F6B4B21D0D513900376A30 /* APIApplePay.m */,
 			);
 			path = PGNetworking;
 			sourceTree = "<group>";
@@ -281,9 +296,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C7985B1CB395D800236B1C /* ViewController.m in Sources */,
+				A5F6B4B01D0D4F4200376A30 /* APIFunctionSwitch.m in Sources */,
+				A5F6B4AD1D0D446200376A30 /* APIBestPay.m in Sources */,
 				FA1A27FA1CBFD49000B406E7 /* regionModel.m in Sources */,
 				A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */,
 				A5C798581CB395D800236B1C /* AppDelegate.m in Sources */,
+				A5F6B4B31D0D513900376A30 /* APIApplePay.m in Sources */,
 				A5C798551CB395D800236B1C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

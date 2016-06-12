@@ -16,6 +16,8 @@
 #import "PGAPIEngine.h"
 
 #import "APIRegion.h"
+#import "APIBestPay.h"
+#import "APIFunctionSwitch.h"
 //#import <FLEXManager.h>
 
 #import "PGBaseModel.h"
@@ -46,9 +48,24 @@
     region.whenFail = ^(__kindof PGBaseAPIEntity *api){
         NSLog(@"%@",api);
     };
-    [region send];
+//    [region send];
     
 
+    APIBestPay *pay = [APIBestPay new];
+    
+    pay.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+        NSLog(@"==> %@",[api fetchData]);
+        
+    };
+    
+//    [pay send];
+    
+    APIFunctionSwitch *switchxx = [APIFunctionSwitch new];
+    switchxx .whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+        NSLog(@"==> %@",[api fetchData]);
+    };
+    
+    [switchxx send];
 
     
 }

@@ -22,6 +22,8 @@
 #import "PGMacros.h"
 #import "NSString+urlEncoding.h"
 #import "NSString+json.h"
+#import "APIBase.h"
+#import "JXAppContext.h"
 
 
 
