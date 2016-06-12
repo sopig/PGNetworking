@@ -19,13 +19,13 @@ PODS:
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
   - MJExtension (3.0.10)
-  - OpenSSL-Universal (1.0.1.18)
+  - OpenSSL (1.0.208)
   - PGAppconfig (0.0.1)
   - PGNetworking (0.0.1):
     - AFNetworking (~> 3.0.4)
     - Base64nl
     - MJExtension
-    - OpenSSL-Universal (~> 1.0.1.18)
+    - OpenSSL
     - ReactiveCocoa (= 2.5)
     - YTKKeyValueStore
   - ReactiveCocoa (2.5):
@@ -42,32 +42,34 @@ DEPENDENCIES:
   - AFNetworking
   - Base64nl (~> 1.2)
   - MJExtension
-  - OpenSSL-Universal (~> 1.0.1.18)
-  - PGAppconfig (from `https://github.com/sopig/PGAppconfig.git`)
+  - OpenSSL
+  - PGAppconfig (from `http://gitlab.9ijx.com/iOS/PGAppconfig.git`)
   - PGNetworking (from `./PGNetworking.podspec`)
   - ReactiveCocoa
   - YTKKeyValueStore (~> 0.1.2)
 
 EXTERNAL SOURCES:
   PGAppconfig:
-    :git: https://github.com/sopig/PGAppconfig.git
+    :git: http://gitlab.9ijx.com/iOS/PGAppconfig.git
   PGNetworking:
     :path: "./PGNetworking.podspec"
 
 CHECKOUT OPTIONS:
   PGAppconfig:
-    :commit: 62fe0166c81c40ba2af248bc418ee7cdbf34505b
-    :git: https://github.com/sopig/PGAppconfig.git
+    :commit: 2762114eb3b62e28cc15b921cc23cf1a40304ad9
+    :git: http://gitlab.9ijx.com/iOS/PGAppconfig.git
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
-  OpenSSL-Universal: 79fd751a7b4db41f5b430e767c9bbf681b5c8330
+  OpenSSL: b187269d386b07452f56af273764ea0636dd5da8
   PGAppconfig: c9f12f596104411b95cee9497b9822a02db8bdf4
-  PGNetworking: 34b6ba3f30f1f7aa1e751464d965aa5f57095507
+  PGNetworking: a2500408346fa56b289f9985be9bc2dc2ec64ddd
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 30bb35bae559435ac56983d3ca16c4535db0e0ea
+
+COCOAPODS: 1.0.1

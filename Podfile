@@ -12,17 +12,12 @@ pod 'ReactiveCocoa'
 
 pod 'YTKKeyValueStore', '~> 0.1.2'
 
-#pod 'RealReachability', '~> 1.1.2'
-
 pod 'MJExtension'
-
-#pod 'YYModel'
 
 pod 'Base64nl', '~> 1.2'
 
-#pod 'NetworkEye', '~> 0.9.9'
 
-pod 'OpenSSL-Universal', '~> 1.0.1.18'
+pod 'OpenSSL'
 
 pod 'PGNetworking', :path => './PGNetworking.podspec'
 pod 'PGAppconfig', :git => "http://gitlab.9ijx.com/iOS/PGAppconfig.git"

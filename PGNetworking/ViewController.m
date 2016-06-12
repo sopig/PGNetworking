@@ -34,13 +34,13 @@
    
     APIRegion *region = [APIRegion new];
    [region paramsForApiWithParams:^NSDictionary *{
-       return @{};
+       return @{@"xx":@"123"};
    }];
     region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
         
         regionModel *m = [api fetchDataWithReformer:api];
         
-        NSLog(@"");
+        NSLog(@"%@",[m class]);
  
     };
     region.whenFail = ^(__kindof PGBaseAPIEntity *api){
@@ -48,26 +48,8 @@
     };
     [region send];
     
-    UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(100, 100, 100, 100);
-    [button setTitle:@"11" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:20];
-    [self.view addSubview:button];
-    [button addTarget:self action:@selector(handleTestClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
-        NSLog(@"%@",[[x fetchModel] class]);
-        [lib copyRight];
-    }];
-    
-    [[[APIRegion new] sendSignal] subscribeNext:^(id x) {
-        
-    }];
-   
-    
-    
+
+
     
 }
 

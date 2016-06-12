@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PGNetworking"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "业务完全交付的 基于AF 3.0.4的封装."
   s.description  = <<-DESC
                    如何使用，请参见sopig.cn
@@ -83,5 +83,5 @@ Pod::Spec.new do |s|
   s.dependency "YTKKeyValueStore"
   s.dependency "Base64nl" 
   s.dependency "MJExtension"
-  s.dependency "OpenSSL-Universal", "~> 1.0.1.18"
+  s.dependency "OpenSSL"
 end

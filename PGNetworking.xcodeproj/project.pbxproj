@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13F2172F2FAA2B0020D94B0F /* libPods-PGNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82124DF1350688B18FDA42B2 /* libPods-PGNetworking.a */; };
+		64B80826511124CC7999C4A3 /* libPods-PGNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD05341F9EC5945FED3AF7F6 /* libPods-PGNetworking.a */; };
 		A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A51D32911CBCCDC5007B33FE /* APIRegion.m */; };
 		A5C798551CB395D800236B1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798541CB395D800236B1C /* main.m */; };
 		A5C798581CB395D800236B1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798571CB395D800236B1C /* AppDelegate.m */; };
@@ -37,9 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		171D108DF7FE6B9B3B51D3AA /* Pods-PGNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.release.xcconfig"; sourceTree = "<group>"; };
-		82124DF1350688B18FDA42B2 /* libPods-PGNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PGNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D569C316F5FD7E105F8E3F6 /* Pods-PGNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.debug.xcconfig"; sourceTree = "<group>"; };
+		41C9E27111A75FC97BBDDA2E /* Pods-PGNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		A51D32901CBCCDC5007B33FE /* APIRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRegion.h; sourceTree = "<group>"; };
 		A51D32911CBCCDC5007B33FE /* APIRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRegion.m; sourceTree = "<group>"; };
 		A5C798501CB395D800236B1C /* PGNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +50,8 @@
 		A5C7985F1CB395D800236B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C798621CB395D800236B1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C798641CB395D800236B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD05341F9EC5945FED3AF7F6 /* libPods-PGNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PGNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD227B1A25FD664B1D41A3E /* Pods-PGNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1A27F81CBFD49000B406E7 /* regionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regionModel.h; sourceTree = "<group>"; };
 		FA1A27F91CBFD49000B406E7 /* regionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = regionModel.m; sourceTree = "<group>"; };
 		FA1A284D1CC1EC3900B406E7 /* lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lib.xcodeproj; path = lib/lib.xcodeproj; sourceTree = "<group>"; };
@@ -63,13 +63,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1A28551CC1EC5000B406E7 /* liblib.a in Frameworks */,
-				13F2172F2FAA2B0020D94B0F /* libPods-PGNetworking.a in Frameworks */,
+				64B80826511124CC7999C4A3 /* libPods-PGNetworking.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A4A7E1F9E7E8B747F2694A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECD227B1A25FD664B1D41A3E /* Pods-PGNetworking.debug.xcconfig */,
+				41C9E27111A75FC97BBDDA2E /* Pods-PGNetworking.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A5C798471CB395D800236B1C = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +87,8 @@
 				FA1A27F91CBFD49000B406E7 /* regionModel.m */,
 				A5C798521CB395D800236B1C /* PGNetworking */,
 				A5C798511CB395D800236B1C /* Products */,
-				DAC5C47E0AFE20AEF80CE9C1 /* Pods */,
-				D9F3AC544AADF41E4D28326A /* Frameworks */,
+				1A4A7E1F9E7E8B747F2694A4 /* Pods */,
+				D939ACDACE1199D4145A05B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,21 +126,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D9F3AC544AADF41E4D28326A /* Frameworks */ = {
+		D939ACDACE1199D4145A05B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82124DF1350688B18FDA42B2 /* libPods-PGNetworking.a */,
+				BD05341F9EC5945FED3AF7F6 /* libPods-PGNetworking.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DAC5C47E0AFE20AEF80CE9C1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8D569C316F5FD7E105F8E3F6 /* Pods-PGNetworking.debug.xcconfig */,
-				171D108DF7FE6B9B3B51D3AA /* Pods-PGNetworking.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		FA1A284E1CC1EC3900B406E7 /* Products */ = {
@@ -149,12 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5C798671CB395D800236B1C /* Build configuration list for PBXNativeTarget "PGNetworking" */;
 			buildPhases = (
-				3FBD7EC18B51C0FE2E1F0FE9 /* Check Pods Manifest.lock */,
+				971EA98081C333B8653487F7 /* [CP] Check Pods Manifest.lock */,
 				A5C7984C1CB395D800236B1C /* Sources */,
 				A5C7984D1CB395D800236B1C /* Frameworks */,
 				A5C7984E1CB395D800236B1C /* Resources */,
-				3377646A04120713C9484A4A /* Embed Pods Frameworks */,
-				F0308E5261E9355924DBCDD6 /* Copy Pods Resources */,
+				F9AAEDC4F4A47726079E7F72 /* [CP] Embed Pods Frameworks */,
+				DCC43A7677494F39CFCDDFD5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,29 +228,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3377646A04120713C9484A4A /* Embed Pods Frameworks */ = {
+		971EA98081C333B8653487F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3FBD7EC18B51C0FE2E1F0FE9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,19 +243,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F0308E5261E9355924DBCDD6 /* Copy Pods Resources */ = {
+		DCC43A7677494F39CFCDDFD5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9AAEDC4F4A47726079E7F72 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -400,7 +400,7 @@
 		};
 		A5C798681CB395D800236B1C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D569C316F5FD7E105F8E3F6 /* Pods-PGNetworking.debug.xcconfig */;
+			baseConfigurationReference = ECD227B1A25FD664B1D41A3E /* Pods-PGNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
@@ -429,7 +429,7 @@
 		};
 		A5C798691CB395D800236B1C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 171D108DF7FE6B9B3B51D3AA /* Pods-PGNetworking.release.xcconfig */;
+			baseConfigurationReference = 41C9E27111A75FC97BBDDA2E /* Pods-PGNetworking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
