@@ -31,6 +31,12 @@
         case PGNetworkingServiceTypePromotion:
             return [[JXAppConfigSurport surport] urlStringFromSurport:@"JXBASE_URL_PROMOTION"];
             break;
+        case PGNetworkingServiceTypeFORUM:
+            return [[JXAppConfigSurport surport] urlStringFromSurport:@"JXBASE_URL_FORUM"];
+            break;
+        case PGNetworkingServiceTypeCOMMENT:
+            return [[JXAppConfigSurport surport] urlStringFromSurport:@"JXBASE_URL_COMMENT"];
+            break;
     }
 }
 

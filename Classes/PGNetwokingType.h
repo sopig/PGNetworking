@@ -18,7 +18,11 @@ typedef NS_ENUM (NSUInteger, PGNetworkingServiceType){
     PGNetworkingServiceTypeJiuzhang,
     
     PGNetworkingServiceTypePromotion,
-    PGNetworkingServiceTypePay = PGNetworkingServiceTypePromotion
+    PGNetworkingServiceTypePay = PGNetworkingServiceTypePromotion,
+    
+    PGNetworkingServiceTypeFORUM,
+    PGNetworkingServiceTypeCOMMENT
+    
 };
 
 
