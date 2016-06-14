@@ -43,7 +43,7 @@
 }
 
 - (NSString *)apiName{
-    return @"/product/regionList.htm";
+    return @"product/regionList.htm";
 }
 
 - (PGAPIEntityRequestType)requestType {
