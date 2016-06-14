@@ -23,6 +23,7 @@
 #import "NSString+urlEncoding.h"
 #import "NSString+json.h"
 #import "PGAPIBase.h"
+#import "PGNetworkingPrivate.h"
 #import "JXAppContext.h"
 
 
