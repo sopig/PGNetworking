@@ -7,7 +7,7 @@
 //
 
 #import <PGNetworking/PGNetworking.h>
-#import <APIBase.h>
-@interface APIBestPay : APIBase
+#import <PGAPIBase.h>
+@interface APIBestPay : PGAPIBase
 
 @end

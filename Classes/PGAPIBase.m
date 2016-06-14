@@ -6,16 +6,16 @@
 //  Copyright © 2016年 张正超. All rights reserved.
 //
 
-#import "APIBase.h"
+#import "PGAPIBase.h"
 #import "ReactiveCocoa.h"
 //#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
-@interface APIBase ()
+@interface PGAPIBase ()
 
 @property (nonatomic, copy) NSDictionary *(^apiParams)(void);
 
 @end
 
-@implementation APIBase
+@implementation PGAPIBase
 
 + (void)load{
     
@@ -47,7 +47,7 @@
     return PGAPIEntityRequestTypeGet;
 }
 
--(APIBase *)paramsForApiWithParams:(NSDictionary *(^)(void))block{
+-(PGAPIBase *)paramsForApiWithParams:(NSDictionary *(^)(void))block{
     self.apiParams = block;
     return self;
 }
@@ -122,7 +122,7 @@
  
 }
 
-- (APIBase *)send {
+- (PGAPIBase *)send {
     [self loadData];
     return self;
 }

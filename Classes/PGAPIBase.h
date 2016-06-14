@@ -11,7 +11,7 @@
 
 #define PGDeprecated(instead) NS_DEPRECATED_IOS(2_0, 2_0, instead)
 
-@interface APIBase : PGBaseAPIEntity<PGAPIEntity,PGAPIResponseDelegate,PGAPIResponseDataReformer,PGAPIParamsDataSource,PGAPIValidator,PGApiInterceptor>
+@interface PGAPIBase : PGBaseAPIEntity<PGAPIEntity,PGAPIResponseDelegate,PGAPIResponseDataReformer,PGAPIParamsDataSource,PGAPIValidator,PGApiInterceptor>
 
 //请求落地的回调
 @property (nonatomic ,copy) void (^whenSuccess)(PGBaseAPIEntity *api);
@@ -21,7 +21,7 @@
 
 - (PGNetworkingServiceType)serviceType ;
 
--(APIBase *)paramsForApiWithParams:(NSDictionary *(^)(void))block;
+-(PGAPIBase *)paramsForApiWithParams:(NSDictionary *(^)(void))block;
 
 - (NSString *)apiName;
 
@@ -41,7 +41,7 @@
 
 - (id)fetchModel;
 //请求起飞
-- (APIBase *)send;
+- (PGAPIBase *)send;
 
 - (RACSignal *)sendSignal;
 @end

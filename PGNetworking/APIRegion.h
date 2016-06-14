@@ -7,8 +7,8 @@
 //
 
 #import "PGBaseAPIEntity.h"
-#import "APIBase.h"
+#import "PGAPIBase.h"
 
-@interface APIRegion : APIBase
+@interface APIRegion : PGAPIBase
 
 @end

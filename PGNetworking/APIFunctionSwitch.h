@@ -8,6 +8,6 @@
 
 #import <PGNetworking/PGNetworking.h>
 
-@interface APIFunctionSwitch : APIBase
+@interface APIFunctionSwitch : PGAPIBase
 
 @end

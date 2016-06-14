@@ -8,6 +8,6 @@
 
 #import <PGNetworking/PGNetworking.h>
 
-@interface APIApplePay : APIBase
+@interface APIApplePay : PGAPIBase
 
 @end
