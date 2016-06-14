@@ -9,7 +9,6 @@
 #import "PGAPIEngine.h"
 #import "JXCommonParamsGenerator.h"
 #import "NSString+urlEncoding.h"
-#import "NSString+json.h"
 #import "JXEncryption.h"
 
 @interface PGAPIEngine ()
