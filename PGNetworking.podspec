@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "PGNetworking"
-  s.version      = "0.0.2"
-  s.summary      = "业务完全交付的 基于AF 3.0.4的封装."
+  s.version      = "0.0.3"
+  s.summary      = "业务完全交付的 基于AF的封装."
   s.description  = <<-DESC
                    如何使用，请参见sopig.cn
                    DESC
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "PGAppconfig", :git => "https://github.com/sopig/PGAppconfig.git"
-  s.dependency "AFNetworking", "~> 3.0.4"
+  s.dependency "AFNetworking"
   s.dependency "ReactiveCocoa", "=2.5"
   s.dependency "YTKKeyValueStore"
   s.dependency "Base64nl" 
