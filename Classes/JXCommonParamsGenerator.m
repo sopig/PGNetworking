@@ -21,7 +21,7 @@
 
 + (NSDictionary *)commonParamsDictionary {
     
-    NSObject<PGCommonParams> *context = [JXCommonParamsGenerator appContext];
+    NSObject<PGCommonParams> *context = [self appContext];
     
     return @{@"apiVersion":[context apiVersion],
              @"appVersion":[context appVersion],

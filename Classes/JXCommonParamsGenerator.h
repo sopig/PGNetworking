@@ -11,4 +11,6 @@
 
 @interface JXCommonParamsGenerator : NSObject<PGCommonParamsGenerator>
 
++ (NSObject<PGCommonParams> *)appContext;
+
 @end
