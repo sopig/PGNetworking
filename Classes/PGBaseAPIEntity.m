@@ -203,9 +203,9 @@
 - (void)successedOnCallingAPI:(PGAPIResponse *)response
 {
     if (response.contentString) {
-        self.fetchedRawData = [[response.contentString toDictionary] copy];
+        self.fetchedRawData = [[response.contentString mj_JSONObject] copy];
     } else {
-        self.fetchedRawData = [[response.contentString toDictionary] copy];
+        self.fetchedRawData = [[response.contentString mj_JSONObject] copy];
     }
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
@@ -216,7 +216,7 @@
         }
         
         if ([self shouldCache] && !response.isCache) {
-            [self.cache saveCacheWithData:[response.contentString toDictionary] forKey:[self keyForcache]];
+            [self.cache saveCacheWithData:[response.contentString mj_JSONObject] forKey:[self keyForcache]];
         }
         
         [self beforePerformSuccessWithResponse:response];

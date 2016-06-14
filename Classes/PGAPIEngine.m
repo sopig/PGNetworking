@@ -334,7 +334,7 @@
             //用3des密钥解密加密的数据
             NSString *desDataString = [JXDES tripleDES:encDataString encryptOrDecrypt:kCCDecrypt DESBase64Key:desString];
             
-            NSDictionary *tmpDict = [desDataString toDictionary];
+            NSDictionary *tmpDict = [desDataString mj_JSONObject];
             
             return tmpDict;
             
