@@ -10,7 +10,7 @@
 
 @interface PGNetworkingPrivate : NSObject
 
-+ (BOOL)checkJson:(id)json;
+//+ (BOOL)checkJson:(id)json;
 
 + (BOOL)checkJson:(id)json withValidator:(id)validatorJson ;
 

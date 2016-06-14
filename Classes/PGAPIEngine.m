@@ -135,6 +135,24 @@
         } else {
             resDic = [response copy];
         }
+        
+        
+        if(!resDic) {
+            apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+            apiResponse.responseData = nil;
+            apiResponse.content = nil;
+            apiResponse.task = task;
+            apiResponse.error = task.error;
+            apiResponse.contentString = nil;
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            APILog(apiResponse);
+            fail(apiResponse);
+            
+            return;
+        }
+
+        
+        
         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
         apiResponse.responseData = responseObject;
         apiResponse.content = responseObject;
@@ -236,6 +254,22 @@
          } else {
              resDic = [response copy];
          }
+         
+         if(!resDic) {
+             apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+             apiResponse.responseData = nil;
+             apiResponse.content = nil;
+             apiResponse.task = task;
+             apiResponse.error = task.error;
+             apiResponse.contentString = nil;
+             apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+             APILog(apiResponse);
+             fail(apiResponse);
+             
+             return;
+         }
+
+         
          apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
          apiResponse.responseData = responseObject;
          apiResponse.content = responseObject;
