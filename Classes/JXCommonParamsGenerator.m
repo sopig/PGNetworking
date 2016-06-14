@@ -12,29 +12,33 @@
 #define saveNil(obj) if (!obj)\
          obj = @"";
 
+static id _context = nil;
 
 @implementation JXCommonParamsGenerator
 
 + (NSObject<PGCommonParams> *)appContext {
-    return [JXAppContext new];
+   if (!_context) {
+       Class Context = NSClassFromString(@"AppContext");
+       if (Context) {
+           return _context = [Context new];
+       }
+       else {
+           return _context = [JXAppContext new];
+       }
+   } else {
+       return _context;
+   }
+    
+
+    
+
 }
 
 + (NSDictionary *)commonParamsDictionary {
     
     NSObject<PGCommonParams> *context = [self appContext];
     
-    return @{@"apiVersion":[context apiVersion],
-             @"appVersion":[context appVersion],
-             @"deviceType":[context deviceType],
-             @"cpsId":[context cpsId],
-             @"screenReslolution":[context screenReslolution],
-             @"equipmentType":[context equipmentType],
-             @"sysVersion":[context sysVersion],
-             @"appKey":[context appKey],
-             @"token":[context token],
-             @"areaId":[context areaId],
-             @"pushToken":[context pushToken],
-             @"channelCode":[context channelCode]};
+    return [context commonParams];
 }
 
 @end
