@@ -34,39 +34,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
    
-    APIRegion *region = [APIRegion new];
-   [region paramsForApiWithParams:^NSDictionary *{
-       return @{@"xx":@"123"};
-   }];
-    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
-        
-        regionModel *m = [api fetchDataWithReformer:api];
-        
-        NSLog(@"%@",[m class]);
- 
-    };
-    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
-        NSLog(@"%@",api);
-    };
+//    APIRegion *region = [APIRegion new];
+//   [region paramsForApiWithParams:^NSDictionary *{
+//       return @{@"xx":@"123"};
+//   }];
+//    region.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+//        
+//        regionModel *m = [api fetchDataWithReformer:api];
+//        
+//        NSLog(@"%@",[m class]);
+// 
+//    };
+//    region.whenFail = ^(__kindof PGBaseAPIEntity *api){
+//        NSLog(@"%@",api);
+//    };
 //    [region send];
-    
+//    
+//
+//    APIBestPay *pay = [APIBestPay new];
+//    
+//    pay.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+//        NSLog(@"==> %@",[api fetchData]);
+//        
+//    };
+//    
+////    [pay send];
+//    
+//    APIFunctionSwitch *switchxx = [APIFunctionSwitch new];
+//    switchxx .whenSuccess = ^(__kindof PGBaseAPIEntity *api){
+//        NSLog(@"==> %@",[api fetchData]);
+//    };
+//    
+//    [switchxx send];
 
-    APIBestPay *pay = [APIBestPay new];
     
-    pay.whenSuccess = ^(__kindof PGBaseAPIEntity *api){
-        NSLog(@"==> %@",[api fetchData]);
-        
-    };
+    [[[APIRegion new] sendSignal] subscribeNext:^(APIRegion *x) {
+        NSLog(@"%@",[x fetchData]);
+    }];
     
-//    [pay send];
-    
-    APIFunctionSwitch *switchxx = [APIFunctionSwitch new];
-    switchxx .whenSuccess = ^(__kindof PGBaseAPIEntity *api){
-        NSLog(@"==> %@",[api fetchData]);
-    };
-    
-    [switchxx send];
-
     
 }
 

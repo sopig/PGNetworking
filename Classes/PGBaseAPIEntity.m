@@ -210,7 +210,7 @@
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
         
-        if ([self shouldCache] && !response.isCache) {
+        if ([self shouldCache] && !response.isCache && response.contentString.length > 0) {
             [self.cache saveCacheWithData:[response.contentString toDictionary] forKey:[self keyForcache]];
         }
         

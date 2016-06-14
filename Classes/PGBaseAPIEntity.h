@@ -24,6 +24,11 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 /////////////////////////////////////////////////////////////////////////
 @protocol PGCommonParams <NSObject>
 
+
+@required
+
+- (nonnull NSDictionary *)commonParams;  //组装公共参数
+
 @optional
 - (nonnull NSString *)apiVersion;
 
@@ -158,7 +163,7 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
-- (NSDictionary *)fetchData;
+- (NSDictionary * _Nullable)fetchData;
 
 - (id _Nullable)fetchDataWithReformer:(id<PGAPIResponseDataReformer> _Nullable)reformer;
 
