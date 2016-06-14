@@ -29,32 +29,6 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 
 - (nonnull NSDictionary *)commonParams;  //组装公共参数
 
-@optional
-- (nonnull NSString *)apiVersion;
-
-- (nonnull NSString *)appVersion;
-
-- (nonnull NSString *)deviceType;
-
-- (nonnull NSString *)cpsId;
-
-- (nonnull NSString *)screenReslolution;
-
-- (nonnull NSString *)equipmentType ;
-
-- (nonnull NSString *)sysVersion;
-
-- (nonnull NSString *)appKey;
-
-- (nullable NSString *)token;
-
-- (nullable NSString *)areaId ;
-
-- (nullable NSString *)pushToken;
-
-- (nullable NSString *)channelCode;
-
-
 @end
 
 
