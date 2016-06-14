@@ -210,7 +210,12 @@
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
         
-        if ([self shouldCache] && !response.isCache && response.contentString.length > 0) {
+        if (!response.contentString || response.contentString <= 0) {
+             [self failedOnCallingAPI:response withErrorType:PGAPIEntityResponseTypeNoContent];
+             return;
+        }
+        
+        if ([self shouldCache] && !response.isCache) {
             [self.cache saveCacheWithData:[response.contentString toDictionary] forKey:[self keyForcache]];
         }
         
