@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PGNetworking"
-  s.version      = "0.0.3"
+  s.version      = "0.0.5"
   s.summary      = "业务完全交付的 基于AF的封装."
   s.description  = <<-DESC
                    如何使用，请参见sopig.cn
@@ -14,7 +14,26 @@ Pod::Spec.new do |s|
 
   s.author             = { "张正超" => "chay0103@163.com" }
 
+  s.requires_arc = true
   s.platform     = :ios, "7.0"
+
+  s.source       = { :git => "https://github.com/sopig/PGNetworking", :tag => "0.0.1" }
+
+  s.default_subspec = 'Core'
+
+  s.subspec 'Core' do |core|
+    core.source_files = 'Classes/**/*.{h,m}','Classes/*.{h,m}'
+    core.dependency "AFNetworking"
+    core.dependency "ReactiveCocoa", "=2.5"
+    core.dependency "YTKKeyValueStore"
+    core.dependency "Base64nl" 
+    core.dependency "MJExtension"
+    core.dependency "OpenSSL"
+  end
+
+  s.subspec 'resource' do |rs|
+    rs.source_files = 'Classes/**/*.plist','Classes/**/*.pem'
+  end
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -22,7 +41,7 @@ Pod::Spec.new do |s|
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
 
-  s.source       = { :git => "https://github.com/sopig/PGNetworking", :tag => "0.0.1" }
+ 
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -33,9 +52,9 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}","Classes/*.{h,m}","Classes/Appconfig","Classes/Assistant","Classes/Cache","Classes/encryption"
+  # s.source_files  = "Classes/**/*.{h,m}","Classes/*.{h,m}"
 
-  s.exclude_files = "Classes/Exclude"
+  # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -49,7 +68,7 @@ Pod::Spec.new do |s|
   #
 
   
-  s.resource  = "Classes/**/*.plist","Classes/**/*.pem"
+  # s.resource  = "Classes/**/*.plist","Classes/**/*.pem"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
@@ -78,10 +97,5 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "PGAppconfig", :git => "https://github.com/sopig/PGAppconfig.git"
-  s.dependency "AFNetworking"
-  s.dependency "ReactiveCocoa", "=2.5"
-  s.dependency "YTKKeyValueStore"
-  s.dependency "Base64nl" 
-  s.dependency "MJExtension"
-  s.dependency "OpenSSL"
+ 
 end
