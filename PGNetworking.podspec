@@ -31,7 +31,9 @@ Pod::Spec.new do |s|
     core.dependency "OpenSSL"
   end
 
-  s.source_files = 'Classes/**/*.plist','Classes/**/*.pem'
+  s.resource = 'Classes/**/*.plist','Classes/**/*.pem'
+
+  
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
