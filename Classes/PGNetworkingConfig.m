@@ -41,7 +41,7 @@
 }
 
 + (BOOL)shouldEncryption{
-    return [[JXAppConfigSurport surport] urlStringFromSurport:@"isENCRPTY"];
+    return [[[JXAppConfigSurport surport] urlStringFromSurport:@"isENCRPTY"] boolValue];
 }
 
 @end
