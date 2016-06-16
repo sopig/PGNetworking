@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		64B80826511124CC7999C4A3 /* libPods-PGNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD05341F9EC5945FED3AF7F6 /* libPods-PGNetworking.a */; };
 		A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A51D32911CBCCDC5007B33FE /* APIRegion.m */; };
+		A5ABE7681D12766700FB99FA /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ABE7661D12766700FB99FA /* libcrypto.a */; };
+		A5ABE7691D12766700FB99FA /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ABE7671D12766700FB99FA /* libssl.a */; };
 		A5C798551CB395D800236B1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798541CB395D800236B1C /* main.m */; };
 		A5C798581CB395D800236B1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798571CB395D800236B1C /* AppDelegate.m */; };
 		A5C7985B1CB395D800236B1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C7985A1CB395D800236B1C /* ViewController.m */; };
@@ -43,6 +45,8 @@
 		41C9E27111A75FC97BBDDA2E /* Pods-PGNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		A51D32901CBCCDC5007B33FE /* APIRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRegion.h; sourceTree = "<group>"; };
 		A51D32911CBCCDC5007B33FE /* APIRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRegion.m; sourceTree = "<group>"; };
+		A5ABE7661D12766700FB99FA /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pods/OpenSSL/lib/libcrypto.a; sourceTree = "<group>"; };
+		A5ABE7671D12766700FB99FA /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/OpenSSL/lib/libssl.a; sourceTree = "<group>"; };
 		A5C798501CB395D800236B1C /* PGNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C798541CB395D800236B1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5C798561CB395D800236B1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5ABE7681D12766700FB99FA /* libcrypto.a in Frameworks */,
+				A5ABE7691D12766700FB99FA /* libssl.a in Frameworks */,
 				FA1A28551CC1EC5000B406E7 /* liblib.a in Frameworks */,
 				64B80826511124CC7999C4A3 /* libPods-PGNetworking.a in Frameworks */,
 			);
@@ -144,6 +150,8 @@
 		D939ACDACE1199D4145A05B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5ABE7661D12766700FB99FA /* libcrypto.a */,
+				A5ABE7671D12766700FB99FA /* libssl.a */,
 				BD05341F9EC5945FED3AF7F6 /* libPods-PGNetworking.a */,
 			);
 			name = Frameworks;
@@ -170,6 +178,7 @@
 				A5C7984E1CB395D800236B1C /* Resources */,
 				F9AAEDC4F4A47726079E7F72 /* [CP] Embed Pods Frameworks */,
 				DCC43A7677494F39CFCDDFD5 /* [CP] Copy Pods Resources */,
+				3F3597BF277CFC9232510A03 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -243,6 +252,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3F3597BF277CFC9232510A03 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		971EA98081C333B8653487F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,8 +445,9 @@
 			baseConfigurationReference = ECD227B1A25FD664B1D41A3E /* Pods-PGNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sanxian Transform(Beijing)Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sanxian Transform(Beijing)Network Technology Co., Ltd.";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -439,9 +464,13 @@
 				INFOPLIST_FILE = PGNetworking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zz;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/OpenSSL/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiuxian.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51a597ca-23ec-4fa8-971d-661268a7f6d0";
+				PROVISIONING_PROFILE = "7a3e7e05-51c6-44bb-97a6-1d4691fbc83a";
 			};
 			name = Debug;
 		};
@@ -452,6 +481,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhengchao Zhang (EXPKSJCTVS)";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -468,9 +498,13 @@
 				INFOPLIST_FILE = PGNetworking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zz;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/OpenSSL/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiuxian.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51a597ca-23ec-4fa8-971d-661268a7f6d0";
+				PROVISIONING_PROFILE = "7a3e7e05-51c6-44bb-97a6-1d4691fbc83a";
 			};
 			name = Release;
 		};
