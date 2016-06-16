@@ -20,6 +20,7 @@
 
 /////////////////////
 - (BOOL)shouldCache;
+- (BOOL)shouldEncrypt;
 /////////////////////
 
 

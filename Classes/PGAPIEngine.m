@@ -69,6 +69,247 @@
     return _manager;
 }
 
+- (NSInteger)callGETWithParams:(NSDictionary *)params apiEntity:(PGBaseAPIEntity *)api success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail {
+    
+    NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:api.child.serviceType];
+    NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,api.child.apiName];
+    
+    //
+    PGAPIResponse *apiResponse = [PGAPIResponse new];
+    NSMutableDictionary *mDic = [[JXCommonParamsGenerator commonParamsDictionary] mutableCopy];
+    [mDic addEntriesFromDictionary:params];
+    apiResponse.requestParams = [mDic copy];
+    apiResponse.requestId = 0;
+    
+    NSDictionary *allParams = nil;
+    BOOL shouldEncry = [api shouldEncrypt];
+    
+    if (shouldEncry) {
+        allParams = [self EncrptyParameter:mDic];
+        
+    } else {
+        allParams = [mDic copy];
+    }
+    
+    
+    if (!url || url.length <= 0) {
+        apiResponse.responseType = PGAPIEntityResponseTypeParamsError;
+        fail(apiResponse);
+        return 0;
+    }
+    NSString *requestId = [NSString stringWithFormat:@"%@",[self generateRequestId]];
+    
+    NSURLSessionDataTask *task = [[self prepareManager] GET:url parameters:allParams progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        task.taskDescription = requestId;
+        apiResponse.task = task;
+        apiResponse.request = task.currentRequest;
+        apiResponse.response = task.response;
+        
+        NSError *error = nil;
+        if (!responseObject) return ;
+        id response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+        
+        //
+        if (error) {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            apiResponse.error = error;
+            fail(apiResponse);
+            return ;
+        }
+        
+        if (response && ![response isKindOfClass:NSDictionary.class]) {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            fail(apiResponse);
+            return ;
+        }
+        
+        NSDictionary *resDic = nil;
+        if (shouldEncry) {
+            resDic = [[self decrptyParameterForParamDic:(NSDictionary *)response] copy];
+        } else {
+            resDic = [response copy];
+        }
+        
+        
+        if(!resDic) {
+            apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+            apiResponse.responseData = nil;
+            apiResponse.content = nil;
+            apiResponse.task = task;
+            apiResponse.error = task.error;
+            apiResponse.contentString = nil;
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            APILog(apiResponse);
+            fail(apiResponse);
+            
+            return;
+        }
+        
+        
+        
+        apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+        apiResponse.responseData = responseObject;
+        apiResponse.content = responseObject;
+        apiResponse.contentString = [resDic mj_JSONString];
+        apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
+        
+        APILog(apiResponse);
+        success(apiResponse);
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        task.taskDescription = requestId;
+        apiResponse.request = task.currentRequest;
+        if (-1001 == error.code ) {
+            apiResponse.responseType = PGAPIEntityResponseTypeTimeout;
+        } else {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoNetWork;
+        }
+        
+        apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+        apiResponse.responseData = nil;
+        apiResponse.content = nil;
+        apiResponse.task = task;
+        apiResponse.error = task.error;
+        apiResponse.contentString = nil;
+        
+        APILog(apiResponse);
+        
+        fail(apiResponse);
+    }];
+    
+    task.taskDescription = requestId;
+    
+    [self.taskCenter setObject:task forKey:requestId];
+    
+    return task.taskDescription.integerValue;
+
+    
+}
+
+- (NSInteger)callPOSTWithParams:(NSDictionary *)params apiEntity:(PGBaseAPIEntity *)api success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail{
+    NSString *baseUrl = [PGNetworkingConfig  baseUrlWithServiceType:api.child.serviceType];
+    NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,api.child.apiName];
+    
+    
+    PGAPIResponse *apiResponse = [PGAPIResponse new];
+    NSMutableDictionary *mDic = [[JXCommonParamsGenerator commonParamsDictionary] mutableCopy];
+    [mDic addEntriesFromDictionary:params];
+    apiResponse.requestParams = [mDic copy];
+    apiResponse.requestId = 0;
+    
+    NSDictionary *allParams = nil;
+    BOOL shouldEncry = [api shouldEncrypt];
+    
+    if (shouldEncry) {
+        allParams = [self EncrptyParameter:mDic];
+        
+    } else {
+        allParams = [mDic copy];
+    }
+    
+    if (!url || url.length <= 0) {
+        apiResponse.responseType = PGAPIEntityResponseTypeParamsError;
+        fail(apiResponse);
+        return 0;
+    }
+    NSString *requestId = [NSString stringWithFormat:@"%@",[self generateRequestId]];
+    
+    
+    NSURLSessionDataTask *task = [[self prepareManager] POST:url parameters:allParams progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        task.taskDescription = requestId;
+        apiResponse.task = task;
+        apiResponse.request = task.currentRequest;
+        apiResponse.response = task.response;
+        NSError *error = nil;
+        id response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+        
+        //
+        if (error) {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            apiResponse.error = error;
+            fail(apiResponse);
+            return ;
+        }
+        
+        if (response && ![response isKindOfClass:NSDictionary.class]) {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            fail(apiResponse);
+            return;
+        }
+        
+        NSDictionary *resDic = nil;
+        if (shouldEncry) {
+            resDic = [[self decrptyParameterForParamDic:(NSDictionary *)response] copy];
+        } else {
+            resDic = [response copy];
+        }
+        
+        if(!resDic) {
+            apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+            apiResponse.responseData = nil;
+            apiResponse.content = nil;
+            apiResponse.task = task;
+            apiResponse.error = task.error;
+            apiResponse.contentString = nil;
+            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            APILog(apiResponse);
+            fail(apiResponse);
+            
+            return;
+        }
+        
+        
+        apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+        apiResponse.responseData = responseObject;
+        apiResponse.content = responseObject;
+        apiResponse.contentString = [resDic mj_JSONString];
+        apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
+        
+        APILog(apiResponse);
+        success(apiResponse);
+        
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        task.taskDescription = requestId;
+        apiResponse.request = task.currentRequest;
+        if (-1001 == error.code ) {
+            apiResponse.responseType = PGAPIEntityResponseTypeTimeout;
+        } else {
+            apiResponse.responseType = PGAPIEntityResponseTypeNoNetWork;
+        }
+        
+        apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+        apiResponse.responseData = nil;
+        apiResponse.content = nil;
+        apiResponse.task = task;
+        apiResponse.error = task.error;
+        apiResponse.contentString = nil;
+        
+        APILog(apiResponse);
+        
+        fail(apiResponse);
+        
+    }];
+    
+    [self.taskCenter setObject:task forKey:requestId];
+    
+    return task.taskDescription.integerValue;
+
+
+}
+
+
+#if 0
 
 - (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail{
     
@@ -308,6 +549,7 @@
     return task.taskDescription.integerValue;
 
 }
+#endif
 
 - (void)cancelRequestWithRequestID:(NSInteger)requestID {
     NSURLSessionDataTask *task = self.taskCenter[[NSString stringWithFormat:@"%ld",(long)requestID]];

@@ -13,10 +13,15 @@
 
 + (instancetype)shareInstance;
 
+
+- (NSInteger)callGETWithParams:(NSDictionary *)params apiEntity:(PGBaseAPIEntity *)api success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail;
+
+- (NSInteger)callPOSTWithParams:(NSDictionary *)params apiEntity:(PGBaseAPIEntity *)api success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail;
+#if 0
 - (NSInteger)callGETWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *res))success fail:(void (^)(PGAPIResponse *res))fail;
 
 - (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceType:(PGNetworkingServiceType)serviceType apiName:(NSString *)apiName success:(void (^)(PGAPIResponse *))success fail:(void (^)(PGAPIResponse *))fail;
-
+#endif
 
 - (void)cancelRequestWithRequestID:(NSInteger)requestID;
 
