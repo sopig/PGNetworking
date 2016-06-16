@@ -376,7 +376,7 @@
     
     NSString *paramsString = [mDic mj_JSONString];
     
-    return [NSString stringWithFormat:@"%@%@",baseUrl,[paramsString urlEncoding]];
+    return [NSString stringWithFormat:@"%@%@%@",baseUrl,self.child.apiName,[paramsString urlEncoding]];
 }
 
 
