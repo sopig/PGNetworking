@@ -91,7 +91,7 @@
 - (NSInteger)loadDataWithParams:(NSDictionary *)params
 {
     NSInteger requestId = 0;
-    NSDictionary *apiParams = [self reformParams:params];
+    NSDictionary *apiParams = [self reformParams:params];   //参数重装
     if ([self shouldCallAPIWithParams:apiParams]) {
         if ([self.validator api:self isCorrectWithParamsData:apiParams]) {
             
@@ -107,7 +107,7 @@
                 {
                     case PGAPIEntityRequestTypeGet:
                         {
-                           NSUInteger REQUEST_ID = [[PGAPIEngine shareInstance] callGETWithParams:apiParams serviceType:self.child.serviceType apiName:self.child.apiName success:^(PGAPIResponse *res) {
+                           NSUInteger REQUEST_ID = [[PGAPIEngine shareInstance] callGETWithParams:apiParams apiEntity:self success:^(PGAPIResponse *res) {
                                
                                 [self successedOnCallingAPI:res];
                     
@@ -122,7 +122,7 @@
                         break;
                     case PGAPIEntityRequestTypePost:
                         {
-                            NSUInteger REQUEST_ID = [[PGAPIEngine shareInstance] callPOSTWithParams:apiParams serviceType:self.child.serviceType apiName:self.child.apiName success:^(PGAPIResponse *res) {
+                            NSUInteger REQUEST_ID = [[PGAPIEngine shareInstance] callPOSTWithParams:apiParams apiEntity:self  success:^(PGAPIResponse *res) {
                             
                                 [self successedOnCallingAPI:res];
                             
@@ -331,6 +331,10 @@
 
 - (PGNetworkingEncryptionType)encryptionType {
     return kPGNetworkingEncrypType;
+}
+
+- (BOOL)shouldEncrypt{
+    return [PGNetworkingConfig shouldEncryption];
 }
 
 
