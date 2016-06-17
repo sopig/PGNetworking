@@ -100,10 +100,12 @@
 - (NSString *)decryptByRsa:(NSString *)content withKeyType:(KeyType)keyType {
     if (![self importRSAKeyWithType:keyType])
         return nil;
-    if (![content isKindOfClass:[NSString class]]||!content.length) {
+    if (![content isKindOfClass:[NSString class]]) {
         return nil;
     }
-    
+    if ([content isKindOfClass:[NSString class]]&&!content.length) {
+        return nil;
+    }
     int status;
 
     NSData *data = [content base64DecodedData];
