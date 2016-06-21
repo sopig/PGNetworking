@@ -95,7 +95,7 @@ DEF_SINGLETON( __class ) \
 }
 
 
-#define APILog(__apiResponse) NSLog(@"\n[requestID] %@\n[URI] %@\n[requestParams] %@\n[HTTPHeaderFields] %@\n[MIMEType] %@\n[contentString] %@\n[errorReason] %@\n",\
+#define APILog(__apiResponse) NSLog(@"\n======sopig.cc start==============================================\n[requestID] %@\n[URI] %@\n[requestParams] %@\n[HTTPHeaderFields] %@\n[MIMEType] %@\n[contentString] %@\n[errorReason] %@\n\n======sopig.cc end================================================\n",\
       __apiResponse.task.taskDescription,\
       [NSString stringWithFormat:@"%@://%@%@",__apiResponse.request.URL.scheme,__apiResponse.request.URL.host,__apiResponse.request.URL.path],\
       __apiResponse.requestParams, \

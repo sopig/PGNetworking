@@ -27,4 +27,6 @@
 @property (nonatomic, assign) BOOL isCache;
 
 @property (nonatomic, copy) NSError *error;
+@property (nonatomic, copy) NSString *errorMsg;
+
 @end
