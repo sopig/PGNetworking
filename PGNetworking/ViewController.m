@@ -89,7 +89,7 @@
         //屏幕分辨率
         [_commonParams setObject:screenReslolutionStr forKey:@"screenReslolution"];
         //设备的型号 iPhone6
-        [_commonParams setObject:@"iPhone6" forKey:@"equipmentType"];
+        [_commonParams setObject:equipmentType forKey:@"equipmentType"];
         //系统版本 ios8.2
         [_commonParams setObject:@"9.2" forKey:@"sysVersion"];
         //设备的唯一标示

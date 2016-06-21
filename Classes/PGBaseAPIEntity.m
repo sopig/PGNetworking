@@ -165,6 +165,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
        
        PGAPIResponse *response = [PGAPIResponse new];
+        response.responseType = PGAPIEntityResponseTypeSuccess;
         response.content = [result copy];
         response.contentString = [result mj_JSONString];
         response.isCache = YES;
