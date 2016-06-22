@@ -23,11 +23,11 @@ typedef enum {
 }RSA_PADDING_TYPE;
 
 @interface CRSA : NSObject{
-    RSA *_rsa;
+
 }
 + (id)shareInstance;
-- (BOOL)importRSAKeyWithType:(KeyType)type;
-- (int)getBlockSizeWithRSA_PADDING_TYPE:(RSA_PADDING_TYPE)padding_type;
+- (RSA *)importRSAKeyWithType:(KeyType)type;
+- (int)getBlockSizeWithRSA_PADDING_TYPE:(RSA_PADDING_TYPE)padding_type rsa:(RSA *)rsa;
 - (NSString *) encryptByRsa:(NSString*)content withKeyType:(KeyType)keyType;
 - (NSString *) decryptByRsa:(NSString*)content withKeyType:(KeyType)keyType;
 @end
