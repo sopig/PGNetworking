@@ -24,6 +24,8 @@
 #import "regionModel.h"
 #import <lib.h>
 
+#import "PGLogs.h"
+
 @interface ViewController ()
 
 @property (strong,nonatomic, nullable) NSMutableDictionary *commonParams;
@@ -122,6 +124,8 @@
     }];
     
     
+    [PGLogs log:@"hello %@",@"world"];
+   
 }
 
 - (void)handleTestClick{

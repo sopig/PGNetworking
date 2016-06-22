@@ -170,6 +170,7 @@
         response.contentString = [result mj_JSONString];
         response.isCache = YES;
         
+        
         APILog(response);
         [self successedOnCallingAPI:response];
         
