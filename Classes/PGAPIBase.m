@@ -13,6 +13,8 @@
 
 @property (nonatomic, copy) NSDictionary *(^apiParams)(void);
 
+@property (nonatomic, assign) NSInteger requestID;
+
 @end
 
 @implementation PGAPIBase
@@ -21,9 +23,6 @@
     
 }
 
-
-
-
 - (instancetype)init{
     if (self = [super init]) {
         self.delegate = self;
@@ -31,8 +30,7 @@
         self.paramSource = self;
         self.child = self;
         self.interceptor = self;
-        
-        
+        self.requestID = -9999;
     }
     return self;
 }
@@ -114,11 +112,13 @@
             [subscriber sendCompleted];
         };
        
-        NSInteger requestID = [self loadData];
+        self.requestID = [self loadData];
+        
+        
         
         return [RACDisposable disposableWithBlock:^{
           
-            [self cancelRequestWithRequestId:requestID];
+            [self cancelRequestWithRequestId:self.requestID];
             
         }];
     }];
@@ -126,13 +126,18 @@
 }
 
 - (PGAPIBase *)send {
-    [self loadData];
+    self.requestID = [self loadData];
     return self;
 }
 
 
 - (id)fetchModel{
     return  [self fetchDataWithReformer:self];
+}
+
+
+- (void)cancelSend{
+    [self cancelRequestWithRequestId:self.requestID];
 }
 
 - (void)dealloc{

@@ -50,4 +50,6 @@
 - (PGAPIBase *)send;
 
 - (RACSignal *)sendSignal;
+
+- (void)cancelSend;
 @end
