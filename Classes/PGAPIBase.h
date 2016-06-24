@@ -7,7 +7,7 @@
 //
 
 #import "PGBaseAPIEntity.h"
-
+#import "PGBaseModel.h"
 
 #define PGDeprecated(instead) NS_DEPRECATED_IOS(2_0, 2_0, instead)
 
