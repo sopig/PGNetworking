@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface result : NSObject
-
-@end
-
 
 @interface PGBaseModel : NSObject
 
@@ -19,6 +15,6 @@
 @property (nonatomic , strong) NSString *errMsg;
 @property (nonatomic , strong) NSDictionary *result;
 @property (nonatomic , strong) NSString *success;
-
+@property (nonatomic , strong) NSString *toast;
 
 @end
