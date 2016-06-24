@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) PGAPIEntityResponseType responseType;
 @property (nonatomic, copy) NSURLRequest *request;
-@property (nonatomic, copy) NSURLResponse *response;
+@property (nonatomic, copy) NSHTTPURLResponse *response;
 @property (nonatomic, copy) NSURLSessionDataTask *task;
 
 

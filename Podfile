@@ -22,7 +22,7 @@ pod 'OpenSSL/Lib' , :git => "http://gitlab.9ijx.com/iOS/OpenSSL.git"
 pod 'PGNetworking', :path => './PGNetworking.podspec'
 pod 'PGAppconfig', :git => "http://gitlab.9ijx.com/iOS/PGAppconfig.git"
 
-#pod 'CocoaLumberjack'
+pod 'CocoaLumberjack'
 
 
 #pod 'FBRetainCycleDetector', :git => "https://github.com/facebook/FBRetainCycleDetector.git"

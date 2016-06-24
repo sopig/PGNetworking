@@ -108,6 +108,7 @@
         apiResponse.request = task.currentRequest;
         apiResponse.response = task.response;
         
+        
         NSError *error = nil;
         if (!responseObject) return ;
         id response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];

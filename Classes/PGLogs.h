@@ -12,4 +12,7 @@
 
 + (void)log:(NSString *)content, ... ;
 
++ (void)fetchLog;
+
+
 @end

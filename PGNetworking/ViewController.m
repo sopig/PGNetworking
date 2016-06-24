@@ -120,11 +120,13 @@
         
         return [_commonParams copy];
     }] sendSignal] subscribeNext:^(APIRegion *x) {
-        NSLog(@"%@",[x fetchData]);
+//        NSLog(@"%@",[x fetchData]);
     }];
     
     
     [PGLogs log:@"hello %@",@"world"];
+    
+    [PGLogs fetchLog];
    
 }
 

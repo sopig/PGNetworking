@@ -7,6 +7,7 @@
 //
 
 #import "PGLogs.h"
+#import <asl.h>
 
 @implementation PGLogs
 
@@ -23,4 +24,31 @@
 #endif
     
 }
+
++ (void)fetchLog {
+    asl_object_t query = asl_new(ASL_TYPE_QUERY);
+    NSString *pid = @([[NSProcessInfo processInfo] processIdentifier]).stringValue;
+    if (!pid) return;
+    asl_set_query(query, ASL_KEY_PID, [pid UTF8String], ASL_QUERY_OP_EQUAL);
+    
+    aslresponse response = asl_search(NULL, query);
+    aslmsg aslMessage = NULL;
+    
+    NSMutableArray * logs = [NSMutableArray array];
+    
+    while (true) {
+        aslMessage = asl_next(response);
+        if (!aslMessage) break;
+        const char *value = asl_get(aslMessage, ASL_KEY_MSG);
+        if (value) {
+            NSLog(@"ASL ===>  %@",@(value));
+        }
+        
+    
+    }
+    
+}
 @end
+
+
+
