@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "PGASLMessage.h"
 @interface PGLogs : NSObject
 
 + (void)log:(NSString *)content, ... ;
 
-+ (void)fetchLog;
++ (NSMutableArray *)fetchLog;
 
 
 @end

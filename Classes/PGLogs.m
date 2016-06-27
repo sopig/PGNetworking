@@ -8,7 +8,7 @@
 
 #import "PGLogs.h"
 #import <asl.h>
-
+#import "PGASLMessage.h"
 @implementation PGLogs
 
 + (void)log:(NSString *)content, ...
@@ -25,29 +25,28 @@
     
 }
 
-+ (void)fetchLog {
++ (NSMutableArray *)fetchLog {
     asl_object_t query = asl_new(ASL_TYPE_QUERY);
     NSString *pid = @([[NSProcessInfo processInfo] processIdentifier]).stringValue;
-    if (!pid) return;
+    if (!pid) return nil;
     asl_set_query(query, ASL_KEY_PID, [pid UTF8String], ASL_QUERY_OP_EQUAL);
     
     aslresponse response = asl_search(NULL, query);
     aslmsg aslMessage = NULL;
     
-    NSMutableArray * logs = [NSMutableArray array];
-    
+    NSMutableArray * logs = [[NSMutableArray alloc] init];
+
     while (true) {
         aslMessage = asl_next(response);
         if (!aslMessage) break;
-        const char *value = asl_get(aslMessage, ASL_KEY_MSG);
-        if (value) {
-            NSLog(@"ASL ===>  %@",@(value));
-        }
-        
+        PGASLMessage *pgMessage = [[PGASLMessage alloc] initWithASL:aslMessage];
+        [logs addObject:pgMessage];
     
     }
     
+    return [logs mutableCopy];
 }
+
 @end
 
 
