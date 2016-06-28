@@ -9,20 +9,30 @@
 #import "PGLogs.h"
 #import <asl.h>
 #import "PGASLMessage.h"
+
+NSString * const PGLogEnable = @"com.PGNetworking.pglogenable";
+
 @implementation PGLogs
 
 + (void)log:(NSString *)content, ...
 {
+    
 #ifdef DEBUG
-    if (!content) {
-        return;
-    }
-    va_list args;
-    va_start(args, content);
-    NSLogv([NSString stringWithFormat:@"[sopig.cc] %@" ,content], args);
-    va_end(args);
+#else
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:PGLogEnable] boolValue])
 #endif
     
+     {
+
+        if (!content) {
+            return;
+        }
+        va_list args;
+        va_start(args, content);
+        NSLogv([NSString stringWithFormat:@"[sopig.cc] %@" ,content], args);
+        va_end(args);
+
+    }
 }
 
 + (NSMutableArray *)fetchLog {

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "PGASLMessage.h"
+
+FOUNDATION_EXPORT NSString *const PGLogEnable;
+
 @interface PGLogs : NSObject
 
 + (void)log:(NSString *)content, ... ;
