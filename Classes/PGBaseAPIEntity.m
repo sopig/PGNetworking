@@ -339,6 +339,10 @@
     return [PGNetworkingConfig shouldEncryption];
 }
 
+- (BOOL)logEnable {
+    return YES;
+}
+
 
 #pragma mark -  Public
 - (void)cancelAllRequests

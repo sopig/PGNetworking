@@ -145,7 +145,11 @@
             apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
             
             fail(apiResponse);
-            APILog(apiResponse);
+            
+            if ([api logEnable]) {
+                APILog(apiResponse);
+            }
+           
             return;
         }
         
@@ -157,7 +161,9 @@
         apiResponse.contentString = [resDic mj_JSONString];
         apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
         
-        APILog(apiResponse);
+        if ([api logEnable]) {
+            APILog(apiResponse);
+        }
         success(apiResponse);
         
         
@@ -178,7 +184,9 @@
         apiResponse.error = task.error;
         apiResponse.contentString = nil;
         
-        APILog(apiResponse);
+        if ([api logEnable]) {
+            APILog(apiResponse);
+        }
         
         fail(apiResponse);
     }];
@@ -261,7 +269,9 @@
             apiResponse.error = task.error;
             apiResponse.contentString = nil;
             apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
-            APILog(apiResponse);
+            if ([api logEnable]) {
+                APILog(apiResponse);
+            }
             fail(apiResponse);
             
             return;
@@ -274,7 +284,9 @@
         apiResponse.contentString = [resDic mj_JSONString];
         apiResponse.responseType = PGAPIEntityResponseTypeSuccess;
         
-        APILog(apiResponse);
+        if ([api logEnable]) {
+            APILog(apiResponse);
+        }
         success(apiResponse);
         
         
@@ -296,7 +308,9 @@
         apiResponse.error = task.error;
         apiResponse.contentString = nil;
         
-        APILog(apiResponse);
+        if ([api logEnable]) {
+            APILog(apiResponse);
+        }
         
         fail(apiResponse);
         
@@ -406,24 +420,6 @@
                                 HTTPTYPE:HTTPDEVICE
                                 };
     return [paramDict copy];
-}
-
-
-- (NSString *)jsonStringWithObject:(id)jsonObject{
-    // 将字典或者数组转化为JSON串
-    NSError *error = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData
-                                                 encoding:NSUTF8StringEncoding];
-    
-    if ([jsonString length] > 0 && error == nil){
-        return jsonString;
-    }else{
-        return nil;
-    }
 }
 
 

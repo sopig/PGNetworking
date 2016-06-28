@@ -20,6 +20,8 @@
     
 }
 
-
+- (BOOL)logEnable{
+    return NO;
+}
 
 @end

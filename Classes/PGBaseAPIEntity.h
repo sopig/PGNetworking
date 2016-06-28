@@ -163,5 +163,6 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 - (void)cleanData;
 - (BOOL)shouldCache;
 - (BOOL)shouldEncrypt;
+- (BOOL)logEnable;
 
 @end
