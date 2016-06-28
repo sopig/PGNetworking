@@ -39,7 +39,8 @@ NSString * const PGLogEnable = @"com.PGNetworking.pglogenable";
     asl_object_t query = asl_new(ASL_TYPE_QUERY);
     NSString *pid = @([[NSProcessInfo processInfo] processIdentifier]).stringValue;
     if (!pid) return nil;
-    asl_set_query(query, ASL_KEY_PID, [pid UTF8String], ASL_QUERY_OP_EQUAL);
+//    asl_set_query(query, ASL_KEY_PID, [pid UTF8String], ASL_QUERY_OP_EQUAL);
+    asl_set_query(query, nil, nil, ASL_QUERY_OP_EQUAL);
     
     aslresponse response = asl_search(NULL, query);
     aslmsg aslMessage = NULL;
