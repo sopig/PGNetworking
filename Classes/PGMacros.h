@@ -93,17 +93,25 @@ DEF_SINGLETON( __class ) \
 { \
 [self sharedInstance]; \
 }
+#define APILog(__apiResponse) [PGLogs log:@"\n======sopig.cc start========\n[requestID] %@\n[URI] %@\n[requestParams] %@\n[RequestHeaderFields] %@\n[MIMEType] %@\n[ResponseHeaderFields] %@\n[contentString] %@\n[errorReason] %@\n======sopig.cc end=========\n",\
+ __apiResponse.task.taskDescription,\
+ [NSString stringWithFormat:@"%@://%@%@",__apiResponse.request.URL.scheme,__apiResponse.request.URL.host,__apiResponse.request.URL.path],\
+ __apiResponse.requestParams, \
+ __apiResponse.request.allHTTPHeaderFields,\
+ __apiResponse.response.MIMEType,\
+ __apiResponse.response.allHeaderFields,\
+ __apiResponse.contentString,\
+ __apiResponse.error.localizedFailureReason];
 
-
-#define APILog(__apiResponse) NSLog(@"\n======sopig.cc start========\n[requestID] %@\n[URI] %@\n[requestParams] %@\n[RequestHeaderFields] %@\n[MIMEType] %@\n[ResponseHeaderFields] %@\n[contentString] %@\n[errorReason] %@\n======sopig.cc end=========\n",\
-      __apiResponse.task.taskDescription,\
-      [NSString stringWithFormat:@"%@://%@%@",__apiResponse.request.URL.scheme,__apiResponse.request.URL.host,__apiResponse.request.URL.path],\
-      __apiResponse.requestParams, \
-      __apiResponse.request.allHTTPHeaderFields,\
-      __apiResponse.response.MIMEType,\
-      __apiResponse.response.allHeaderFields,\
-      __apiResponse.contentString,\
-      __apiResponse.error.localizedFailureReason);
+//#define APILog(__apiResponse) NSLog(@"\n======sopig.cc start========\n[requestID] %@\n[URI] %@\n[requestParams] %@\n[RequestHeaderFields] %@\n[MIMEType] %@\n[ResponseHeaderFields] %@\n[contentString] %@\n[errorReason] %@\n======sopig.cc end=========\n",\
+//      __apiResponse.task.taskDescription,\
+//      [NSString stringWithFormat:@"%@://%@%@",__apiResponse.request.URL.scheme,__apiResponse.request.URL.host,__apiResponse.request.URL.path],\
+//      __apiResponse.requestParams, \
+//      __apiResponse.request.allHTTPHeaderFields,\
+//      __apiResponse.response.MIMEType,\
+//      __apiResponse.response.allHeaderFields,\
+//      __apiResponse.contentString,\
+//      __apiResponse.error.localizedFailureReason);
 
 
 #define JX_DEFAULTS [NSUserDefaults standardUserDefaults]

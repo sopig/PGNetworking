@@ -7,7 +7,7 @@
 //
 
 #import "PGASLMessage.h"
-
+#import "PGLogs.h"
 
 @implementation PGASLMessage
 
@@ -43,17 +43,19 @@
 }
 
 - (void)showDescription{
-    NSLog(@"[%@]-[%@]-[%@]-[%@]: %@",self.ASL_TIME,self.ASL_SENDER,self.ASL_LEVEL,self.ASL_HOST,self.ASL_MSG);
+    
+    [PGLogs log:@"[%@]-[%@]-[%@]-[%@]: %@",[self formatDate:self.ASL_TIME.integerValue] ,self.ASL_SENDER,self.ASL_LEVEL,self.ASL_HOST,self.ASL_MSG];
+    
 }
 
 
 
-//- (NSString)formatDate:(NSTimeInterval)time {
-//    NSDateFormatter *format  = [NSDateFormatter new];
-//    [format setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
-//    [format setTimeZone:[NSTimeZone systemTimeZone]];
-//    
-//    return [format stringFromDate:[NSDate dateWithTimeIntervalSince1970:time]];
-//}
-//
+- (NSString *)formatDate:(NSTimeInterval)time {
+    NSDateFormatter *format  = [NSDateFormatter new];
+    [format setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    [format setTimeZone:[NSTimeZone systemTimeZone]];
+    
+    return [format stringFromDate:[NSDate dateWithTimeIntervalSince1970:time]];
+}
+
 @end
