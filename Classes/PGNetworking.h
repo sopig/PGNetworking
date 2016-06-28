@@ -25,6 +25,7 @@
 #import "PGNetworkingPrivate.h"
 #import "JXCommonParamsGenerator.h"
 #import "JXAppContext.h"
+#import "PGLogs.h"
 
 
 
