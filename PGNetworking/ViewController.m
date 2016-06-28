@@ -127,7 +127,7 @@
 
     [[PGLogs fetchLog] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         PGASLMessage *msg = obj;
-        [msg showDescription];
+       NSLog(@"====>%@",[msg description]) ;
     }];
     
    

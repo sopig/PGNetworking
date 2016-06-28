@@ -42,12 +42,16 @@
     return nil;
 }
 
+- (NSString *)description{
+    return [[NSString stringWithFormat:@"[%@]-[%@]-[%@]-[%@]: %@",[self formatDate:self.ASL_TIME.integerValue] ,self.ASL_SENDER,self.ASL_LEVEL,self.ASL_HOST,self.ASL_MSG] copy];
+}
+
+
 - (void)showDescription{
     
     [PGLogs log:@"[%@]-[%@]-[%@]-[%@]: %@",[self formatDate:self.ASL_TIME.integerValue] ,self.ASL_SENDER,self.ASL_LEVEL,self.ASL_HOST,self.ASL_MSG];
     
 }
-
 
 
 - (NSString *)formatDate:(NSTimeInterval)time {
