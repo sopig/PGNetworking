@@ -175,7 +175,7 @@
             apiResponse.responseType = PGAPIEntityResponseTypeTimeout;
         } else {
             apiResponse.responseType = PGAPIEntityResponseTypeErrDetail;
-            apiResponse.errorMsg = error.localizedDescription
+            apiResponse.errorMsg = error.localizedDescription;
         }
         
         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
