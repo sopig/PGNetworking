@@ -174,7 +174,8 @@
         if (-1001 == error.code ) {
             apiResponse.responseType = PGAPIEntityResponseTypeTimeout;
         } else {
-            apiResponse.responseType = PGAPIEntityResponseTypeNoNetWork;
+            apiResponse.responseType = PGAPIEntityResponseTypeErrDetail;
+            apiResponse.errorMsg = error.localizedDescription
         }
         
         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
@@ -298,7 +299,8 @@
         if (-1001 == error.code ) {
             apiResponse.responseType = PGAPIEntityResponseTypeTimeout;
         } else {
-            apiResponse.responseType = PGAPIEntityResponseTypeNoNetWork;
+            apiResponse.responseType = PGAPIEntityResponseTypeErrDetail;
+            apiResponse.errorMsg = error.localizedDescription;
         }
         
         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;

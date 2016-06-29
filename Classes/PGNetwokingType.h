@@ -41,6 +41,7 @@ typedef NS_ENUM (NSUInteger, PGAPIEntityResponseType){
     PGAPIEntityResponseTypeNoContent,     //API请求成功但返回数据不正确。
     PGAPIEntityResponseTypeParamsError,    //参数是错误的
     PGAPIEntityResponseTypeTimeout,       //请求超时。
+    PGAPIEntityResponseTypeErrDetail,     //
     PGAPIEntityResponseTypeNoNetWork      //网络不通。
 };
 
