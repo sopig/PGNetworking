@@ -117,8 +117,9 @@
         
         //
         if (error) {
-            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            apiResponse.responseType = PGAPIEntityResponseTypeNOJsonObject;
             apiResponse.error = error;
+            apiResponse.responseData = responseObject;
             fail(apiResponse);
             return ;
         }
@@ -248,8 +249,9 @@
         
         //
         if (error) {
-            apiResponse.responseType = PGAPIEntityResponseTypeNoContent;
+            apiResponse.responseType = PGAPIEntityResponseTypeNOJsonObject;
             apiResponse.error = error;
+            apiResponse.responseData = responseObject;
             fail(apiResponse);
             return ;
         }
