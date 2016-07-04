@@ -379,6 +379,10 @@
     return resultData;
 }
 
+- (NSString *)fetchContentString{
+    return [self.contentString copy];
+}
+
 - (id)fetchPureData{
     if ([self.fetchedRawData isKindOfClass:[NSData class]]) {
         return [self.fetchedRawData copy];

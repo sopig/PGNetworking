@@ -136,8 +136,8 @@ static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRe
 
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
-
-- (id)fetchPureData;
+- (NSString *)fetchContentString;
+- (nullable id)fetchPureData;
 
 - (NSDictionary * _Nullable)fetchData;
 
