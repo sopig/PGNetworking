@@ -236,6 +236,10 @@
 
 - (void)failedOnCallingAPI:(PGAPIResponse *)response withErrorType:(PGAPIEntityResponseType)errorType
 {
+    
+    self.fetchedRawData = [response.responseData copy];
+    self.contentString = [response.contentString copy];
+    
     self.errorType = errorType;
     [self removeRequestIdWithRequestID:response.requestId];
     [self beforePerformFailWithResponse:response];
