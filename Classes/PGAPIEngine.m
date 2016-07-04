@@ -122,6 +122,7 @@ NSString *const rawDecryptString = @"com.PGNetworking.PGAPIEngine.rawDecryptStri
             apiResponse.responseType = PGAPIEntityResponseTypeNOJsonObject;
             apiResponse.error = error;
             apiResponse.responseData = responseObject;
+            apiResponse.contentString = [responseObject mj_JSONString];
             fail(apiResponse);
             return ;
         }
