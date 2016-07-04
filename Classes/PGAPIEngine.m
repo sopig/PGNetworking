@@ -153,8 +153,6 @@
             return;
         }
         
-        
-        
         apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
         apiResponse.responseData = responseObject;
         apiResponse.content = responseObject;
@@ -192,6 +190,7 @@
         fail(apiResponse);
     }];
     
+
     task.taskDescription = requestId;
     
     [self.taskCenter setObject:task forKey:requestId];

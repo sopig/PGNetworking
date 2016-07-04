@@ -10,6 +10,9 @@
 #import "regionModel.h"
 @implementation APIRegion
 
+- (BOOL)shouldCache {
+    return NO;
+}
 
 - (id)api:(PGBaseAPIEntity *)api reformData:(NSDictionary *)data{
     
@@ -20,8 +23,8 @@
     
 }
 
-- (BOOL)logEnable{
-    return NO;
-}
+//- (BOOL)logEnable{
+//    return NO;
+//}
 
 @end

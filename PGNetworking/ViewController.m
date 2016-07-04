@@ -125,10 +125,10 @@
     
     
 
-    [[PGLogs fetchLog] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       
-       NSLog(@"====>%@",[obj description]) ;
-    }];
+//    [[PGLogs fetchLog] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//       
+//       NSLog(@"====>%@",[obj description]) ;
+//    }];
     
    
 }

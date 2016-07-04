@@ -93,12 +93,14 @@ DEF_SINGLETON( __class ) \
 { \
 [self sharedInstance]; \
 }
-#define APILog(__apiResponse) [PGLogs log:@"\n======sopig.cc start========\n[requestID] %@\n[URI] %@\n[requestParams] %@\n[RequestHeaderFields] %@\n[MIMEType] %@\n[ResponseHeaderFields] %@\n[contentString] %@\n[errorReason] %@\n======sopig.cc end=========\n",\
+#define APILog(__apiResponse) [PGLogs log:@"\n======sopig.cc start========\n[requestID] %@\n[URI] %@\n[requestParams] %@\n[Method] %@\n[RequestHeaderFields] %@\n[MIMEType] %@\n[Status] %@\n[ResponseHeaderFields] %@\n[contentString] %@\n[errorReason] %@\n======sopig.cc end=========\n",\
  __apiResponse.task.taskDescription,\
  [NSString stringWithFormat:@"%@://%@%@",__apiResponse.request.URL.scheme,__apiResponse.request.URL.host,__apiResponse.request.URL.path],\
  __apiResponse.requestParams, \
+__apiResponse.request.HTTPMethod, \
  __apiResponse.request.allHTTPHeaderFields,\
  __apiResponse.response.MIMEType,\
+ [NSString stringWithFormat:@"%ld '%@'",__apiResponse.response.statusCode,[NSHTTPURLResponse localizedStringForStatusCode:__apiResponse.response.statusCode]],\
  __apiResponse.response.allHeaderFields,\
  __apiResponse.contentString,\
  __apiResponse.error.localizedFailureReason];
