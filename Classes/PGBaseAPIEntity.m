@@ -15,6 +15,7 @@
 @interface PGBaseAPIEntity ()
 
 @property (nonatomic, strong, readwrite) id fetchedRawData;
+@property (nonatomic, strong, readwrite) NSString *contentString;
 
 @property (nonatomic, copy, readwrite) NSString *errorMessage;
 @property (nonatomic, readwrite) PGAPIEntityResponseType errorType;
@@ -204,11 +205,15 @@
 
 - (void)successedOnCallingAPI:(PGAPIResponse *)response
 {
-    if (response.contentString) {
-        self.fetchedRawData = [[response.contentString mj_JSONObject] copy];
-    } else {
-        self.fetchedRawData = [[response.contentString mj_JSONObject] copy];
-    }
+    
+    self.fetchedRawData = [response.responseData copy];
+    self.contentString = [response.contentString copy];
+    
+//    if (response.contentString) {
+//        self.fetchedRawData = [[response.contentString mj_JSONObject] copy];
+//    } else {
+//        self.fetchedRawData = [[response.contentString mj_JSONObject] copy];
+//    }
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator api:self isCorrectWithCallBackData:response.content]) {
         
@@ -363,17 +368,25 @@
 {
     id resultData = nil;
     if ([reformer respondsToSelector:@selector(api:reformData:)]) {
-        resultData = [reformer api:self reformData:self.fetchedRawData];
+        resultData = [reformer api:self reformData:[self fetchData]];
     } else {
-        resultData = [self.fetchedRawData mutableCopy];
+        resultData = [self fetchData];
     }
     return resultData;
 }
 
+- (id)fetchPureData{
+    if ([self.fetchedRawData isKindOfClass:[NSData class]]) {
+        return [self.fetchedRawData copy];
+    }
+    return nil;
+}
 
 - (NSDictionary *)fetchData{
-    return [self.fetchedRawData copy];
+    return [[self.contentString mj_JSONObject] copy];
 }
+
+
 
 
 #pragma mark - _Private

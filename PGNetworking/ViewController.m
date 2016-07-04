@@ -120,7 +120,7 @@
         
         return [_commonParams copy];
     }] sendSignal] subscribeNext:^(APIRegion *x) {
-//        NSLog(@"%@",[x fetchData]);
+        NSLog(@"===================%@",[x fetchPureData]);
     }];
     
     
