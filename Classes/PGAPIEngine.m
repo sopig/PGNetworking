@@ -107,6 +107,8 @@
         apiResponse.task = task;
         apiResponse.request = task.currentRequest;
         apiResponse.response = task.response;
+        apiResponse.errorMsg = [NSHTTPURLResponse localizedStringForStatusCode:apiResponse.response.statusCode];
+        
         
         
         NSError *error = nil;
@@ -181,6 +183,7 @@
         apiResponse.content = nil;
         apiResponse.task = task;
         apiResponse.error = task.error;
+        apiResponse.errorMsg = [NSHTTPURLResponse localizedStringForStatusCode:apiResponse.response.statusCode];
         apiResponse.contentString = nil;
         
         if ([api logEnable]) {
@@ -237,6 +240,9 @@
         apiResponse.task = task;
         apiResponse.request = task.currentRequest;
         apiResponse.response = task.response;
+        apiResponse.errorMsg = [NSHTTPURLResponse localizedStringForStatusCode:apiResponse.response.statusCode];
+        
+        
         NSError *error = nil;
         id response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
         
@@ -307,6 +313,7 @@
         apiResponse.content = nil;
         apiResponse.task = task;
         apiResponse.error = task.error;
+        apiResponse.errorMsg = [NSHTTPURLResponse localizedStringForStatusCode:apiResponse.response.statusCode];
         apiResponse.contentString = nil;
         
         if ([api logEnable]) {
