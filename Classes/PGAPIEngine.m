@@ -11,6 +11,8 @@
 #import "NSString+urlEncoding.h"
 #import "JXEncryption.h"
 
+NSString *const rawDecryptString = @"com.PGNetworking.PGAPIEngine.rawDecryptString";
+
 @interface PGAPIEngine ()
 
 @property (nonatomic, strong) NSNumber *recordedRequestId;
@@ -135,6 +137,25 @@
             resDic = [[self decrptyParameterForParamDic:(NSDictionary *)response] copy];
         } else {
             resDic = [response copy];
+        }
+        
+        if ([resDic objectForKey:rawDecryptString]) {
+            apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+            apiResponse.responseData = responseObject ;
+            apiResponse.content = responseObject;
+            apiResponse.task = task;
+            apiResponse.error = task.error;
+            apiResponse.contentString = [resDic objectForKey:rawDecryptString];
+            apiResponse.responseType = PGAPIEntityResponseTypeNOJsonObject;
+            
+            fail(apiResponse);
+            
+            if ([api logEnable]) {
+                APILog(apiResponse);
+            }
+            
+            return;
+ 
         }
         
         
@@ -269,6 +290,27 @@
             resDic = [response copy];
         }
         
+        
+        if ([resDic objectForKey:rawDecryptString]) {
+            apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
+            apiResponse.responseData = responseObject ;
+            apiResponse.content = responseObject;
+            apiResponse.task = task;
+            apiResponse.error = task.error;
+            apiResponse.contentString = [resDic objectForKey:rawDecryptString];
+            apiResponse.responseType = PGAPIEntityResponseTypeNOJsonObject;
+            
+            fail(apiResponse);
+            
+            if ([api logEnable]) {
+                APILog(apiResponse);
+            }
+            
+            return;
+            
+        }
+        
+        
         if(!resDic) {
             apiResponse.requestId = apiResponse.task.taskDescription.integerValue;
             apiResponse.responseData = nil;
@@ -394,6 +436,10 @@
             NSString *desDataString = [JXDES tripleDES:encDataString encryptOrDecrypt:kCCDecrypt DESBase64Key:desString];
             
             NSDictionary *tmpDict = [desDataString mj_JSONObject];
+            
+            if (!tmpDict) {
+                return [@{rawDecryptString:desDataString} copy];
+            }
             
             return tmpDict;
             

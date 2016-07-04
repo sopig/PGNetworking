@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "PGNetworking.h"
 
+FOUNDATION_EXPORT NSString * const rawDecryptString ;
+
 @interface PGAPIEngine : NSObject
 
 + (instancetype)shareInstance;
