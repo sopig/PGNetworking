@@ -36,7 +36,7 @@ typedef NS_ENUM (NSUInteger, PGNetworkingEncryptionType){
 
 //////////////////////////////////////////////////////////////////
 typedef NS_ENUM (NSUInteger, PGAPIEntityResponseType){
-    PGAPIEntityResponseTypeDefault,       //API还没有起飞，默认
+    PGAPIEntityResponseTypeDefault = 0,       //API还没有起飞，默认
     PGAPIEntityResponseTypeSuccess,       //API请求成功且返回数据正确，
     PGAPIEntityResponseTypeNoContent,     //API请求成功但返回数据不正确。
     PGAPIEntityResponseTypeParamsError,    //参数是错误的
