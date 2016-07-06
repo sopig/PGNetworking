@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		64B80826511124CC7999C4A3 /* libPods-PGNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD05341F9EC5945FED3AF7F6 /* libPods-PGNetworking.a */; };
 		A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A51D32911CBCCDC5007B33FE /* APIRegion.m */; };
+		A599EC881D2CDCC800037CA5 /* APILookUP.m in Sources */ = {isa = PBXBuildFile; fileRef = A599EC871D2CDCC800037CA5 /* APILookUP.m */; };
 		A5ABE7681D12766700FB99FA /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ABE7661D12766700FB99FA /* libcrypto.a */; };
 		A5ABE7691D12766700FB99FA /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ABE7671D12766700FB99FA /* libssl.a */; };
 		A5C798551CB395D800236B1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C798541CB395D800236B1C /* main.m */; };
@@ -45,6 +46,8 @@
 		41C9E27111A75FC97BBDDA2E /* Pods-PGNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGNetworking/Pods-PGNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		A51D32901CBCCDC5007B33FE /* APIRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRegion.h; sourceTree = "<group>"; };
 		A51D32911CBCCDC5007B33FE /* APIRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRegion.m; sourceTree = "<group>"; };
+		A599EC861D2CDCC800037CA5 /* APILookUP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APILookUP.h; path = ../APILookUP.h; sourceTree = "<group>"; };
+		A599EC871D2CDCC800037CA5 /* APILookUP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APILookUP.m; path = ../APILookUP.m; sourceTree = "<group>"; };
 		A5ABE7661D12766700FB99FA /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pods/OpenSSL/lib/libcrypto.a; sourceTree = "<group>"; };
 		A5ABE7671D12766700FB99FA /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/OpenSSL/lib/libssl.a; sourceTree = "<group>"; };
 		A5C798501CB395D800236B1C /* PGNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +138,8 @@
 				A5F6B4AC1D0D446100376A30 /* APIBestPay.m */,
 				A5F6B4B11D0D513900376A30 /* APIApplePay.h */,
 				A5F6B4B21D0D513900376A30 /* APIApplePay.m */,
+				A599EC861D2CDCC800037CA5 /* APILookUP.h */,
+				A599EC871D2CDCC800037CA5 /* APILookUP.m */,
 			);
 			path = PGNetworking;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				A5C7985B1CB395D800236B1C /* ViewController.m in Sources */,
 				A5F6B4B01D0D4F4200376A30 /* APIFunctionSwitch.m in Sources */,
 				A5F6B4AD1D0D446200376A30 /* APIBestPay.m in Sources */,
+				A599EC881D2CDCC800037CA5 /* APILookUP.m in Sources */,
 				FA1A27FA1CBFD49000B406E7 /* regionModel.m in Sources */,
 				A51D32921CBCCDC5007B33FE /* APIRegion.m in Sources */,
 				A5C798581CB395D800236B1C /* AppDelegate.m in Sources */,

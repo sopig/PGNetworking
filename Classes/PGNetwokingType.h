@@ -11,6 +11,7 @@
 
 /////////////////////////////////////////////////////////////////////
 typedef NS_ENUM (NSUInteger, PGNetworkingServiceType){
+    PGNetworkingServiceTypeDefault,
     PGNetworkingServiceTypeHome,
     PGNetworkingServiceTypeOMS,
     PGNetworkingServiceTypeProduct,

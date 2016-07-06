@@ -13,6 +13,9 @@
 
 + (NSString *)baseUrlWithServiceType:(PGNetworkingServiceType)serviceType {
     switch (serviceType) {
+        case PGNetworkingServiceTypeDefault:
+            return @"";
+            break;
         case PGNetworkingServiceTypeHome:
             return [[JXAppConfigSurport surport] urlStringFromSurport:@"JXBASE_URL_HOME"];
             break;
