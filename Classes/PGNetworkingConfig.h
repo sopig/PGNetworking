@@ -16,7 +16,7 @@
 #define HTTPDEVICE @"IOS"       //ios
 
 //是否使用缓存
-#define kPGNetworkingShouldCache YES
+#define kPGNetworkingShouldCache NO
 //使用什么加密方式
 #define kPGNetworkingEncrypType PGNetworkingEncryptionTypeUse
 
