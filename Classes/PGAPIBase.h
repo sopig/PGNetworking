@@ -51,5 +51,7 @@
 
 - (RACSignal *)sendSignal;
 
+- (RACCommand *)sendCmd;
+
 - (void)cancelSend;
 @end

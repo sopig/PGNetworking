@@ -13,6 +13,7 @@
 static NSString *_Nonnull const kPGBaseAPIEntityRequestID = @"kPGBaseAPIEntityRequestID";
 
 @class RACSignal;
+@class RACCommand;
 @class PGBaseAPIEntity;
 @class PGAPIResponse;
 /////////////////////////////////////////////////////////////////////////

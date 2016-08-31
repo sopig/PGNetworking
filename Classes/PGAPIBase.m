@@ -8,6 +8,7 @@
 
 #import "PGAPIBase.h"
 #import "ReactiveCocoa.h"
+#import "RACCommand.h"
 //#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
 @interface PGAPIBase ()
 
@@ -90,6 +91,10 @@
         self.whenSuccess(api);
     }
 }
+
+
+
+- (RACCommand *)sendCmd{ return nil ;}
 
 - (RACSignal *)sendSignal {
     
