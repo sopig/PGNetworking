@@ -23,6 +23,7 @@ PODS:
     - OpenSSL/Core (= 0.0.1)
   - OpenSSL/Core (0.0.1)
   - OpenSSL/Lib (0.0.1)
+  - PGAppconfig (0.0.2)
   - PGNetworking (0.0.5):
     - PGNetworking/Core (= 0.0.5)
   - PGNetworking/Core (0.0.5):
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - MJExtension
   - OpenSSL (from `https://github.com/sopig/OpenSSL.git`)
   - OpenSSL/Lib (from `https://github.com/sopig/OpenSSL.git`)
+  - PGAppconfig (from `https://github.com/sopig/PGAppconfig.git`)
   - PGNetworking (from `./PGNetworking.podspec`)
   - ReactiveCocoa
   - YTKKeyValueStore (~> 0.1.2)
@@ -55,6 +57,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   OpenSSL:
     :git: https://github.com/sopig/OpenSSL.git
+  PGAppconfig:
+    :git: https://github.com/sopig/PGAppconfig.git
   PGNetworking:
     :path: "./PGNetworking.podspec"
 
@@ -62,6 +66,9 @@ CHECKOUT OPTIONS:
   OpenSSL:
     :commit: 35931151d1fc003e11151ff38b38f9737a27ce8c
     :git: https://github.com/sopig/OpenSSL.git
+  PGAppconfig:
+    :commit: f4633069e3edd2bf0b64dcde5540cb97ef37a6d7
+    :git: https://github.com/sopig/PGAppconfig.git
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -69,10 +76,11 @@ SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   OpenSSL: 9d8ff1a28dbf7baa7d61ae647e41bd29e129b9b4
+  PGAppconfig: 0f5d7db117fd45c658924f3b2e67baa0037f45df
   PGNetworking: d5037ca50f9cfd47b5a6efdc9c8c6b7e79b6ab94
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
 
-PODFILE CHECKSUM: 25c63cf889e9ffacd01b2657a4edeae55123d395
+PODFILE CHECKSUM: 996673fc3c26b1c3000abba28c9b89fee93dc946
 
 COCOAPODS: 1.0.1

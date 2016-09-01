@@ -94,7 +94,45 @@
 
 
 
-- (RACCommand *)sendCmd{ return nil ;}
+- (RACCommand *)sendCmd{
+    
+    
+    
+    RACCommand *cmd = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+           
+            self.whenSuccess = ^(PGBaseAPIEntity *api){
+                
+                [subscriber sendNext:api];
+                [subscriber sendCompleted];
+                
+                
+            };
+            
+            self.whenFail = ^(PGBaseAPIEntity *api){
+                
+                [subscriber sendNext:api];
+                [subscriber sendCompleted];
+            };
+            
+            
+            self.apiParams = ^NSDictionary *{
+                return input;
+            };
+            self.requestID = [self loadData];
+            
+            
+            return [RACDisposable disposableWithBlock:^{
+                [self cancelRequestWithRequestId:self.requestID];
+            }];
+            
+        }];
+        
+    }];
+    
+    return cmd;
+}
 
 - (RACSignal *)sendSignal {
     

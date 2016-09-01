@@ -20,7 +20,7 @@ pod 'OpenSSL' , :git => "https://github.com/sopig/OpenSSL.git"
 pod 'OpenSSL/Lib' , :git => "https://github.com/sopig/OpenSSL.git"
 
 pod 'PGNetworking', :path => './PGNetworking.podspec'
-#pod 'PGAppconfig', :git => "http://gitlab.9ijx.com/iOS/PGAppconfig.git"
+pod 'PGAppconfig', :git => "https://github.com/sopig/PGAppconfig.git"
 
 #pod 'CocoaLumberjack'
 

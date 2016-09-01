@@ -23,8 +23,8 @@
     
 }
 
-//- (BOOL)logEnable{
-//    return NO;
-//}
+- (BOOL)logEnable{
+    return YES;
+}
 
 @end
