@@ -100,6 +100,8 @@
     
     RACCommand *cmd = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         
+        NSCParameterAssert([input isKindOfClass:NSDictionary.class]);
+        
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
            
             self.whenSuccess = ^(PGBaseAPIEntity *api){

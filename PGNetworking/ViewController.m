@@ -139,6 +139,8 @@
         NSString *channelCode = @"0,1";
         [_commonParams setValue:channelCode forKey:@"channelCode"];
         
+        
+        
         [[[[APIRegion new] sendCmd] execute:_commonParams] subscribeNext:^(id x) {
             NSLog(@"%@", x);
         }];
